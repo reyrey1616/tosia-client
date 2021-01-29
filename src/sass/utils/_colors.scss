@@ -50,3 +50,7 @@ $dirtywhite: #e9eff0;
 .text-grey {
 	color: $grey;
 }
+
+.bg-gradient {
+	background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+}

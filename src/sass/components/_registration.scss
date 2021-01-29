@@ -1,0 +1,8 @@
+.registration-image {
+	.button-cta {
+		display: none;
+		@include query(tab-land) {
+			display: block;
+		}
+	}
+}

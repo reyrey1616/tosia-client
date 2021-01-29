@@ -1,9 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
+// Responsive Design
 @import "./responsive/breakpoints";
+
+// Layout
+@import "./layouts/flex";
+@import "./layouts/grid";
+
+// Utils
 @import "./utils/assets";
 @import "./utils/colors";
 @import "./utils/helpers";
 @import "./utils/typography";
 
+// Components
+
+@import "./components/registration";
+
+// Over writes
 @import "./over-writes";
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 15px;
+}

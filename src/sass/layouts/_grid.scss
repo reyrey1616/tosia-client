@@ -1,0 +1,31 @@
+.row {
+	display: flex;
+	width: 100%;
+
+	@include query(tab-land) {
+		flex-wrap: wrap !important;
+	}
+}
+
+$grid__cols: 12;
+@for $i from 1 through $grid__cols {
+	.col-#{$i} {
+		flex-basis: ((100 / ($grid__cols / $i)) * 1%);
+	}
+}
+
+@for $i from 1 through $grid__cols {
+	.col-md-#{$i} {
+		@include query(tab-land) {
+			flex-basis: ((100 / ($grid__cols / $i)) * 1%);
+		}
+	}
+}
+
+@for $i from 1 through $grid__cols {
+	.col-sm-#{$i} {
+		@include query(tab-port) {
+			flex-basis: ((100 / ($grid__cols / $i)) * 1%);
+		}
+	}
+}
