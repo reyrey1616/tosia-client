@@ -1,0 +1,68 @@
+.admin-header {
+	height: 75px;
+	width: 100vw;
+	display: flex;
+	justify-content: space-between !important;
+
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2) !important;
+	padding: 0.5em 3rem;
+	align-items: center;
+
+	.admin-header-actions {
+		display: flex;
+		justify-content: flex-end !important;
+	}
+
+	.admin-header-dd {
+		max-width: 200px;
+	}
+
+	.admin-header-logo {
+		width: 60px;
+		height: 40px;
+	}
+	a {
+		color: $black;
+	}
+
+	@include query(mobile) {
+		padding: 0.5em 1em;
+		.admin-header-logo {
+			width: 100px;
+			height: 35px;
+		}
+	}
+}
+
+.admin-sidebar {
+	height: 100vh;
+	background: $dirtywhite !important;
+
+	.logo-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+	}
+	.menu-container {
+		background: $dirtywhite !important;
+
+		padding-top: 5vh;
+		padding-bottom: 5vh;
+	}
+}
+
+.admin-content {
+	width: calc(100vw - 256px);
+	border-radius: 25px;
+	padding-left: 0;
+	background: $dirtywhite;
+
+	.admin-main-content {
+		border-radius: 25px;
+		box-shadow: 4px 8px 16px 4px rgba(0, 0, 0, 0.1);
+		padding: 1rem;
+		background: #fff;
+		min-height: 85vh !important;
+	}
+}

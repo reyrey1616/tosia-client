@@ -18,6 +18,10 @@ const App = () => {
 								path="/registration"
 								component={RegistrationPage}
 							/>
+							<Route
+								path="/student"
+								component={StudentRoutes}
+							/>
 						</Switch>
 					</BrowserRouter>
 				</Suspense>
