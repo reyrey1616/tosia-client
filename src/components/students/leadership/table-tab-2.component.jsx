@@ -5,7 +5,6 @@ const dataSource = [
 	{
 		key: "1",
 		training: "Training 1",
-		isRequirement: "Yes",
 		level: "1st Year",
 		organization: "Org 1",
 		dateAttended: "01/28/2020",
@@ -13,18 +12,14 @@ const dataSource = [
 	},
 ];
 
-const TrainingAttendedTable = () => {
+const LeadershipTrainingAttendedTable = () => {
 	const columns = [
 		{
 			title: "Seminars/Trainings Attended",
 			dataIndex: "training",
 			key: "training",
 		},
-		{
-			title: "Requirement for graduation",
-			dataIndex: "isRequirement",
-			key: "isRequirement",
-		},
+
 		{
 			title: "Level",
 			dataIndex: "level",
@@ -52,4 +47,4 @@ const TrainingAttendedTable = () => {
 	);
 };
 
-export default TrainingAttendedTable;
+export default LeadershipTrainingAttendedTable;

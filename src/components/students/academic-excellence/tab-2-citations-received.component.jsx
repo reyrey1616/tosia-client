@@ -6,6 +6,7 @@ const dataSource = [
 		key: "1",
 		citationReceived: "Citation 1",
 		level: "1st Year",
+		awardType: "Individual",
 		organization: "Org 1",
 		dateReceived: "01/28/2020",
 		portfolioPage: "Portfolio 1",
@@ -23,6 +24,11 @@ const CitationsReceivedTable = () => {
 			title: "Level",
 			dataIndex: "level",
 			key: "level",
+		},
+		{
+			title: "Individual/Team Award",
+			dataIndex: "awardType",
+			key: "awardType",
 		},
 		{
 			title: "Name of Organization/Institution that gives the award",

@@ -4,42 +4,35 @@ import { Table } from "antd";
 const dataSource = [
 	{
 		key: "1",
-		training: "Training 1",
-		isRequirement: "Yes",
+		citationReceived: "Citation 1",
 		level: "1st Year",
 		organization: "Org 1",
-		dateAttended: "01/28/2020",
+		dateReceived: "01/28/2020",
 		portfolioPage: "Portfolio 1",
 	},
 ];
 
-const TrainingAttendedTable = () => {
+const AwardsAndCitationsReceivedTable = () => {
 	const columns = [
 		{
-			title: "Seminars/Trainings Attended",
-			dataIndex: "training",
-			key: "training",
-		},
-		{
-			title: "Requirement for graduation",
-			dataIndex: "isRequirement",
-			key: "isRequirement",
+			title: "Leadership Awards and Citation Received",
+			dataIndex: "citationReceived",
+			key: "citationReceived",
 		},
 		{
 			title: "Level",
 			dataIndex: "level",
 			key: "level",
 		},
-
 		{
 			title: "Name of Organization/Institution that gives the award",
 			dataIndex: "organization",
 			key: "organization",
 		},
 		{
-			title: "Date Attended",
-			dataIndex: "dateAttended",
-			key: "dateAttended",
+			title: "Date Received",
+			dataIndex: "dateReceived",
+			key: "dateReceived",
 		},
 		{
 			title: "Portfolio Page",
@@ -52,4 +45,4 @@ const TrainingAttendedTable = () => {
 	);
 };
 
-export default TrainingAttendedTable;
+export default AwardsAndCitationsReceivedTable;
