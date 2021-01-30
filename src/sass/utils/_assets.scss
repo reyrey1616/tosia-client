@@ -1,10 +1,10 @@
 .branding-btn-primary {
-	padding: 1rem 3rem;
+	padding: 0.8rem 3rem;
 	background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
 	border-radius: 5px;
 	cursor: pointer;
 	color: #fff;
-	font-size: 18px;
+	font-size: 16px;
 	border: 0;
 	width: 250px !important;
 
@@ -14,6 +14,6 @@
 	}
 	transition: all 0.3s;
 	&:hover {
-		transform: scale(1.1);
+		transform: scale(1.02);
 	}
 }

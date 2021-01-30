@@ -1,8 +1,8 @@
 import React from "react";
 import { Form, Input, Select, DatePicker } from "antd";
-import CitationsReceivedTable from "./tab-2-citations-received.component";
+import TrainingAttendedTable from "./tab-5-training-attended.component";
 const { Option } = Select;
-const CitationsReceived = () => {
+const TrainingAttended = () => {
 	const onFinish = (values) => {
 		console.log("Success:", values);
 	};
@@ -24,17 +24,34 @@ const CitationsReceived = () => {
 					<div className="col-12 flex-wrap">
 						<Form.Item
 							className="col-4 col-md-12 p-half mb-0"
-							label="Citation Received"
-							name="citationReceived"
+							label="Seminar/Training"
+							name="training"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please input citation received!",
+										"Please input seminar/training!",
 								},
 							]}
 						>
 							<Input size="large" allowClear />
+						</Form.Item>
+						<Form.Item
+							className="col-2 col-md-12 p-half"
+							label="Requirement for Graduation?"
+							name="isRequirement"
+							rules={[
+								{
+									required: true,
+									message:
+										"Please select if the seminar/training is requirement for graduation?",
+								},
+							]}
+						>
+							<Select defaultValue="Yes" size="large">
+								<Option value="Yes">Yes</Option>
+								<Option value="No">No</Option>
+							</Select>
 						</Form.Item>
 						<Form.Item
 							className="col-2 col-md-12 p-half"
@@ -92,28 +109,6 @@ const CitationsReceived = () => {
 						</Form.Item> */}
 
 						<Form.Item
-							className="col-2 col-md-12 p-half"
-							label="Individual/Team Award"
-							name="awardType"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please select award type!",
-								},
-							]}
-						>
-							<Select size="large">
-								<Option value="Individual">
-									Individual
-								</Option>
-								<Option value="Team Award">
-									Team Award
-								</Option>{" "}
-							</Select>
-						</Form.Item>
-
-						<Form.Item
 							className="col-4 col-md-12 p-half mb-0"
 							label="Name of organization/institution that gives the award"
 							name="organization"
@@ -130,13 +125,13 @@ const CitationsReceived = () => {
 
 						<Form.Item
 							className="col-2 col-md-12 p-half"
-							label="Date Received"
-							name="dateReceived"
+							label="Date Attended"
+							name="dateAttended"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please input date received!",
+										"Please input date attended!",
 								},
 							]}
 						>
@@ -148,7 +143,7 @@ const CitationsReceived = () => {
 						</Form.Item>
 
 						<Form.Item
-							className="col-2 col-md-12 p-half mb-0"
+							className="col-4 col-md-12 p-half mb-0"
 							label="Porfolio Page"
 							name="portfolioPage"
 							rules={[
@@ -177,10 +172,10 @@ const CitationsReceived = () => {
 			</Form>
 
 			<div className="table-container mt-2">
-				<CitationsReceivedTable />
+				<TrainingAttendedTable />
 			</div>
 		</div>
 	);
 };
 
-export default CitationsReceived;
+export default TrainingAttended;
