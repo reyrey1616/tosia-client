@@ -1,6 +1,6 @@
 import React, { lazy } from "react";
 import { Button, Tooltip } from "antd";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Redirect, Switch, Link } from "react-router-dom";
 import Sidebar from "../components/students/sidebar/sidebar.component";
 import { LogoutOutlined } from "@ant-design/icons";
 
@@ -28,12 +28,14 @@ const StudentRoutes = () => {
 						Welcome, Rey G. Guidoriagao Jr.
 					</h2>
 					<Tooltip title="Logout">
-						<Button
-							shape="circle"
-							size="large"
-							className="mr-1"
-							icon={<LogoutOutlined />}
-						></Button>
+						<Link to="/registration">
+							<Button
+								shape="circle"
+								size="large"
+								className="mr-1"
+								icon={<LogoutOutlined />}
+							></Button>
+						</Link>
 					</Tooltip>
 				</div>
 				<div className="admin-main-content">
@@ -41,6 +43,11 @@ const StudentRoutes = () => {
 						<Route
 							path="/student/personal-data/"
 							component={PersonalData}
+						/>
+						<Redirect
+							from="/student/"
+							exact
+							to="/student/personal-data"
 						/>
 						<Route
 							path="/student/academic-excellence/"

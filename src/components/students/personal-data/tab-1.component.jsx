@@ -140,7 +140,25 @@ const PersonalData = () => {
 
 					<div className="col-12 flex mb-1">
 						<Form.Item
-							className="col-4 col-md-12 p-half"
+							className="col-3 col-md-12 p-half"
+							label="Category"
+							name="category"
+							rules={[
+								{
+									required: true,
+									message: "Please select category!",
+								},
+							]}
+						>
+							<Select size="large">
+								<Option value="Junior High School">
+									Junior High School
+								</Option>
+								<Option value="College">College</Option>
+							</Select>
+						</Form.Item>
+						<Form.Item
+							className="col-3 col-md-12 p-half"
 							label="Program/College/Department"
 							name="department"
 							rules={[
@@ -154,7 +172,7 @@ const PersonalData = () => {
 							<Input size="large" allowClear />
 						</Form.Item>
 						<Form.Item
-							className="col-4 col-md-12 p-half"
+							className="col-3 col-md-12 p-half"
 							label="Course"
 							name="course"
 							rules={[
@@ -168,8 +186,8 @@ const PersonalData = () => {
 							<Input size="large" allowClear />
 						</Form.Item>
 						<Form.Item
-							className="col-4 col-md-12 p-half"
-							label="level"
+							className="col-3 col-md-12 p-half"
+							label="Level"
 							name="level"
 							rules={[
 								{

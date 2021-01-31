@@ -5,6 +5,7 @@ import ErrorBoundary from "./components/hoc/error-boundary/error-boundary.compon
 const RegistrationPage = lazy(() =>
 	import("./pages/students/registration.page")
 );
+const LoginPage = lazy(() => import("./pages/students/login.page"));
 const StudentRoutes = lazy(() => import("./routes/student.routes"));
 const App = () => {
 	return (
@@ -18,6 +19,7 @@ const App = () => {
 								path="/registration"
 								component={RegistrationPage}
 							/>
+							<Route path="/login" component={LoginPage} />
 							<Route
 								path="/student"
 								component={StudentRoutes}

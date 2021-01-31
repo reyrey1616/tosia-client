@@ -14,7 +14,7 @@ const CommunityEnvolvementMainPage = () => (
 	<div className="admin-page-content card-container">
 		<Tabs defaultActiveKey="1" onChange={callback} type="card">
 			<TabPane tab="Most Significant Religious Organizations" key="1">
-				<h2 className="text-subtitle m-1">
+				<h2 className="text-subtitle text-orange m-1">
 					Most Significant Civic / NGO / Religious Organizations
 					and Position Held
 				</h2>
@@ -22,14 +22,14 @@ const CommunityEnvolvementMainPage = () => (
 				<OrganizationInvolvement />
 			</TabPane>
 			<TabPane tab="Most Significant Activities Attended" key="2">
-				<h2 className="text-subtitle m-1">
+				<h2 className="text-subtitle text-orange m-1">
 					Most Significant Activities Attended
 				</h2>
 
 				<ActivitiesAttended />
 			</TabPane>
 			<TabPane tab="Most Significant Activities Organized" key="3">
-				<h2 className="text-subtitle m-1">
+				<h2 className="text-subtitle text-orange m-1">
 					Most Significant Activities Organized
 				</h2>
 
@@ -39,7 +39,7 @@ const CommunityEnvolvementMainPage = () => (
 				tab="Most Significant Awards and Citation Received"
 				key="4"
 			>
-				<h2 className="text-subtitle m-1">
+				<h2 className="text-subtitle text-orange m-1">
 					Most Significant Awards and Citation Received
 				</h2>
 
