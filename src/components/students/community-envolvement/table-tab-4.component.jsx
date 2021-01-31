@@ -5,7 +5,7 @@ const dataSource = [
 	{
 		key: "1",
 		citationReceived: "Citation 1",
-		level: "1st Year",
+		levelGiven: "1st Year",
 		organization: "Org 1",
 		dateReceived: "01/28/2020",
 		portfolioPage: "Portfolio 1",
@@ -15,7 +15,7 @@ const dataSource = [
 const AwardsAndCitationsReceivedTable = () => {
 	const columns = [
 		{
-			title: "Leadership Awards and Citation Received",
+			title: "Awards and Citation Received",
 			dataIndex: "citationReceived",
 			key: "citationReceived",
 		},

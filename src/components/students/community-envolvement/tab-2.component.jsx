@@ -1,9 +1,9 @@
 import React from "react";
 import { Form, Input, Select, DatePicker } from "antd";
-import ActivitiesOrganizedTable from "./table-tab-4.component";
+import ActivitiesAttendedTable from "./table-tab-2.component";
 const { Option } = Select;
 
-const ActivitiesOrganized = () => {
+const ActivitiesAttended = () => {
 	const onFinish = (values) => {
 		console.log("Success:", values);
 	};
@@ -31,7 +31,7 @@ const ActivitiesOrganized = () => {
 								{
 									required: true,
 									message:
-										"Please input activity name",
+										"Please input activity name!",
 								},
 							]}
 						>
@@ -39,49 +39,29 @@ const ActivitiesOrganized = () => {
 						</Form.Item>
 
 						<Form.Item
-							className="col-8 col-md-12 p-half mb-0"
-							label="Activity Short Description"
-							name="description"
+							className="col-4 col-md-12 p-half mb-0"
+							label="Beneficiaries"
+							name="beneficiaries"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please input activity short description",
+										"Please input beneficiaries!",
 								},
 							]}
 						>
 							<Input size="large" allowClear />
 						</Form.Item>
+
 						<Form.Item
-							className="col-2 col-md-12 p-half"
-							label="Personally/School Initiated"
-							name="initiated"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please select who initiated the activity!",
-								},
-							]}
-						>
-							<Select size="large">
-								<Option value="Personally">
-									Personally
-								</Option>
-								<Option value="School Initiated">
-									School Initiated
-								</Option>
-							</Select>
-						</Form.Item>
-						<Form.Item
-							className="col-4  col-md-12 p-half"
-							label="At what level is the project implemented?"
+							className="col-4 col-md-12 p-half"
+							label="At what level the activity implemented implemented?"
 							name="levelImplemented"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please select level of project implemented!",
+										"Please select level of activity implemented!",
 								},
 							]}
 						>
@@ -106,49 +86,16 @@ const ActivitiesOrganized = () => {
 								</Option>
 							</Select>
 						</Form.Item>
-						{/* <Form.Item
-							className="col-2 col-md-12 p-half"
-							label="College Year Level"
-							name="collegeYearLevel"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input college year level!",
-								},
-							]}
-						>
-							<Select defaultValue="1st Year" size="large">
-								<Option value="1st Year">
-									1st Year
-								</Option>
-								<Option value="2nd Year">
-									2nd Year
-								</Option>
-
-								<Option value="3rd Year">
-									3rd Year
-								</Option>
-
-								<Option value="4th Year">
-									4th Year
-								</Option>
-
-								<Option value="5th Year">
-									5th Year
-								</Option>
-							</Select>
-						</Form.Item> */}
 
 						<Form.Item
 							className="col-4 col-md-12 p-half mb-0"
-							label="Significant role in the project organized"
-							name="role"
+							label="Name of Organization that organized the activity"
+							name="organization"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please input significant role in the project organized!",
+										"Please input name of organization that organized the activity!",
 								},
 							]}
 						>
@@ -157,13 +104,13 @@ const ActivitiesOrganized = () => {
 
 						<Form.Item
 							className="col-2 col-md-12 p-half"
-							label="Date Implemented"
-							name="dateImplemented"
+							label="Date Attended"
+							name="dateAttended"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please input date implemented!",
+										"Please input date attended!",
 								},
 							]}
 						>
@@ -204,10 +151,10 @@ const ActivitiesOrganized = () => {
 			</Form>
 
 			<div className="table-container mt-2">
-				<ActivitiesOrganizedTable />
+				<ActivitiesAttendedTable />
 			</div>
 		</div>
 	);
 };
 
-export default ActivitiesOrganized;
+export default ActivitiesAttended;

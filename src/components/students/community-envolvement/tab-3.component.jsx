@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Input, Select, DatePicker } from "antd";
-import ActivitiesOrganizedTable from "./table-tab-4.component";
+import ActivitiesOrganizedTable from "./table-tab-3.component";
 const { Option } = Select;
 
 const ActivitiesOrganized = () => {
@@ -54,24 +54,17 @@ const ActivitiesOrganized = () => {
 						</Form.Item>
 						<Form.Item
 							className="col-2 col-md-12 p-half"
-							label="Personally/School Initiated"
-							name="initiated"
+							label="Beneficiaries"
+							name="beneficiaries"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please select who initiated the activity!",
+										"Please input beneficiaries!",
 								},
 							]}
 						>
-							<Select size="large">
-								<Option value="Personally">
-									Personally
-								</Option>
-								<Option value="School Initiated">
-									School Initiated
-								</Option>
-							</Select>
+							<Input size="large" allowClear />
 						</Form.Item>
 						<Form.Item
 							className="col-4  col-md-12 p-half"
@@ -157,13 +150,13 @@ const ActivitiesOrganized = () => {
 
 						<Form.Item
 							className="col-2 col-md-12 p-half"
-							label="Date Implemented"
-							name="dateImplemented"
+							label="Date Conducted"
+							name="dateConducted"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please input date implemented!",
+										"Please input date conducted!",
 								},
 							]}
 						>

@@ -24,7 +24,7 @@ const AwardsAndCitationsReceived = () => {
 				<div className="flex flex-wrap mb-2">
 					<div className="col-12 flex-wrap">
 						<Form.Item
-							className="col-4 col-md-12 p-half mb-0"
+							className="col-3 col-md-12 p-half mb-0"
 							label="Award and Citation Received"
 							name="citationReceived"
 							rules={[
@@ -38,24 +38,36 @@ const AwardsAndCitationsReceived = () => {
 							<Input size="large" allowClear />
 						</Form.Item>
 						<Form.Item
-							className="col-2 col-md-12 p-half"
-							label="Grade Level"
-							name="gradeLevel"
+							className="col-3 col-md-12 p-half"
+							label="At what level the award is given?"
+							name="levelGiven"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please input grade level!",
+										"Please select what level thr award is given!",
 								},
 							]}
 						>
-							<Select defaultValue="Grade 7" size="large">
-								<Option value="Grade 7">Grade 7</Option>
-								<Option value="Grade 8">Grade 8</Option>
-								<Option value="Grade 9">
-									Grade 9
-								</Option>{" "}
-								<Option value="Grade 9">Grade 9</Option>
+							<Select size="large">
+								<Option value="School-based">
+									School-based
+								</Option>
+								<Option value="District">
+									District
+								</Option>
+								<Option value="Regional">
+									Regional
+								</Option>
+								<Option value="Provincial">
+									Provincial
+								</Option>
+								<Option value="National">
+									National
+								</Option>
+								<Option value="International">
+									International
+								</Option>
 							</Select>
 						</Form.Item>
 						{/* <Form.Item
