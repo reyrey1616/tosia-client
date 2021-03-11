@@ -1,9 +1,27 @@
 import React from "react";
 import { Form, Input, Radio, Select, DatePicker } from "antd";
+import axios from "axios";
+import { notify } from "../../global/alerts/alerts.component";
+import errorCatch from "../../../utils/errorCatch";
 const { Option } = Select;
 const PersonalData = () => {
-	const onFinish = (values) => {
-		console.log("Success:", values);
+	const onFinish = async (values) => {
+		try {
+			const request = await axios.post("/students/", values);
+			const response = request.data;
+
+			console.log(response);
+			if (response.success) {
+				notify("Information successfully saved.", "success");
+			} else {
+				throw Error;
+			}
+		} catch (error) {
+			errorCatch(
+				error,
+				"Updating the information error, Please refresh the page!"
+			);
+		}
 	};
 
 	const onFinishFailed = (errorInfo) => {

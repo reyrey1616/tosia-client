@@ -1,9 +1,35 @@
 import React from "react";
 import { Form, Input, Radio, Select, DatePicker } from "antd";
+import axios from "axios";
+import { notify } from "../../global/alerts/alerts.component";
+import { useHistory } from "react-router-dom";
+import errorCatch from "../../../utils/errorCatch";
 const { Option } = Select;
 const RegistrationForm = () => {
-	const onFinish = (values) => {
-		console.log("Success:", values);
+	const history = useHistory();
+	const onFinish = async (values) => {
+		try {
+			const request = await axios.post("/auth/register", values);
+			const response = request.data;
+
+			if (response.success) {
+				notify(
+					"Registration success!",
+					"success",
+					"You can now login your account."
+				);
+				setTimeout(() => {
+					history.push("/login");
+				}, 1500);
+			} else {
+				throw Error;
+			}
+		} catch (error) {
+			errorCatch(
+				error,
+				"Registration Error, Please refresh the page!"
+			);
+		}
 	};
 
 	const onFinishFailed = (errorInfo) => {
@@ -14,7 +40,10 @@ const RegistrationForm = () => {
 		<Form
 			layout="vertical"
 			name="basic"
-			initialValues={{ remember: true }}
+			initialValues={{
+				referral: "Principal's Office",
+				gender: "Male",
+			}}
 			onFinish={onFinish}
 			onFinishFailed={onFinishFailed}
 		>
@@ -69,11 +98,7 @@ const RegistrationForm = () => {
 						},
 					]}
 				>
-					<Radio.Group
-						defaultValue="Male"
-						buttonStyle="solid"
-						size="large"
-					>
+					<Radio.Group buttonStyle="solid" size="large">
 						<Radio.Button value="Male">Male</Radio.Button>
 						<Radio.Button value="Female">Female</Radio.Button>
 					</Radio.Group>
@@ -132,7 +157,7 @@ const RegistrationForm = () => {
 						},
 					]}
 				>
-					<Select defaultValue="Principal's Office" size="large">
+					<Select size="large">
 						<Option value="Principal's Office">
 							Principal's Office
 						</Option>
@@ -175,7 +200,6 @@ const RegistrationForm = () => {
 							message: "Please input your password!",
 						},
 					]}
-					hasFeedback
 				>
 					<Input.Password size="large" allowClear />
 				</Form.Item>
@@ -184,7 +208,6 @@ const RegistrationForm = () => {
 					name="confirm"
 					label="Confirm Password"
 					dependencies={["password"]}
-					hasFeedback
 					rules={[
 						{
 							required: true,

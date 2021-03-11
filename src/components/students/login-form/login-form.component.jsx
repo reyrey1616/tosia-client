@@ -1,8 +1,29 @@
 import React from "react";
 import { Form, Input } from "antd";
+import axios from "axios";
+import errorCatch from "../../../utils/errorCatch";
+import { useHistory } from "react-router-dom";
+import { notify } from "../../global/alerts/alerts.component";
+
 const LoginForm = () => {
-	const onFinish = (values) => {
-		console.log("Success:", values);
+	const history = useHistory();
+	const onFinish = async (values) => {
+		try {
+			const request = await axios.post("/auth/student-login", values);
+			const response = request.data;
+			console.log(response.data);
+			if (response.success) {
+				notify("Login Success!", "success", "Welcome to TOSIA");
+				localStorage.setItem("stkn", response.token);
+				setTimeout(() => {
+					history.push("/student/personal-data");
+				}, 1500);
+			} else {
+				throw Error;
+			}
+		} catch (error) {
+			errorCatch(error, "Login Failed");
+		}
 	};
 
 	const onFinishFailed = (errorInfo) => {
@@ -13,7 +34,6 @@ const LoginForm = () => {
 		<Form
 			layout="vertical"
 			name="basic"
-			initialValues={{ remember: true }}
 			onFinish={onFinish}
 			onFinishFailed={onFinishFailed}
 		>
@@ -41,7 +61,6 @@ const LoginForm = () => {
 							message: "Please input your password!",
 						},
 					]}
-					hasFeedback
 				>
 					<Input.Password size="large" allowClear />
 				</Form.Item>

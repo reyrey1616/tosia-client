@@ -1,6 +1,6 @@
 import { notification, Popconfirm, message } from "antd";
 
-export const notify = (title, type, description = null) => {
+export const notify = (title, type = "success", description = null) => {
 	notification[type]({
 		message: title,
 		description: description && description,

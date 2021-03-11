@@ -1,11 +1,47 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import LoginForm from "../../components/students/login-form/login-form.component";
 import Image from "../../assets/registration-image.svg";
 import Logo from "../../assets/logo-circle.png";
 import { Link } from "react-router-dom";
+import setAuthToken from "../../utils/setAuthToken";
+import axios from "axios";
+import errorCatch from "../../utils/errorCatch";
+import { notify } from "../../components/global/alerts/alerts.component";
+import { useHistory } from "react-router-dom";
+const token = localStorage.getItem("stkn");
 const LoginPage = () => {
+	const history = useHistory();
+
+	useEffect(() => {
+		(async function loadStudent() {
+			if (token) {
+				setAuthToken(token);
+				try {
+					const request = await axios.get("/auth/get-student");
+					const response = request.data;
+					console.log(response.data);
+					if (response.success) {
+						notify(
+							"Login Success!",
+							"success",
+							"Welcome to TOSIA"
+						);
+						setTimeout(() => {
+							history.push("/student/personal-data");
+						}, 1500);
+					} else {
+						throw Error;
+					}
+				} catch (error) {
+					errorCatch(error, "Login Failed");
+				}
+			}
+		})();
+	}, []);
+
 	const signUpRef = useRef(null);
 	const executeScroll = () => signUpRef.current.scrollIntoView();
+
 	return (
 		<div
 			className="flex bg-dirtywhite  p-1"
