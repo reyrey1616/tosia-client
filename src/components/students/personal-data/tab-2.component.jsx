@@ -1,8 +1,18 @@
 import React from "react";
 import { Form, Input, InputNumber } from "antd";
+import { useDispatch } from "react-redux";
+import { notify } from "../../global/alerts/alerts.component";
+import { updateUserInfo } from "../../../functions/personal-data";
 const FamilyData = ({ data }) => {
+	const dispatch = useDispatch();
 	const onFinish = (values) => {
 		console.log("Success:", values);
+
+		dispatch(
+			updateUserInfo(data && data._id, values, () => {
+				notify("Information updated successfully");
+			})
+		);
 	};
 
 	const onFinishFailed = (errorInfo) => {

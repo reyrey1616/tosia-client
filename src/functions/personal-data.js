@@ -12,6 +12,7 @@ export const updateUserInfo = (id, payload, callback = () => {}) => {
 			if (payload.image) {
 				const formData = new FormData();
 				formData.append("image", payload.image);
+				formData.append("withImage", true);
 				request = await axios.post(`/students/${id}`, formData, {
 					headers: {
 						"Content-Type": "multipart/form-data",
