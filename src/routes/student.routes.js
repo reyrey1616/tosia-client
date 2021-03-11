@@ -4,11 +4,13 @@ import { Route, Redirect, Switch, Link } from "react-router-dom";
 import Sidebar from "../components/students/sidebar/sidebar.component";
 import { LogoutOutlined } from "@ant-design/icons";
 import PrivateRoute from "../components/hoc/private-route/private-route.component";
-import setAuthToken from "../utils/setAuthToken";
-import axios from "axios";
-import errorCatch from "../utils/errorCatch";
-import { notify } from "../components/global/alerts/alerts.component";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+	getUserStart,
+	getUserSuccess,
+	getUserFail,
+} from "../redux/auth/auth.actions";
 const PersonalData = lazy(() =>
 	import("../pages/students/personal-data/main.page")
 );
@@ -22,36 +24,24 @@ const CommunityEnvolvementMainPage = lazy(() =>
 	import("../pages/students/community-envolvement/main.page")
 );
 
-const token = localStorage.getItem("stkn");
 const StudentRoutes = () => {
 	const history = useHistory();
+	const dispatch = useDispatch();
 
 	useEffect(async () => {
-		(async function loadStudent() {
-			if (token) {
-				setAuthToken(token);
-				try {
-					const request = await axios.get("/auth/get-student");
-					const response = request.data;
-					console.log(response.data);
-					if (response.success) {
-						notify(
-							"Login Success!",
-							"success",
-							"Welcome to TOSIA"
-						);
-						setTimeout(() => {
-							history.push("/student/personal-data");
-						}, 1500);
-					} else {
-						throw Error;
-					}
-				} catch (error) {
-					errorCatch(error, "Login Failed");
+		dispatch(
+			getUserStart((result, payload) => {
+				if (result === "success") {
+					dispatch(getUserSuccess(payload));
+					setTimeout(() => {
+						history.push("/student/personal-data");
+					}, 1500);
+				} else {
+					dispatch(getUserFail(payload));
 				}
-			}
-		})();
-	}, [token]);
+			})
+		);
+	}, []);
 	return (
 		<div className="height-full flex width-full bg-dirtywhite">
 			<Sidebar />
