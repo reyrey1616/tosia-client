@@ -29,18 +29,7 @@ const StudentRoutes = () => {
 	const dispatch = useDispatch();
 
 	useEffect(async () => {
-		dispatch(
-			getUserStart((result, payload) => {
-				if (result === "success") {
-					dispatch(getUserSuccess(payload));
-					setTimeout(() => {
-						history.push("/student/personal-data");
-					}, 1500);
-				} else {
-					dispatch(getUserFail(payload));
-				}
-			})
-		);
+		dispatch(getUserStart());
 	}, []);
 	return (
 		<div className="height-full flex width-full bg-dirtywhite">

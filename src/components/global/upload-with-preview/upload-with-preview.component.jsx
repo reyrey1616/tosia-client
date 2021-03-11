@@ -1,16 +1,13 @@
 import React from "react";
 import { PlusOutlined } from "@ant-design/icons";
 
-const UploadWithPreview = ({ image, handleChange, label, name, size }) => {
+const UploadWithPreview = ({ image, handleChange, label, name }) => {
 	return (
 		<div className="mb-1">
 			<label htmlFor={name}>
 				{image ? (
 					<img
-						src={
-							(image && image) ||
-							require("../../../assets/branding/logo/main-logo.png")
-						}
+						src={image && image}
 						alt="Image preview"
 						className="image-preview width-100"
 					/>

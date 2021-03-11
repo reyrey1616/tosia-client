@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Input, InputNumber } from "antd";
-const FamilyData = () => {
+const FamilyData = ({ data }) => {
 	const onFinish = (values) => {
 		console.log("Success:", values);
 	};
@@ -14,7 +14,12 @@ const FamilyData = () => {
 			<Form
 				layout="vertical"
 				name="basic"
-				initialValues={{ remember: true }}
+				initialValues={
+					data &&
+					data && {
+						...data,
+					}
+				}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
 			>

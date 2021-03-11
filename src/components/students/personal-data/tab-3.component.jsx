@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Input, InputNumber } from "antd";
-const SchoolContactDetails = () => {
+const SchoolContactDetails = ({ data }) => {
 	const onFinish = (values) => {
 		console.log("Success:", values);
 	};
@@ -9,12 +9,18 @@ const SchoolContactDetails = () => {
 		console.log("Failed:", errorInfo);
 	};
 
+	console.log(data && data);
 	return (
 		<div className="tab-page-container">
 			<Form
 				layout="vertical"
 				name="basic"
-				initialValues={{ remember: true }}
+				initialValues={
+					data &&
+					data && {
+						...data,
+					}
+				}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
 			>

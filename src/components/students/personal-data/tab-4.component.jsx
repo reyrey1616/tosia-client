@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Input } from "antd";
 import CharacterReferencesTable from "./character-reference-table.component";
-const CharacterReferences = () => {
+const CharacterReferences = ({ data }) => {
 	const onFinish = (values) => {
 		console.log("Success:", values);
 	};
@@ -79,7 +79,9 @@ const CharacterReferences = () => {
 			</Form>
 
 			<div className="table-container mt-2">
-				<CharacterReferencesTable />
+				<CharacterReferencesTable
+					data={data && data.characterReference}
+				/>
 			</div>
 		</div>
 	);

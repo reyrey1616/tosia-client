@@ -119,7 +119,7 @@ const RegistrationForm = () => {
 				<Form.Item
 					className="col-6 col-md-12 p-half"
 					label="Birthdate"
-					name="birthDate"
+					name="birthdate"
 					rules={[
 						{
 							required: true,

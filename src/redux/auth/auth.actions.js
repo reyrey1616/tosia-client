@@ -3,18 +3,16 @@ import setAuthToken from "../../utils/setAuthToken";
 import axios from "axios";
 import errorCatch from "../../utils/errorCatch";
 import { notify } from "../../components/global/alerts/alerts.component";
-import { useDispatch } from "react-redux";
 
 const token = localStorage.getItem("stkn");
 
-export const getUserStart = (callback = (result) => {}) => {
+export const getUserStart = (callback = (result) => {}) => (dispatch) => {
 	(async function loadStudent() {
 		if (token) {
 			setAuthToken(token);
 			try {
 				const request = await axios.get("/auth/get-student");
 				const response = request.data;
-				console.log(response.data);
 				if (response.success) {
 					notify(
 						"Login Success!",
@@ -22,19 +20,36 @@ export const getUserStart = (callback = (result) => {}) => {
 						"Welcome to TOSIA"
 					);
 
-					callback("success", response.data);
+					dispatch(getUserSuccess(response.data));
 				} else {
 					throw Error;
 				}
 			} catch (error) {
-				callback("error", error);
-				errorCatch(error, "Login Failed");
+				dispatch(getUserFail(error));
+				errorCatch(error, "Error loading student's information");
 			}
 		}
 	})();
 
 	return {
 		type: AuthActionTypes.GET_USER_START,
+	};
+};
+
+export const updateUserInfo = (id, payload, callback = () => {}) => {
+	return async (dispatch) => {
+		try {
+			const request = await axios.put(`/students/${id}`, payload);
+			const response = await request.data;
+			if (response.success === true) {
+				dispatch(getUserStart());
+				callback();
+			} else {
+				throw Error;
+			}
+		} catch (error) {
+			errorCatch(error, "Error updating information");
+		}
 	};
 };
 

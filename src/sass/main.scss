@@ -25,3 +25,12 @@
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
 	border-radius: 15px;
 }
+
+.image-preview {
+	border-radius: 20px;
+	height: 200px;
+	max-height: 200px;
+	width: 300px;
+	max-width: 300px;
+	cursor: pointer;
+}

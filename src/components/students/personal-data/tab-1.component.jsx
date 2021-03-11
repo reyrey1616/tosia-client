@@ -1,26 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Input, Radio, Select, DatePicker } from "antd";
-import axios from "axios";
 import { notify } from "../../global/alerts/alerts.component";
-import errorCatch from "../../../utils/errorCatch";
-const { Option } = Select;
-const PersonalData = () => {
-	const onFinish = async (values) => {
-		try {
-			const request = await axios.post("/students/", values);
-			const response = request.data;
+import { updateUserInfo } from "../../../functions/personal-data";
+import { useDispatch } from "react-redux";
+import moment from "moment";
+import UploadWithPreview from "../../global/upload-with-preview/upload-with-preview.component";
+import { toDataURL, dataURLtoFile } from "../../../utils/urlToFile";
+const dateFormat = "YYYY/MM/DD";
 
-			console.log(response);
-			if (response.success) {
-				notify("Information successfully saved.", "success");
+const { Option } = Select;
+const PersonalData = ({ data }) => {
+	const [mainPhotoUrl, setMainPhotoUrl] = useState();
+	const [mainPhotoFile, setMainPhotoFile] = useState();
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (data && data) {
+			let url = `${process.env.REACT_APP_MEDIA_DIRECTORY}students/${data.image}`;
+			toDataURL(url).then((dataUrl) => {
+				const fileData = dataURLtoFile(dataUrl, data.image);
+				setMainPhotoFile(fileData);
+				setMainPhotoUrl(URL.createObjectURL(fileData));
+			});
+		}
+	}, [data]);
+
+	const onFinish = async (values) => {
+		console.log(values);
+
+		delete values.password;
+
+		values.image = mainPhotoFile;
+		dispatch(
+			updateUserInfo(data && data._id, values, () => {
+				notify("Information updated successfully");
+			})
+		);
+	};
+
+	const handleMainPhotoChange = (e) => {
+		const file = e.target.files[0];
+
+		if (file) {
+			if (file.type !== "image/jpeg" && file.type !== "image/png") {
+				notify("File must be image", "warning");
+				e.target.value = null;
+			} else if (file.size > 2000000) {
+				notify("Image must be less than 2 MB", "warning");
+				e.target.value = null;
 			} else {
-				throw Error;
+				setMainPhotoUrl(URL.createObjectURL(file));
+				setMainPhotoFile(file);
 			}
-		} catch (error) {
-			errorCatch(
-				error,
-				"Updating the information error, Please refresh the page!"
-			);
+		} else {
+			setMainPhotoUrl(null);
+			setMainPhotoFile(null);
 		}
 	};
 
@@ -36,124 +71,139 @@ const PersonalData = () => {
 				initialValues={{ remember: true }}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
+				initialValues={
+					data &&
+					data && {
+						...data,
+						birthdate: moment(data.birthdate, dateFormat),
+					}
+				}
 			>
 				<div className="flex flex-wrap mb-2">
 					<div className="col-12 flex mb-1">
-						<Form.Item
-							className="col-4 col-md-12 p-half mb-0"
-							label="First Name"
-							name="fname"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input your first name!",
-								},
-							]}
-						>
-							<Input size="large" allowClear />
-						</Form.Item>
-						<Form.Item
-							className="col-4 col-md-12 p-half mb-0"
-							label="Middle Name"
-							name="mname"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input your middle name!",
-								},
-							]}
-						>
-							<Input size="large" allowClear />
-						</Form.Item>
-						<Form.Item
-							className="col-4 col-md-12 p-half"
-							label="Last Name"
-							name="lname"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input your last name!",
-								},
-							]}
-						>
-							<Input size="large" allowClear />
-						</Form.Item>
-					</div>
-					<div className="col-12 flex mb-1">
-						<Form.Item
-							className="col-4 col-md-12 p-half"
-							label="Nickname"
-							name="nickname"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input your nickname!",
-								},
-							]}
-						>
-							<Input size="large" allowClear />
-						</Form.Item>
-						<Form.Item
-							className="col-2 col-md-6 col-md-6 p-half"
-							label="Gender"
-							name="gender"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please select your gender!",
-								},
-							]}
-						>
-							<Radio.Group
-								defaultValue="Male"
-								buttonStyle="solid"
-								size="large"
-							>
-								<Radio.Button value="Male">
-									Male
-								</Radio.Button>
-								<Radio.Button value="Female">
-									Female
-								</Radio.Button>
-							</Radio.Group>
-						</Form.Item>
-						<Form.Item
-							className="col-3 col-md-12 p-half"
-							label="Nationality"
-							name="nationality"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input your nationality!",
-								},
-							]}
-						>
-							<Input size="large" allowClear />
-						</Form.Item>
-						<Form.Item
-							className="col-3 col-md-12 p-half"
-							label="Birthdate"
-							name="birthDate"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input your birthdate!",
-								},
-							]}
-						>
-							<DatePicker
-								size="large"
-								allowClear
-								style={{ width: "100%" }}
+						<div className="col-4 col-md-12 p-half">
+							<UploadWithPreview
+								name="product_main_photo"
+								image={mainPhotoUrl}
+								handleChange={handleMainPhotoChange}
+								label="Upload Photo"
 							/>
-						</Form.Item>
+						</div>
+						<div className="col-8 col-md-12 flex-wrap">
+							<Form.Item
+								className="col-4 col-md-12 p-half mb-0"
+								label="First Name"
+								name="fname"
+								rules={[
+									{
+										required: true,
+										message:
+											"Please input your first name!",
+									},
+								]}
+							>
+								<Input size="large" allowClear />
+							</Form.Item>
+							<Form.Item
+								className="col-4 col-md-12 p-half mb-0"
+								label="Middle Name"
+								name="mname"
+								rules={[
+									{
+										required: true,
+										message:
+											"Please input your middle name!",
+									},
+								]}
+							>
+								<Input size="large" allowClear />
+							</Form.Item>
+							<Form.Item
+								className="col-4 col-md-12 p-half"
+								label="Last Name"
+								name="lname"
+								rules={[
+									{
+										required: true,
+										message:
+											"Please input your last name!",
+									},
+								]}
+							>
+								<Input size="large" allowClear />
+							</Form.Item>
+							<Form.Item
+								className="col-3 col-md-12 p-half"
+								label="Nickname"
+								name="nickname"
+								rules={[
+									{
+										required: true,
+										message:
+											"Please input your nickname!",
+									},
+								]}
+							>
+								<Input size="large" allowClear />
+							</Form.Item>
+							<Form.Item
+								className="col-3 col-md-6 col-md-6 p-half"
+								label="Gender"
+								name="gender"
+								rules={[
+									{
+										required: true,
+										message:
+											"Please select your gender!",
+									},
+								]}
+							>
+								<Radio.Group
+									buttonStyle="solid"
+									size="large"
+								>
+									<Radio.Button value="Male">
+										Male
+									</Radio.Button>
+									<Radio.Button value="Female">
+										Female
+									</Radio.Button>
+								</Radio.Group>
+							</Form.Item>
+							<Form.Item
+								className="col-3 col-md-12 p-half"
+								label="Nationality"
+								name="nationality"
+								rules={[
+									{
+										required: true,
+										message:
+											"Please input your nationality!",
+									},
+								]}
+							>
+								<Input size="large" allowClear />
+							</Form.Item>
+							<Form.Item
+								className="col-3 col-md-12 p-half"
+								label="Birthdate"
+								name="birthdate"
+								rules={[
+									{
+										required: true,
+										message:
+											"Please input your birthdate!",
+									},
+								]}
+							>
+								<DatePicker
+									size="large"
+									dateFormat={dateFormat}
+									allowClear
+									style={{ width: "100%" }}
+								/>
+							</Form.Item>
+						</div>
 					</div>
 
 					<div className="col-12 flex mb-1">
@@ -299,10 +349,7 @@ const PersonalData = () => {
 								},
 							]}
 						>
-							<Select
-								defaultValue="Principal's Office"
-								size="large"
-							>
+							<Select size="large">
 								<Option value="Principal's Office">
 									Principal's Office
 								</Option>
@@ -326,7 +373,7 @@ const PersonalData = () => {
 						</Form.Item>
 					</div>
 					<div className="col-12 flex mb-1">
-						<Form.Item
+						{/* <Form.Item
 							className="col-4 col-md-12 p-half"
 							label="Email"
 							name="email"
@@ -344,18 +391,17 @@ const PersonalData = () => {
 							className="col-4 col-md-12 p-half"
 							name="password"
 							label="Password"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input your password!",
-								},
-							]}
-							hasFeedback
+							// rules={[
+							// 	{
+							// 		required: true,
+							// 		message:
+							// 			"Please input your password!",
+							// 	},
+							// ]}
 						>
 							<Input.Password size="large" allowClear />
-						</Form.Item>
-						<Form.Item
+						</Form.Item> */}
+						{/* <Form.Item
 							className="col-4 col-md-12 p-half"
 							name="confirm"
 							label="Confirm Password"
@@ -385,7 +431,7 @@ const PersonalData = () => {
 							]}
 						>
 							<Input.Password size="large" allowClear />
-						</Form.Item>
+						</Form.Item> */}
 					</div>
 				</div>
 
