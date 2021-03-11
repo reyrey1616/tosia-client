@@ -81,7 +81,7 @@ const PersonalData = ({ data }) => {
 			>
 				<div className="flex flex-wrap mb-2">
 					<div className="col-12 flex mb-1">
-						<div className="col-4 col-md-12 p-half">
+						<div className="col-3 col-md-12 p-half">
 							<UploadWithPreview
 								name="product_main_photo"
 								image={mainPhotoUrl}
@@ -89,7 +89,7 @@ const PersonalData = ({ data }) => {
 								label="Upload Photo"
 							/>
 						</div>
-						<div className="col-8 col-md-12 flex-wrap">
+						<div className="col-9 col-md-12 flex-wrap">
 							<Form.Item
 								className="col-4 col-md-12 p-half mb-0"
 								label="First Name"
@@ -160,7 +160,7 @@ const PersonalData = ({ data }) => {
 							>
 								<Radio.Group
 									buttonStyle="solid"
-									size="large"
+									size="medium"
 								>
 									<Radio.Button value="Male">
 										Male
@@ -269,7 +269,7 @@ const PersonalData = ({ data }) => {
 						</Form.Item>
 					</div>
 					<Form.Item
-						className="col-12 col-md-12 p-half mb-1"
+						className="col-12 col-md-12 p-half"
 						label="Present Mailing Address"
 						name="presentMailingAddress"
 						rules={[
