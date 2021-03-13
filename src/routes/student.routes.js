@@ -43,7 +43,11 @@ const StudentRoutes = () => {
 				<div className="student-header flex align-items-flex-center justify-content-space-between">
 					<h2 className="text-title text-black">
 						{" "}
-						Welcome, Rey G. Guidoriagao Jr.
+						Welcome,{" "}
+						{`${userData.fname} ${userData.mname.substring(
+							0,
+							1
+						)} ${userData.lname}`}
 					</h2>
 					<Tooltip title="Logout">
 						<Link to="/login">

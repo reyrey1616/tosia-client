@@ -19,7 +19,7 @@ const AcademicExcellenceMainPage = () => {
 						Academic Honors Received
 					</h2>
 
-					<AcademicHonorsReceived data={userData} />
+					<AcademicHonorsReceived data={userData && userData} />
 				</TabPane>
 				<TabPane tab="Most Significant Citations Received" key="2">
 					<h2 className="text-subtitle text-orange m-1">
@@ -27,21 +27,21 @@ const AcademicExcellenceMainPage = () => {
 						Most Significant Citations Received
 					</h2>
 
-					<CitationsReceivedTab data={userData} />
+					<CitationsReceivedTab data={userData && userData} />
 				</TabPane>
 				<TabPane tab="Most Significant Contests Won" key="3">
 					<h2 className="text-subtitle text-orange m-1">
 						Most Significant Contests Won{" "}
 					</h2>
 
-					<AcademicContestsWon data={userData} />
+					<AcademicContestsWon data={userData && userData} />
 				</TabPane>
 				<TabPane tab="Most Significant Non Academic Awards" key="4">
 					<h2 className="text-subtitle text-orange m-1">
 						Most Significant Non Academic Awards
 					</h2>
 
-					<NonAcademicContestsWon data={userData} />
+					<NonAcademicContestsWon data={userData && userData} />
 				</TabPane>
 				<TabPane
 					tab="Most Significant Academic-Related Seminars and Trainings Attended"
