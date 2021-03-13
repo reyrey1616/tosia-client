@@ -4,8 +4,6 @@ import { getUserStart } from "../redux/auth/auth.actions";
 
 export const updateUserInfo = (id, payload, callback = () => {}) => {
 	return async (dispatch) => {
-		alert(id);
-
 		try {
 			let request = await axios.post(`/students/${id}`, payload);
 			let response = await request.data;

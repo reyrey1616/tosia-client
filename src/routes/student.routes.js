@@ -1,16 +1,14 @@
 import React, { lazy, useEffect } from "react";
 import { Button, Tooltip } from "antd";
-import { Route, Redirect, Switch, Link } from "react-router-dom";
+import { Redirect, Switch, Link } from "react-router-dom";
 import Sidebar from "../components/students/sidebar/sidebar.component";
 import { LogoutOutlined } from "@ant-design/icons";
 import PrivateRoute from "../components/hoc/private-route/private-route.component";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import {
-	getUserStart,
-	getUserSuccess,
-	getUserFail,
-} from "../redux/auth/auth.actions";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserStart } from "../redux/auth/auth.actions";
+import { selectCurrentUser } from "../redux/auth/auth.selectors";
+import Spinner from "../components/hoc/spinner/spinner.component";
 const PersonalData = lazy(() =>
 	import("../pages/students/personal-data/main.page")
 );
@@ -27,11 +25,17 @@ const CommunityEnvolvementMainPage = lazy(() =>
 const StudentRoutes = () => {
 	const history = useHistory();
 	const dispatch = useDispatch();
-
+	const userData = useSelector(selectCurrentUser);
 	useEffect(async () => {
 		dispatch(getUserStart());
 	}, []);
-	return (
+
+	const logout = () => {
+		history.push("/login");
+		// localStorage.removeItem("stkn");
+	};
+
+	return !!userData ? (
 		<div className="height-full flex width-full bg-dirtywhite">
 			<Sidebar />
 
@@ -82,6 +86,8 @@ const StudentRoutes = () => {
 				</div>
 			</div>
 		</div>
+	) : (
+		<Spinner />
 	);
 };
 

@@ -1,10 +1,54 @@
-import React from "react";
-import { Form, Input, Select, DatePicker } from "antd";
+import React, { useState } from "react";
+import { Form, Input, DatePicker, Select } from "antd";
 import CitationsReceivedTable from "./tab-2-citations-received.component";
+import SelectYearLevel from "../../shared/level.component";
+import { notify } from "../../global/alerts/alerts.component";
+import { useDispatch, useSelector } from "react-redux";
+import { addAcademicExcellence } from "../../../functions/academic-excellence";
+import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
 const { Option } = Select;
-const CitationsReceived = () => {
+const CitationsReceived = ({ data }) => {
+	const dispatch = useDispatch();
+	const user = useSelector(selectCurrentUser);
+	const [form] = Form.useForm();
+	const [imageFile, setImageFile] = useState();
+	const [fileKey, setFileKey] = useState(Date.now());
 	const onFinish = (values) => {
-		console.log("Success:", values);
+		values.image = imageFile;
+		values.type = "citation";
+
+		if (!imageFile) {
+			notify("Please add image!", "warning");
+		} else {
+			console.log("Success:", values);
+			console.log(user._id);
+			dispatch(
+				addAcademicExcellence(user._id, values, () => {
+					notify("Citation Added");
+					form.resetFields();
+					setImageFile(null);
+					setFileKey(Date.now());
+				})
+			);
+		}
+	};
+
+	const handleImageChange = (e) => {
+		console.log(e.target.files[0]);
+		const file = e.target.files[0];
+		if (file) {
+			if (file.type !== "image/jpeg" && file.type !== "image/png") {
+				notify("File must be image", "warning");
+				e.target.value = null;
+			} else if (file.size > 2000000) {
+				notify("Image must be less than 2 MB", "warning");
+				e.target.value = null;
+			} else {
+				setImageFile(file);
+			}
+		} else {
+			setImageFile(null);
+		}
 	};
 
 	const onFinishFailed = (errorInfo) => {
@@ -14,9 +58,9 @@ const CitationsReceived = () => {
 	return (
 		<div className="tab-page-container">
 			<Form
+				form={form}
 				layout="vertical"
 				name="basic"
-				initialValues={{ remember: true }}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
 			>
@@ -36,60 +80,8 @@ const CitationsReceived = () => {
 						>
 							<Input size="large" allowClear />
 						</Form.Item>
-						<Form.Item
-							className="col-2 col-md-12 p-half"
-							label="Grade Level"
-							name="gradeLevel"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input grade level!",
-								},
-							]}
-						>
-							<Select defaultValue="Grade 7" size="large">
-								<Option value="Grade 7">Grade 7</Option>
-								<Option value="Grade 8">Grade 8</Option>
-								<Option value="Grade 9">
-									Grade 9
-								</Option>{" "}
-								<Option value="Grade 9">Grade 9</Option>
-							</Select>
-						</Form.Item>
-						{/* <Form.Item
-							className="col-2 col-md-12 p-half"
-							label="College Year Level"
-							name="collegeYearLevel"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input college year level!",
-								},
-							]}
-						>
-							<Select defaultValue="1st Year" size="large">
-								<Option value="1st Year">
-									1st Year
-								</Option>
-								<Option value="2nd Year">
-									2nd Year
-								</Option>
 
-								<Option value="3rd Year">
-									3rd Year
-								</Option>
-
-								<Option value="4th Year">
-									4th Year
-								</Option>
-
-								<Option value="5th Year">
-									5th Year
-								</Option>
-							</Select>
-						</Form.Item> */}
+						<SelectYearLevel />
 
 						<Form.Item
 							className="col-2 col-md-12 p-half"
@@ -147,20 +139,23 @@ const CitationsReceived = () => {
 							/>
 						</Form.Item>
 
-						<Form.Item
+						<div
 							className="col-2 col-md-12 p-half mb-0"
-							label="Porfolio Page"
-							name="portfolioPage"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input portoflio page",
-								},
-							]}
+							label="Image"
+							name="image"
 						>
-							<Input size="large" allowClear />
-						</Form.Item>
+							<div className="ant-col ant-form-item-label">
+								<label className="ant-form-required">
+									{" "}
+									Image:
+								</label>
+							</div>
+							<input
+								type="file"
+								key={fileKey}
+								onChange={handleImageChange}
+							/>
+						</div>
 						<Form.Item
 							className="col-1 col-md-12 p-0 mb-0 mt-1 "
 							label="click button below to save"
@@ -177,7 +172,9 @@ const CitationsReceived = () => {
 			</Form>
 
 			<div className="table-container mt-2">
-				<CitationsReceivedTable />
+				<CitationsReceivedTable
+					data={data && data.academic[0].citationsReceived}
+				/>
 			</div>
 		</div>
 	);

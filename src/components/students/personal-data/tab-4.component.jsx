@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Input } from "antd";
 import CharacterReferencesTable from "./character-reference-table.component";
+import { useDispatch } from "react-redux";
+import { updateUserInfo } from "../../../functions/personal-data";
+import { notify } from "../../global/alerts/alerts.component";
 const CharacterReferences = ({ data }) => {
+	const dispatch = useDispatch();
+	const [form] = Form.useForm();
+	const [characterReferences, setCharacterReferences] = useState();
+
+	useEffect(() => {
+		console.log(data && data.characterReference);
+		setCharacterReferences(data && data.characterReference);
+	}, [data]);
+
 	const onFinish = (values) => {
-		console.log("Success:", values);
+		if (data && characterReferences.length >= 3) {
+			notify(
+				"Unable to add character reference. You already reached the limit (3) of character reference!",
+				"warning"
+			);
+		} else {
+			const updatedData = [...characterReferences, values];
+			dispatch(
+				updateUserInfo(
+					data && data._id,
+					{ characterReference: updatedData },
+					() => {
+						notify("Character Reference Added!");
+						setCharacterReferences(updatedData);
+						form.resetFields();
+					}
+				)
+			);
+		}
 	};
 
 	const onFinishFailed = (errorInfo) => {
@@ -13,6 +43,7 @@ const CharacterReferences = ({ data }) => {
 	return (
 		<div className="tab-page-container">
 			<Form
+				form={form}
 				layout="vertical"
 				name="basic"
 				initialValues={{ remember: true }}
@@ -24,7 +55,7 @@ const CharacterReferences = ({ data }) => {
 						<Form.Item
 							className="col-4 col-md-12 p-half mb-0"
 							label="Full Name"
-							name="fullname"
+							name="fullName"
 							rules={[
 								{
 									required: true,
@@ -80,7 +111,7 @@ const CharacterReferences = ({ data }) => {
 
 			<div className="table-container mt-2">
 				<CharacterReferencesTable
-					data={data && data.characterReference}
+					data={data && characterReferences}
 				/>
 			</div>
 		</div>

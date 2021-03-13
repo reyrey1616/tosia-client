@@ -10,7 +10,7 @@ const FamilyData = ({ data }) => {
 
 		dispatch(
 			updateUserInfo(data && data._id, values, () => {
-				notify("Information updated successfully");
+				notify("Family Data Updated!");
 			})
 		);
 	};

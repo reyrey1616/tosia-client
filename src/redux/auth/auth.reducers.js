@@ -7,6 +7,7 @@ const INITIAL_STATE = {
 	error: undefined,
 	errors: [],
 	isAuthenticated: false,
+	academicExcelence: {},
 };
 
 const authLoading = (state) => {
@@ -24,6 +25,14 @@ const getUser = (state, action) => {
 	};
 };
 
+const getAcademicExcellence = (state, action) => {
+	return {
+		...state,
+		loading: false,
+		academicExcelence: action.payload,
+	};
+};
+
 const authFail = (state, action) => {
 	return {
 		...state,
@@ -36,6 +45,10 @@ const AuthReducer = createReducer(INITIAL_STATE, {
 	[AuthActionTypes.GET_USER_START]: authLoading,
 	[AuthActionTypes.GET_USER_SUCCESS]: getUser,
 	[AuthActionTypes.GET_USER_FAIL]: authFail,
+
+	[AuthActionTypes.GET_ACADEMIC_EXCELLENCE_START]: authLoading,
+	[AuthActionTypes.GET_ACADEMIC_EXCELLENCE_SUCCESS]: getAcademicExcellence,
+	[AuthActionTypes.GET_ACADEMIC_EXCELLENCE_FAIL]: authFail,
 });
 
 export default AuthReducer;

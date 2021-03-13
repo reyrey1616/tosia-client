@@ -7,7 +7,22 @@ export const selectCurrentUser = createSelector(
 	(auth) => auth.user
 );
 
-export const selectLoading = createSelector(
+export const selectCategory = createSelector(
 	[authSelector],
-	(auth) => auth.loading
+	(auth) => auth.user.category
+);
+
+export const selectAcademic = createSelector(
+	[authSelector],
+	(auth) => auth.user.academic
+);
+
+export const selectCommunity = createSelector(
+	[authSelector],
+	(auth) => auth.user.community
+);
+
+export const selectLeadership = createSelector(
+	[authSelector],
+	(auth) => auth.user.leadership_virtual
 );

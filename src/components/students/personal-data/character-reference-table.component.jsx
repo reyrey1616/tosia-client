@@ -1,28 +1,12 @@
 import React from "react";
 import { Table } from "antd";
 
-const dataSource = [
-	{
-		key: "1",
-		fullname: "Mike Guttierez",
-		position: "Actor",
-		contactNumber: "09182254329",
-	},
-
-	{
-		key: "2",
-		fullname: "Kevin Durant",
-		position: "Athlete",
-		contactNumber: "09182254329",
-	},
-];
-
-const CharacterReferencesTable = () => {
+const CharacterReferencesTable = ({ data }) => {
 	const columns = [
 		{
 			title: "Fullname",
-			dataIndex: "fullname",
-			key: "fullname",
+			dataIndex: "fullName",
+			key: "fullName",
 		},
 		{
 			title: "Position/Affliation",
@@ -36,7 +20,12 @@ const CharacterReferencesTable = () => {
 		},
 	];
 	return (
-		<Table dataSource={dataSource} columns={columns} pagination={false} />
+		<Table
+			rowKey="fullName"
+			dataSource={data && data}
+			columns={columns}
+			pagination={false}
+		/>
 	);
 };
 

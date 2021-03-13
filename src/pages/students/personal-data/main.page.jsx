@@ -5,10 +5,12 @@ import SchoolContactDetails from "../../../components/students/personal-data/tab
 import CharacterReferences from "../../../components/students/personal-data/tab-4.component";
 import { useSelector } from "react-redux";
 import Spinner from "../../../components/hoc/spinner/spinner.component";
+import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
+
 const { TabPane } = Tabs;
 
 const PersonalDataMainPage = () => {
-	const userData = useSelector((state) => state.auth.user);
+	const userData = useSelector(selectCurrentUser);
 
 	return !!userData ? (
 		<div className="admin-page-content">

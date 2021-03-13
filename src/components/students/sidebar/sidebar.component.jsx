@@ -8,10 +8,6 @@ import { ImProfile } from "react-icons/im";
 import logo from "../../../assets/logo-circle.png";
 
 class Sidebar extends React.Component {
-	handleClick = (e) => {
-		console.log("click ", e);
-	};
-
 	render() {
 		return (
 			<div style={{ width: 256 }} className="admin-sidebar">
@@ -25,7 +21,6 @@ class Sidebar extends React.Component {
 					/>
 				</div>
 				<Menu
-					onClick={this.handleClick}
 					defaultSelectedKeys={["1"]}
 					defaultOpenKeys={["sub1"]}
 					mode="inline"
