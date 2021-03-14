@@ -7,6 +7,12 @@ const RegistrationPage = lazy(() =>
 );
 const LoginPage = lazy(() => import("./pages/students/login.page"));
 const StudentRoutes = lazy(() => import("./routes/student.routes"));
+
+const EvaluatorRoutes = lazy(() => import("./routes/evaluator.routes"));
+const EvaluatorRegistrationPage = lazy(() =>
+	import("./pages/evaluator/registration.page")
+);
+const EvaluatorLoginPage = lazy(() => import("./pages/evaluator/login.page"));
 const App = () => {
 	return (
 		<div className="m-0 p-0">
@@ -15,6 +21,8 @@ const App = () => {
 					<BrowserRouter>
 						<Switch>
 							{/* <Route path="/" component={StudentRoutes} /> */}
+
+							{/* Student */}
 							<Route
 								path="/registration"
 								component={RegistrationPage}
@@ -23,6 +31,20 @@ const App = () => {
 							<Route
 								path="/student"
 								component={StudentRoutes}
+							/>
+
+							{/* Evaluator */}
+							<Route
+								path="/evaluator"
+								component={EvaluatorRoutes}
+							/>
+							<Route
+								path="/evaluator-registration"
+								component={EvaluatorRegistrationPage}
+							/>
+							<Route
+								path="/evaluator-login"
+								component={EvaluatorLoginPage}
 							/>
 						</Switch>
 					</BrowserRouter>

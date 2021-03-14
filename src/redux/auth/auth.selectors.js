@@ -7,6 +7,11 @@ export const selectCurrentUser = createSelector(
 	(auth) => auth.user
 );
 
+export const selectLoading = createSelector(
+	[authSelector],
+	(auth) => auth.loading
+);
+
 export const selectCategory = createSelector(
 	[authSelector],
 	(auth) => auth.user.category
