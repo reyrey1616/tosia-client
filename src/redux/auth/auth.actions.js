@@ -4,14 +4,24 @@ import axios from "axios";
 import errorCatch from "../../utils/errorCatch";
 import { notify } from "../../components/global/alerts/alerts.component";
 
-const token = localStorage.getItem("stkn");
-
-export const getUserStart = (callback = (result) => {}) => (dispatch) => {
+export const getUserStart = (userType = "student") => (dispatch) => {
 	(async function loadStudent() {
+		let token;
+		if (userType === "student") {
+			token = localStorage.getItem("stkn");
+		} else {
+			token = localStorage.getItem("etkn");
+		}
 		if (token) {
 			setAuthToken(token);
 			try {
-				const request = await axios.get("/auth/get-student");
+				let request;
+
+				if (userType === "student") {
+					request = await axios.get("/auth/get-student");
+				} else {
+					request = await axios.get("/auth/get-evaluator");
+				}
 				const response = request.data;
 				if (response.success) {
 					notify(
@@ -19,6 +29,8 @@ export const getUserStart = (callback = (result) => {}) => (dispatch) => {
 						"success",
 						"Welcome to TOSIA"
 					);
+
+					console.log(response.data);
 
 					dispatch(getUserSuccess(response.data));
 				} else {
@@ -50,48 +62,46 @@ export const getUserFail = (payload) => {
 	};
 };
 
-export const getAcademicExcellenceStart = (callback = (result) => {}) => (
+export const getOneStudentStart = (id, userType = "evaluator") => async (
 	dispatch
 ) => {
-	(async function loadStudent() {
-		if (token) {
-			setAuthToken(token);
-			try {
-				const request = await axios.get("/auth/get-student");
-				const response = request.data;
-				if (response.success) {
-					notify(
-						"Login Success!",
-						"success",
-						"Welcome to TOSIA"
-					);
+	let token;
+	if (userType === "evaluator") {
+		token = localStorage.getItem("etkn");
+	} else {
+		token = localStorage.getItem("atkn");
+	}
+	if (token) {
+		setAuthToken(token);
+		try {
+			let request = await axios.get(`/students/${id}`);
 
-					dispatch(getUserSuccess(response.data));
-				} else {
-					throw Error;
-				}
-			} catch (error) {
-				dispatch(getUserFail(error));
-				errorCatch(error, "Error loading student's information");
+			const response = await request.data;
+			if (response.success) {
+				dispatch(getOneStudentSuccess(response.data));
+			} else {
+				throw Error;
 			}
+		} catch (error) {
+			errorCatch(error, "Error loading student");
 		}
-	})();
+	}
 
 	return {
-		type: AuthActionTypes.GET_ACADEMIC_START,
+		type: AuthActionTypes.GET_ONE_STUDENT_SUCCESS,
 	};
 };
 
-export const getAcademicExcellenceSuccess = (payload) => {
+export const getOneStudentSuccess = (payload) => {
 	return {
-		type: AuthActionTypes.GET_ACADEMIC_SUCCESS,
+		type: AuthActionTypes.GET_ONE_STUDENT_SUCCESS,
 		payload,
 	};
 };
 
-export const getAcademicExcellenceFail = (payload) => {
+export const getOneStudentFail = (payload) => {
 	return {
-		type: AuthActionTypes.GET_ACADEMIC_FAIL,
+		type: AuthActionTypes.GET_ONE_STUDENT_FAIL,
 		payload,
 	};
 };

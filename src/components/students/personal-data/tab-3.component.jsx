@@ -20,7 +20,6 @@ const SchoolContactDetails = ({ data }) => {
 		console.log("Failed:", errorInfo);
 	};
 
-	console.log(data && data);
 	return (
 		<div className="tab-page-container">
 			<Form

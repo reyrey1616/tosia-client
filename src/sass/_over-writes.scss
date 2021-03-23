@@ -12,3 +12,28 @@ html {
 	height: 72vh;
 	overflow: auto;
 }
+
+.tab-page-container-no-scroll {
+	padding: 1rem 3rem;
+	min-height: 72vh;
+}
+
+$fonts: 40;
+
+@for $i from 1 through $fonts {
+	.font-#{$i} {
+		font-size: #{$i}px;
+
+		@include query(tab-land) {
+			font-size: calc(#{$i}px - 4px) !important;
+		}
+	}
+}
+
+$fontWeights: 10;
+
+@for $i from 1 through $fontWeights {
+	.fw-#{$i}00 {
+		font-weight: #{$i}00;
+	}
+}

@@ -10,7 +10,6 @@ const CharacterReferences = ({ data }) => {
 	const [characterReferences, setCharacterReferences] = useState();
 
 	useEffect(() => {
-		console.log(data && data.characterReference);
 		setCharacterReferences(data && data.characterReference);
 	}, [data]);
 

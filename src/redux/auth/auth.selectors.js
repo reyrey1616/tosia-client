@@ -31,3 +31,8 @@ export const selectLeadership = createSelector(
 	[authSelector],
 	(auth) => auth.user.leadership_virtual
 );
+
+export const selectCurrentSelectedStudent = createSelector(
+	[authSelector],
+	(auth) => auth.currentStudent
+);

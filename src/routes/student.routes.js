@@ -27,7 +27,7 @@ const StudentRoutes = () => {
 	const dispatch = useDispatch();
 	const userData = useSelector(selectCurrentUser);
 	useEffect(async () => {
-		dispatch(getUserStart());
+		dispatch(getUserStart("student"));
 	}, []);
 
 	const logout = () => {
