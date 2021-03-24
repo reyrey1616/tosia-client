@@ -7,7 +7,14 @@ import "./sass/main.scss";
 import axios from "axios";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-axios.defaults.baseURL = "http://localhost:5000/api/v1/";
+// axios.defaults.baseURL = "http://localhost:5000/api/v1/";
+
+if (process.env.NODE_ENV === "development") {
+	// axios.defaults.baseURL = "http://localhost:5000/api/v1/";
+	axios.defaults.baseURL = "http://178.128.54.50/api/v1/";
+} else {
+	axios.defaults.baseURL = "http://178.128.54.50/api/v1/";
+}
 ReactDOM.render(
 	<Provider store={store}>
 		{" "}
