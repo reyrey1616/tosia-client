@@ -24,11 +24,11 @@ export const getUserStart = (userType = "student") => (dispatch) => {
 				}
 				const response = request.data;
 				if (response.success) {
-					notify(
-						"Login Success!",
-						"success",
-						"Welcome to TOSIA"
-					);
+					// notify(
+					// 	"Login Success!",
+					// 	"success",
+					// 	"Welcome to TOSIA"
+					// );
 
 					console.log(response.data);
 
