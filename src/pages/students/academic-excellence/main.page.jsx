@@ -12,6 +12,23 @@ const AcademicExcellenceMainPage = () => {
 	const userData = useSelector(selectCurrentUser);
 	return (
 		<div className="admin-page-content card-container">
+			<h3 className="text-orange pl-1">Instructions</h3>
+			<ul>
+				<li>
+					List all your activities in chronological order (most
+					recent to previous) and kindly spell out acronyms.{" "}
+				</li>
+				<li>
+					All activities must be supported by
+					documents/Photographs in the portfolio accordingly.
+					Indicate the page number in the portfolio.{" "}
+				</li>
+				<li>Use the format as indicated in this sample form.</li>
+				<li>
+					Kindly Indicate the Level School-based, District/City,
+					Provincial, Regional, National or International
+				</li>
+			</ul>
 			<Tabs defaultActiveKey="1" type="card">
 				<TabPane tab="Academic Honors Received" key="1">
 					<h2 className="text-subtitle text-orange m-1">

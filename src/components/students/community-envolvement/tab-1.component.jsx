@@ -138,7 +138,7 @@ const Organizations = ({ data }) => {
 								},
 							]}
 						>
-							<DatePicker
+							<Input
 								size="large"
 								allowClear
 								style={{ width: "100%" }}
