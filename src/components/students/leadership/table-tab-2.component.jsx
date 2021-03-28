@@ -1,11 +1,11 @@
 import React from "react";
-import { Table, Avatar, Image, Button } from "antd";
+import { Table, Avatar, Image, Button, InputNumber } from "antd";
 import { Confirmation, notify } from "../../global/alerts/alerts.component";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteLeadership } from "../../../functions/leadership";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
 
-const LeadershipTrainingAttendedTable = ({ data }) => {
+const LeadershipTrainingAttendedTable = ({ data, userType }) => {
 	const dispatch = useDispatch();
 	const currentUser = useSelector(selectCurrentUser);
 	const columns = [
@@ -50,7 +50,12 @@ const LeadershipTrainingAttendedTable = ({ data }) => {
 		{
 			title: "Action",
 			render: (val) => {
-				return (
+				return userType === "evaluator" ? (
+					<div className="flex">
+						<InputNumber />
+						<Button default> Submit</Button>
+					</div>
+				) : (
 					<Confirmation
 						title="Are you sure you want to delete this data?"
 						confirmFn={() => {

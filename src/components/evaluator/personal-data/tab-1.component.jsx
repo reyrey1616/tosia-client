@@ -1,11 +1,6 @@
 import React from "react";
-import { Form, Input, Radio, Select, DatePicker, Avatar, Image } from "antd";
-import moment from "moment";
-import { selectCurrentSelectedStudent } from "../../../redux/auth/auth.selectors";
-import { createStructuredSelector } from "reselect";
-const dateFormat = "YYYY/MM/DD";
+import { Image } from "antd";
 
-const { Option } = Select;
 const PersonalData = ({ data }) => {
 	return (
 		data &&

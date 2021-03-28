@@ -22,7 +22,6 @@ const LeadershipTrainingAttended = ({ data }) => {
 		} else {
 			console.log("Success:", values);
 			console.log(user._id);
-			alert(values.type);
 			dispatch(
 				addLeadership(user._id, values, () => {
 					notify("Leadership Training Added");
