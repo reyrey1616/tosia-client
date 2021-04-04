@@ -82,6 +82,8 @@ const StudentProfile = () => {
 						userType="evaluator"
 					/>
 				</TabPane>
+
+				{/* ACADEMIC EXCELLENCE TAB */}
 				<TabPane
 					tab="Academic Excellence"
 					key="2"
@@ -200,6 +202,8 @@ const StudentProfile = () => {
 						/>
 					</div>
 				</TabPane>
+
+				{/* LEADERSHIP TAB */}
 				<TabPane
 					tab="Leadership"
 					key="3"
@@ -222,6 +226,12 @@ const StudentProfile = () => {
 								student.leadership_virtual[0]
 									.orgEnvolvement
 							}
+							docId={
+								student &&
+								student.leadership_virtual &&
+								student.leadership_virtual[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -240,6 +250,12 @@ const StudentProfile = () => {
 								student.leadership_virtual[0]
 									.leadershipTraining
 							}
+							docId={
+								student &&
+								student.leadership_virtual &&
+								student.leadership_virtual[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -254,9 +270,14 @@ const StudentProfile = () => {
 							data={
 								student &&
 								student.leadership_virtual &&
-								student.leadership_virtual[0]
-									.leadershipAwards
+								student.leadership_virtual[0].citation
 							}
+							docId={
+								student &&
+								student.leadership_virtual &&
+								student.leadership_virtual[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -274,6 +295,12 @@ const StudentProfile = () => {
 								student.leadership_virtual[0]
 									.activitiesOrganized
 							}
+							docId={
+								student &&
+								student.leadership_virtual &&
+								student.leadership_virtual[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>
