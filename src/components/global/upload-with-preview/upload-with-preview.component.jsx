@@ -10,6 +10,7 @@ const UploadWithPreview = ({ image, handleChange, label, name }) => {
 						src={image && image}
 						alt="Image preview"
 						className="image-preview width-100"
+						style={{ objectFit: "cover" }}
 					/>
 				) : (
 					<div className="image-preview bg-dirtywhite flex align-items-flex-center justify-content-center width-100">

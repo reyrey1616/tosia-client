@@ -31,3 +31,24 @@ export const updateUserInfo = (id, payload, callback = () => {}) => {
 		}
 	};
 };
+
+export const deleteCharacterReference = (id, payload, callback = () => {}) => {
+	return async (dispatch) => {
+		try {
+			let request = await axios.put(
+				`/students/${id}/character-reference-delete`,
+				payload
+			);
+			let response = await request.data;
+
+			if (response.success === true) {
+				dispatch(getUserStart());
+				callback();
+			} else {
+				throw Error;
+			}
+		} catch (error) {
+			errorCatch(error, "Error updating information");
+		}
+	};
+};

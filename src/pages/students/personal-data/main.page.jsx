@@ -41,7 +41,7 @@ const PersonalDataMainPage = () => {
 				</TabPane>
 				<TabPane tab="Character Reference" key="4">
 					<h2 className="text-subtitle text-orange m-1">
-						Character References
+						Character References (Limit: 3)
 					</h2>
 
 					<CharacterReferences data={userData && userData} />

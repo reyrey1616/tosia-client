@@ -3,7 +3,6 @@ import { Menu } from "antd";
 import { BsCardChecklist } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import { ImProfile } from "react-icons/im";
-
 import logo from "../../../assets/logo-circle.png";
 
 class Sidebar extends React.Component {

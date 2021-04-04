@@ -58,7 +58,7 @@ const LoginPage = () => {
 						/>
 						<h1 className="text-title-big text-white ml-1 m-0">
 							TOSIA - The Outstanding Students of Iloilo
-							Award
+							Awards
 						</h1>
 					</div>
 					<div className="text-subtitle text-white">
@@ -93,14 +93,17 @@ const LoginPage = () => {
 					<div className="p-2 pr-6 pl-6">
 						<p className="text-body m-0 text-grey">
 							{" "}
-							WELCOME BACK,
+							WELCOME BACK!
 						</p>
 						<h2 className="text-title-big text-blue m-0">
-							Please Login your account!
+							Please login your account.
 						</h2>
 						<p className="text-body mb-2 text-grey">
 							<label> DON'T HAVE AN ACCOUNT? </label>{" "}
-							<Link to="/registration"> REGISTER</Link>
+							<Link to="/registration">
+								{" "}
+								Click here to register
+							</Link>
 						</p>
 						<LoginForm />
 					</div>

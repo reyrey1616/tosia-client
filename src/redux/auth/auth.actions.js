@@ -2,7 +2,6 @@ import AuthActionTypes from "./auth.types";
 import setAuthToken from "../../utils/setAuthToken";
 import axios from "axios";
 import errorCatch from "../../utils/errorCatch";
-import { notify } from "../../components/global/alerts/alerts.component";
 
 export const getUserStart = (userType = "student") => (dispatch) => {
 	(async function loadStudent() {
@@ -24,14 +23,6 @@ export const getUserStart = (userType = "student") => (dispatch) => {
 				}
 				const response = request.data;
 				if (response.success) {
-					// notify(
-					// 	"Login Success!",
-					// 	"success",
-					// 	"Welcome to TOSIA"
-					// );
-
-					console.log(response.data);
-
 					dispatch(getUserSuccess(response.data));
 				} else {
 					throw Error;

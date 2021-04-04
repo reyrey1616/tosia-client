@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Form, Input } from "antd";
+import { Form, Input, Button } from "antd";
 import CharacterReferencesTable from "./character-reference-table.component";
 import { useDispatch } from "react-redux";
 import { updateUserInfo } from "../../../functions/personal-data";
@@ -8,6 +8,7 @@ const CharacterReferences = ({ data, userType }) => {
 	const dispatch = useDispatch();
 	const [form] = Form.useForm();
 	const [characterReferences, setCharacterReferences] = useState();
+	const [buttonLoading, setButtonLoading] = useState(false);
 
 	useEffect(() => {
 		setCharacterReferences(data && data.characterReference);
@@ -16,11 +17,12 @@ const CharacterReferences = ({ data, userType }) => {
 	const onFinish = (values) => {
 		if (data && characterReferences.length >= 3) {
 			notify(
-				"Unable to add character reference. You already reached the limit (3) of character reference!",
+				"Sorry, you are unable to add character reference. You have already reached the limit of 3 character references!",
 				"warning"
 			);
 		} else {
 			const updatedData = [...characterReferences, values];
+			setButtonLoading(true);
 			dispatch(
 				updateUserInfo(
 					data && data._id,
@@ -29,6 +31,7 @@ const CharacterReferences = ({ data, userType }) => {
 						notify("Character Reference Added!");
 						setCharacterReferences(updatedData);
 						form.resetFields();
+						setButtonLoading(false);
 					}
 				)
 			);
@@ -95,15 +98,17 @@ const CharacterReferences = ({ data, userType }) => {
 								<Input size="large" allowClear />
 							</Form.Item>
 							<Form.Item
-								className="col-1 col-md-12 p-0 mb-0 "
-								label="click here to save"
+								className="col-2 col-md-12 p-half mb-0"
+								label="Click here to save"
 							>
-								<button
-									type="submit"
-									className="branding-btn-primary"
+								<Button
+									htmlType="submit"
+									size="large"
+									type="primary"
+									loading={buttonLoading}
 								>
-									Save changes
-								</button>
+									Add Entry
+								</Button>
 							</Form.Item>
 						</div>
 					</div>
@@ -113,6 +118,7 @@ const CharacterReferences = ({ data, userType }) => {
 			<div className="table-container mt-2">
 				<CharacterReferencesTable
 					data={data && characterReferences}
+					studentId={data && data._id}
 				/>
 			</div>
 		</div>

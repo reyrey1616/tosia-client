@@ -1,16 +1,17 @@
-import React from "react";
-import { Form, Input, InputNumber } from "antd";
+import React, { useState } from "react";
+import { Form, Input, InputNumber, Button } from "antd";
 import { useDispatch } from "react-redux";
 import { notify } from "../../global/alerts/alerts.component";
 import { updateUserInfo } from "../../../functions/personal-data";
 const FamilyData = ({ data }) => {
 	const dispatch = useDispatch();
+	const [buttonLoading, setButtonLoading] = useState(false);
 	const onFinish = (values) => {
-		console.log("Success:", values);
-
+		setButtonLoading(true);
 		dispatch(
 			updateUserInfo(data && data._id, values, () => {
 				notify("Family Data Updated!");
+				setButtonLoading(false);
 			})
 		);
 	};
@@ -101,13 +102,6 @@ const FamilyData = ({ data }) => {
 							className="col-6 col-md-12 p-half mb-0"
 							label="Legal Guardian's Name"
 							name="guardianName"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input your guardian's name!",
-								},
-							]}
 						>
 							<Input size="large" allowClear />
 						</Form.Item>
@@ -115,13 +109,6 @@ const FamilyData = ({ data }) => {
 							className="col-6 col-md-12 p-half mb-0"
 							label="Legal Guardian's Occupation"
 							name="guardianOccupation"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input your guardian's occupation!",
-								},
-							]}
 						>
 							<Input size="large" allowClear />
 						</Form.Item>
@@ -148,12 +135,14 @@ const FamilyData = ({ data }) => {
 
 				<Form.Item>
 					<center>
-						<button
-							type="submit"
-							className="branding-btn-primary"
+						<Button
+							htmlType="submit"
+							size="large"
+							type="primary"
+							loading={buttonLoading}
 						>
-							&nbsp; Save changes
-						</button>
+							Save changes
+						</Button>
 					</center>
 				</Form.Item>
 			</Form>

@@ -1,15 +1,19 @@
 import React from "react";
-import { Table } from "antd";
+import { Button, Table } from "antd";
+import { useDispatch } from "react-redux";
+import { Confirmation, notify } from "../../global/alerts/alerts.component";
+import { deleteCharacterReference } from "../../../functions/personal-data";
+const CharacterReferencesTable = ({ data, studentId }) => {
+	const dispatch = useDispatch();
 
-const CharacterReferencesTable = ({ data }) => {
 	const columns = [
 		{
-			title: "Fullname",
+			title: "Full Name",
 			dataIndex: "fullName",
 			key: "fullName",
 		},
 		{
-			title: "Position/Affliation",
+			title: "Position / Affiliation",
 			dataIndex: "position",
 			key: "position",
 		},
@@ -17,6 +21,36 @@ const CharacterReferencesTable = ({ data }) => {
 			title: "Contact No.",
 			dataIndex: "contactNumber",
 			key: "contactNumber",
+		},
+		{
+			title: "Action",
+			render: (val) => {
+				return (
+					<Confirmation
+						title="Are you sure you want to delete this data?"
+						confirmFn={() => {
+							if (val.fullName) {
+								const values = {
+									fullName: val.fullName,
+								};
+								dispatch(
+									deleteCharacterReference(
+										studentId && studentId,
+										values,
+										() => {
+											notify(
+												"Character reference deleted!"
+											);
+										}
+									)
+								);
+							}
+						}}
+					>
+						<Button danger> Delete</Button>
+					</Confirmation>
+				);
+			},
 		},
 	];
 	return (

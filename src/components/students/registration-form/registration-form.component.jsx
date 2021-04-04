@@ -161,8 +161,8 @@ const RegistrationForm = () => {
 						<Option value="Principal's Office">
 							Principal's Office
 						</Option>
-						<Option value="Office of the Student Affair">
-							Office of the Student Affair
+						<Option value="Office of the Student Affairs">
+							Office of the Student Affairs
 						</Option>
 						<Option value="TOSIA Alumni">TOSIA Alumni</Option>
 						<Option value="Family / Friends">

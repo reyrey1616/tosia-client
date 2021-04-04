@@ -1,17 +1,19 @@
-import React from "react";
-import { Form, Input } from "antd";
+import React, { useState } from "react";
+import { Form, Input, Button } from "antd";
 import { useDispatch } from "react-redux";
 import { updateUserInfo } from "../../../functions/personal-data";
 import { notify } from "../../global/alerts/alerts.component";
 
 const SchoolContactDetails = ({ data }) => {
 	const dispatch = useDispatch();
+	const [buttonLoading, setButtonLoading] = useState(false);
 	const onFinish = (values) => {
-		console.log("Success:", values);
+		setButtonLoading(true);
 
 		dispatch(
 			updateUserInfo(data && data._id, values, () => {
 				notify("School Contact Details Updated!");
+				setButtonLoading(false);
 			})
 		);
 	};
@@ -90,6 +92,37 @@ const SchoolContactDetails = ({ data }) => {
 					<div className="col-12 flex">
 						<Form.Item
 							className="col-6 col-md-12 p-half mb-0"
+							label="Adviser Name"
+							name="schoolAdviserName"
+							rules={[
+								{
+									required: true,
+									message:
+										"Please input your adviser name!",
+								},
+							]}
+						>
+							<Input size="large" allowClear />
+						</Form.Item>
+						<Form.Item
+							className="col-6 col-md-12 p-half mb-0"
+							label="Adviser Contact No."
+							name="schoolAdviserContactNumber"
+							rules={[
+								{
+									required: true,
+									message:
+										"Please input your adviser contact number!",
+								},
+							]}
+						>
+							<Input size="large" allowClear />
+						</Form.Item>
+					</div>
+
+					<div className="col-12 flex">
+						<Form.Item
+							className="col-6 col-md-12 p-half mb-0"
 							label="Telephone No."
 							name="schoolContactNumber"
 							rules={[
@@ -121,12 +154,14 @@ const SchoolContactDetails = ({ data }) => {
 
 				<Form.Item>
 					<center>
-						<button
-							type="submit"
-							className="branding-btn-primary"
+						<Button
+							htmlType="submit"
+							size="large"
+							type="primary"
+							loading={buttonLoading}
 						>
 							&nbsp; Save changes
-						</button>
+						</Button>
 					</center>
 				</Form.Item>
 			</Form>

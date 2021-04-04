@@ -55,11 +55,13 @@ const StudentRoutes = () => {
 								onClick={() =>
 									localStorage.removeItem("stkn")
 								}
-								shape="circle"
 								size="large"
 								className="mr-1"
 								icon={<LogoutOutlined />}
-							></Button>
+							>
+								{" "}
+								Logout{" "}
+							</Button>
 						</Link>
 					</Tooltip>
 				</div>

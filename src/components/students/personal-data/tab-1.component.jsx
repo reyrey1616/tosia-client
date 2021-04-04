@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, Radio, Select, DatePicker } from "antd";
+import { Form, Input, Radio, Select, DatePicker, Button } from "antd";
 import { notify } from "../../global/alerts/alerts.component";
 import { updateUserInfo } from "../../../functions/personal-data";
 import { useDispatch } from "react-redux";
 import moment from "moment";
 import UploadWithPreview from "../../global/upload-with-preview/upload-with-preview.component";
 import { toDataURL, dataURLtoFile } from "../../../utils/urlToFile";
+
 const dateFormat = "YYYY/MM/DD";
 
 const { Option } = Select;
@@ -13,6 +14,7 @@ const PersonalData = ({ data, userType }) => {
 	const [mainPhotoUrl, setMainPhotoUrl] = useState();
 	const [mainPhotoFile, setMainPhotoFile] = useState();
 	const [student, setStudent] = useState({});
+	const [buttonLoading, setButtonLoading] = useState(false);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -28,14 +30,14 @@ const PersonalData = ({ data, userType }) => {
 	}, [data]);
 
 	const onFinish = async (values) => {
-		console.log(values);
-
 		delete values.password;
 
 		values.image = mainPhotoFile;
+		setButtonLoading(true);
 		dispatch(
 			updateUserInfo(data && data._id, values, () => {
-				notify("Information updated successfully");
+					notify("Information updated successfully");
+					setButtonLoading(false);
 			})
 		);
 	};
@@ -458,12 +460,14 @@ const PersonalData = ({ data, userType }) => {
 					{userType === "evaluator" ? null : (
 						<Form.Item>
 							<center>
-								<button
-									type="submit"
-									className="branding-btn-primary"
+								<Button
+									htmlType="submit"
+									size="large"
+									type="primary"
+									loading={buttonLoading}
 								>
 									&nbsp; Save changes
-								</button>
+								</Button>
 							</center>
 						</Form.Item>
 					)}
