@@ -126,6 +126,12 @@ const StudentProfile = () => {
 								student.academic &&
 								student.academic[0].citationsReceived
 							}
+							docId={
+								student &&
+								student.academic &&
+								student.academic[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -141,6 +147,12 @@ const StudentProfile = () => {
 								student.academic &&
 								student.academic[0].academicContestsWon
 							}
+							docId={
+								student &&
+								student.academic &&
+								student.academic[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -156,6 +168,12 @@ const StudentProfile = () => {
 								student.academic &&
 								student.academic[0].nonAcademicAwards
 							}
+							docId={
+								student &&
+								student.academic &&
+								student.academic[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -172,6 +190,12 @@ const StudentProfile = () => {
 								student.academic &&
 								student.academic[0].seminarsAttended
 							}
+							docId={
+								student &&
+								student.academic &&
+								student.academic[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>

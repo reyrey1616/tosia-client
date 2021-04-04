@@ -4,8 +4,9 @@ import { Confirmation, notify } from "../../global/alerts/alerts.component";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteAcademicExcellence } from "../../../functions/academic-excellence";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
+import EvaluationForm from "../../shared/evaluation-form.component";
 
-const CitationsReceivedTable = ({ data, userType }) => {
+const CitationsReceivedTable = ({ data, userType, docId, student }) => {
 	const dispatch = useDispatch();
 	const currentUser = useSelector(selectCurrentUser);
 	const columns = [
@@ -55,10 +56,16 @@ const CitationsReceivedTable = ({ data, userType }) => {
 			title: "Action",
 			render: (val) => {
 				return userType === "evaluator" ? (
-					<div className="flex">
-						<InputNumber />
-						<Button default> Submit</Button>
-					</div>
+					<EvaluationForm
+						data={{
+							evaluator: currentUser && currentUser._id,
+							student,
+							parentAward: docId,
+							awardType: "academic",
+							subAwardId: val.id,
+							subAwardType: "citation",
+						}}
+					/>
 				) : (
 					<Confirmation
 						title="Are you sure you want to delete this data?"

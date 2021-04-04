@@ -18,7 +18,7 @@ const addEvaluation = async ({ data }, callback) => {
 	}
 };
 
-const EvaluationSubmitForm = ({ data }) => {
+const EvaluationForm = ({ data }) => {
 	const [point, setPoint] = useState(0);
 	const [loading, setLoading] = useState(false);
 	return (
@@ -63,4 +63,4 @@ const EvaluationSubmitForm = ({ data }) => {
 	);
 };
 
-export default EvaluationSubmitForm;
+export default EvaluationForm;
