@@ -305,6 +305,8 @@ const StudentProfile = () => {
 						/>
 					</div>
 				</TabPane>
+
+				{/* COMMUNITY ENVOLVEMENT TAB */}
 				<TabPane
 					tab="Community Envolvement"
 					key="4"
@@ -326,6 +328,12 @@ const StudentProfile = () => {
 								student.community &&
 								student.community[0].organizations
 							}
+							docId={
+								student &&
+								student.community &&
+								student.community[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -342,6 +350,12 @@ const StudentProfile = () => {
 								student.community &&
 								student.community[0].activitiesAttended
 							}
+							docId={
+								student &&
+								student.community &&
+								student.community[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -358,6 +372,12 @@ const StudentProfile = () => {
 								student.community &&
 								student.community[0].activitiesOrganized
 							}
+							docId={
+								student &&
+								student.community &&
+								student.community[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -374,6 +394,12 @@ const StudentProfile = () => {
 								student.community &&
 								student.community[0].awardsAndCitations
 							}
+							docId={
+								student &&
+								student.community &&
+								student.community[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>
