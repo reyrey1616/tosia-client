@@ -82,7 +82,15 @@ const StudentProfile = () => {
 						userType="evaluator"
 					/>
 				</TabPane>
-				<TabPane tab="Academic Excellence" key="2" className="p-1">
+				<TabPane
+					tab="Academic Excellence"
+					key="2"
+					className="p-1"
+					style={{
+						height: "80vh",
+						overflow: "auto",
+					}}
+				>
 					<div className="card p-1 mb-2">
 						<p className="font-18 text-orange m-1">
 							{" "}
@@ -96,6 +104,12 @@ const StudentProfile = () => {
 								student.academic[0]
 									.academicHonorsReceived
 							}
+							docId={
+								student &&
+								student.academic &&
+								student.academic[0]._id
+							}
+							student={student && student._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -162,7 +176,15 @@ const StudentProfile = () => {
 						/>
 					</div>
 				</TabPane>
-				<TabPane tab="Leadership" key="3" className="p-1">
+				<TabPane
+					tab="Leadership"
+					key="3"
+					className="p-1"
+					style={{
+						height: "80vh",
+						overflow: "auto",
+					}}
+				>
 					<div className="card p-1 mb-2">
 						<p className="font-18 text-orange m-1">
 							{" "}
@@ -236,6 +258,10 @@ const StudentProfile = () => {
 					tab="Community Envolvement"
 					key="4"
 					className="p-1"
+					style={{
+						height: "80vh",
+						overflow: "auto",
+					}}
 				>
 					<div className="card p-1 mb-2">
 						<p className="font-18 text-orange m-1">

@@ -1,10 +1,12 @@
-import React from "react";
-import { Table, Avatar, Image, Button, InputNumber } from "antd";
+import React, { useState } from "react";
+import { Table, Avatar, Image, Button } from "antd";
 import { Confirmation, notify } from "../../global/alerts/alerts.component";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteAcademicExcellence } from "../../../functions/academic-excellence";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
-const HonorsReceivedTable = ({ data, userType }) => {
+import EvaluationForm from "../../shared/evaluation-form.component";
+
+const HonorsReceivedTable = ({ data, userType, docId, student }) => {
 	const dispatch = useDispatch();
 	const currentUser = useSelector(selectCurrentUser);
 	const columns = [
@@ -38,10 +40,16 @@ const HonorsReceivedTable = ({ data, userType }) => {
 			title: "Action",
 			render: (val) => {
 				return userType === "evaluator" ? (
-					<div className="flex">
-						<InputNumber />
-						<Button default> Submit</Button>
-					</div>
+					<EvaluationForm
+						data={{
+							evaluator: currentUser && currentUser._id,
+							student,
+							parentAward: docId,
+							awardType: "academic",
+							subAwardId: val.id,
+							subAwardType: "honor",
+						}}
+					/>
 				) : (
 					<Confirmation
 						title="Are you sure you want to delete this data?"

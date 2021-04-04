@@ -57,12 +57,12 @@
 	border-radius: 25px;
 	padding-left: 0;
 	background: $dirtywhite;
-
 	.admin-main-content {
 		border-radius: 25px;
 		box-shadow: 4px 8px 16px 4px rgba(0, 0, 0, 0.1);
 		padding: 1rem;
 		background: rgb(253, 253, 253) !important;
 		min-height: 85vh !important;
+		overflow: auto;
 	}
 }
