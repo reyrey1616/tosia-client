@@ -30,7 +30,7 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 			key: "levelImplemented",
 		},
 		{
-			title: "Significant role in the project organized",
+			title: "Significant role in the activity organized",
 			dataIndex: "role",
 			key: "role",
 		},

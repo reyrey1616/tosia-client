@@ -26,7 +26,8 @@ const AcademicContestsWonTable = ({ data, userType, docId, student }) => {
 			key: "rank",
 		},
 		{
-			title: "Name of Organization/Institution that gives the award",
+			title:
+				"Name of the Organization/Institution that gave the award",
 			dataIndex: "organization",
 			key: "organization",
 		},

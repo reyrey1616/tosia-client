@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, DatePicker, Select } from "antd";
+import { Form, Input, DatePicker, Select, Button } from "antd";
 import CitationsReceivedTable from "./tab-2-citations-received.component";
 import SelectYearLevel from "../../shared/level.component";
 import { notify } from "../../global/alerts/alerts.component";
@@ -13,6 +13,8 @@ const CitationsReceived = ({ data }) => {
 	const [form] = Form.useForm();
 	const [imageFile, setImageFile] = useState();
 	const [fileKey, setFileKey] = useState(Date.now());
+	const [buttonLoading, setButtonLoading] = useState(false);
+
 	const onFinish = (values) => {
 		values.image = imageFile;
 		values.type = "citation";
@@ -21,13 +23,14 @@ const CitationsReceived = ({ data }) => {
 			notify("Please add image!", "warning");
 		} else {
 			console.log("Success:", values);
-			console.log(user._id);
+			setButtonLoading(true);
 			dispatch(
 				addAcademicExcellence(user._id, values, () => {
 					notify("Citation Added");
 					form.resetFields();
 					setImageFile(null);
 					setFileKey(Date.now());
+					setButtonLoading(false);
 				})
 			);
 		}
@@ -78,7 +81,7 @@ const CitationsReceived = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 
 						<SelectYearLevel />
@@ -95,7 +98,7 @@ const CitationsReceived = ({ data }) => {
 								},
 							]}
 						>
-							<Select size="large">
+							<Select>
 								<Option value="Individual">
 									Individual
 								</Option>
@@ -107,7 +110,7 @@ const CitationsReceived = ({ data }) => {
 
 						<Form.Item
 							className="col-4 col-md-12 p-half mb-0"
-							label="Name of organization/institution that gives the award"
+							label="Name of organization/institution that gave the award"
 							name="organization"
 							rules={[
 								{
@@ -117,7 +120,7 @@ const CitationsReceived = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 
 						<Form.Item
@@ -133,7 +136,6 @@ const CitationsReceived = ({ data }) => {
 							]}
 						>
 							<DatePicker
-								size="large"
 								allowClear
 								style={{ width: "100%" }}
 							/>
@@ -156,16 +158,17 @@ const CitationsReceived = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item
-							className="col-1 col-md-12 p-0 mb-0 mt-1 "
-							label="click button below to save"
-						>
-							<button
-								type="submit"
-								className="branding-btn-primary"
-							>
-								Save changes
-							</button>
+						<Form.Item className="button-form-item">
+							<center>
+								<Button
+									htmlType="submit"
+									size="large"
+									type="primary"
+									loading={buttonLoading}
+								>
+									&nbsp; Save changes
+								</Button>
+							</center>
 						</Form.Item>
 					</div>
 				</div>

@@ -26,7 +26,7 @@ const CommunityEnvolvementMainPage = () => {
 			</ul>
 			<Tabs defaultActiveKey="1" type="card">
 				<TabPane
-					tab="Most Significant Religious Organizations"
+					tab="Most Significant Civic / NGO / Religious Organizations and Position Held"
 					key="1"
 				>
 					<h2 className="text-subtitle text-orange m-1">
@@ -54,11 +54,11 @@ const CommunityEnvolvementMainPage = () => {
 					<ActivitiesOrganized data={userData && userData} />
 				</TabPane>
 				<TabPane
-					tab="Most Significant Awards and Citation Received"
+					tab="Most Significant Awards and Citations Received"
 					key="4"
 				>
 					<h2 className="text-subtitle text-orange m-1">
-						Most Significant Awards and Citation Received
+						Most Significant Awards and Citations Received
 					</h2>
 
 					<AwardsAndCitationsReceived

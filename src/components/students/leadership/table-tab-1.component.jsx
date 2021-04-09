@@ -11,7 +11,7 @@ const OrganizationInvolvementTable = ({ data, userType, docId, student }) => {
 	const currentUser = useSelector(selectCurrentUser);
 	const columns = [
 		{
-			title: "Name of Organization",
+			title: "Name of the Organization",
 			dataIndex: "organizationName",
 			key: "organizationName",
 		},
@@ -21,12 +21,12 @@ const OrganizationInvolvementTable = ({ data, userType, docId, student }) => {
 			key: "position",
 		},
 		{
-			title: "At what level does organization operate?",
+			title: "At what level does the organization operate?",
 			dataIndex: "levelOperate",
 			key: "levelOperate",
 		},
 		{
-			title: "Inclusive Date",
+			title: "Inclusive Dates",
 			dataIndex: "inclusiveDate",
 			key: "inclusiveDate",
 		},

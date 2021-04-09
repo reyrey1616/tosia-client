@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Select, DatePicker } from "antd";
+import { Form, Input, Select, Button } from "antd";
 import OrganizationsTable from "./table-tab-1.component";
 // import SelectYearLevel from "../../shared/level.component";
 import { notify } from "../../global/alerts/alerts.component";
@@ -14,6 +14,8 @@ const Organizations = ({ data }) => {
 	const [form] = Form.useForm();
 	const [imageFile, setImageFile] = useState();
 	const [fileKey, setFileKey] = useState(Date.now());
+	const [buttonLoading, setButtonLoading] = useState(false);
+
 	const onFinish = (values) => {
 		values.image = imageFile;
 		values.type = "organization";
@@ -23,12 +25,14 @@ const Organizations = ({ data }) => {
 		} else {
 			console.log("Success:", values);
 			console.log(user._id);
+			setButtonLoading(true);
 			dispatch(
 				addCommunityEnvolvement(user._id, values, () => {
 					notify("Religious Organization Added");
 					form.resetFields();
 					setImageFile(null);
 					setFileKey(Date.now());
+					setButtonLoading(false);
 				})
 			);
 		}
@@ -80,10 +84,10 @@ const Organizations = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 						<Form.Item
-							className="col-2 col-md-12 p-half"
+							className="col-4 col-md-12 p-half"
 							label="Position/Designation"
 							name="position"
 							rules={[
@@ -94,7 +98,7 @@ const Organizations = ({ data }) => {
 								},
 							]}
 						>
-							<Select size="large">
+							<Select>
 								<Option value="Member">Member</Option>
 								<Option value="Officer">
 									Officer
@@ -104,7 +108,7 @@ const Organizations = ({ data }) => {
 
 						<Form.Item
 							className="col-4 col-md-12 p-half"
-							label="At what level does organization operate?"
+							label="At what level does the organization operate?"
 							name="levelOperate"
 							rules={[
 								{
@@ -114,7 +118,7 @@ const Organizations = ({ data }) => {
 								},
 							]}
 						>
-							<Select size="large">
+							<Select>
 								<Option value="Local">Local</Option>
 								<Option value="National">
 									National
@@ -127,21 +131,21 @@ const Organizations = ({ data }) => {
 						</Form.Item>
 
 						<Form.Item
-							className="col-2 col-md-12 p-half"
-							label="Inclusive Date"
+							className="col-4 col-md-12 p-half"
+							label="Inclusive Dates"
 							name="inclusiveDate"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please input inclusive date!",
+										"Please input inclusive dates!",
 								},
 							]}
 						>
 							<Input
-								size="large"
 								allowClear
 								style={{ width: "100%" }}
+								placeholder="February 2020 to March 2020"
 							/>
 						</Form.Item>
 						<div
@@ -160,16 +164,17 @@ const Organizations = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item
-							className="col-1 col-md-12 p-0 mb-0 mt-1 "
-							label="click here to save"
-						>
-							<button
-								type="submit"
-								className="branding-btn-primary"
-							>
-								Save changes
-							</button>
+						<Form.Item className="button-form-item">
+							<center>
+								<Button
+									htmlType="submit"
+									size="large"
+									type="primary"
+									loading={buttonLoading}
+								>
+									&nbsp; Save changes
+								</Button>
+							</center>
 						</Form.Item>
 					</div>
 				</div>

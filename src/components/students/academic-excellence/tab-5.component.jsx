@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Select, DatePicker } from "antd";
+import { Form, Input, Select, DatePicker, Button } from "antd";
 import TrainingAttendedTable from "./tab-5-training-attended.component";
 import SelectYearLevel from "../../shared/level.component";
 import { notify } from "../../global/alerts/alerts.component";
@@ -13,6 +13,7 @@ const TrainingAttended = ({ data }) => {
 	const [form] = Form.useForm();
 	const [imageFile, setImageFile] = useState();
 	const [fileKey, setFileKey] = useState(Date.now());
+	const [buttonLoading, setButtonLoading] = useState(false);
 	const onFinish = (values) => {
 		values.image = imageFile;
 		values.type = "seminar";
@@ -22,12 +23,14 @@ const TrainingAttended = ({ data }) => {
 		} else {
 			console.log("Success:", values);
 			console.log(user._id);
+			setButtonLoading(true);
 			dispatch(
 				addAcademicExcellence(user._id, values, () => {
 					notify("Academic-Related Seminar/Training Added");
 					form.resetFields();
 					setImageFile(null);
 					setFileKey(Date.now());
+					setButtonLoading(false);
 				})
 			);
 		}
@@ -79,10 +82,10 @@ const TrainingAttended = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 						<Form.Item
-							className="col-2 col-md-12 p-half"
+							className="col-4 col-md-12 p-half"
 							label="Requirement for Graduation?"
 							name="isRequirement"
 							rules={[
@@ -93,7 +96,7 @@ const TrainingAttended = ({ data }) => {
 								},
 							]}
 						>
-							<Select defaultValue="Yes" size="large">
+							<Select defaultValue="Yes">
 								<Option value="Yes">Yes</Option>
 								<Option value="No">No</Option>
 							</Select>
@@ -101,7 +104,7 @@ const TrainingAttended = ({ data }) => {
 						<SelectYearLevel />
 						<Form.Item
 							className="col-4 col-md-12 p-half mb-0"
-							label="Name of organization/institution that gives the award"
+							label="Name of the organization/institution that gave the award"
 							name="organization"
 							rules={[
 								{
@@ -111,11 +114,11 @@ const TrainingAttended = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 
 						<Form.Item
-							className="col-2 col-md-12 p-half"
+							className="col-4 col-md-12 p-half"
 							label="Date Attended"
 							name="dateAttended"
 							rules={[
@@ -127,14 +130,13 @@ const TrainingAttended = ({ data }) => {
 							]}
 						>
 							<DatePicker
-								size="large"
 								allowClear
 								style={{ width: "100%" }}
 							/>
 						</Form.Item>
 
 						<div
-							className="col-1 col-md-12 p-half mb-0"
+							className="col-4 col-md-12 p-half mb-0"
 							label="Image"
 							name="image"
 						>
@@ -150,16 +152,17 @@ const TrainingAttended = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item
-							className="col-1 col-md-12 p-0 mb-0 mt-1 "
-							label="click button below to save"
-						>
-							<button
-								type="submit"
-								className="branding-btn-primary"
-							>
-								Save changes
-							</button>
+						<Form.Item className="button-form-item">
+							<center>
+								<Button
+									htmlType="submit"
+									size="large"
+									type="primary"
+									loading={buttonLoading}
+								>
+									&nbsp; Save changes
+								</Button>
+							</center>
 						</Form.Item>
 					</div>
 				</div>

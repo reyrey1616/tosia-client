@@ -26,7 +26,8 @@ const TrainingAttendedTable = ({ data, userType, docId, student }) => {
 		},
 
 		{
-			title: "Name of Organization/Institution that gives the award",
+			title:
+				"Name of the Organization/Institution that gave the award",
 			dataIndex: "organization",
 			key: "organization",
 		},

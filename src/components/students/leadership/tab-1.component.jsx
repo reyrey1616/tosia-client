@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Select, DatePicker } from "antd";
+import { Form, Input, Select, Button } from "antd";
 import OrganizationInvolvementTable from "./table-tab-1.component";
 // import SelectYearLevel from "../../shared/level.component";
 import { notify } from "../../global/alerts/alerts.component";
@@ -14,6 +14,7 @@ const OrganizationInvolvement = ({ data }) => {
 	const [form] = Form.useForm();
 	const [imageFile, setImageFile] = useState();
 	const [fileKey, setFileKey] = useState(Date.now());
+	const [buttonLoading, setButtonLoading] = useState(false);
 	const onFinish = (values) => {
 		values.image = imageFile;
 		values.type = "org_envolvement";
@@ -23,12 +24,14 @@ const OrganizationInvolvement = ({ data }) => {
 		} else {
 			console.log("Success:", values);
 			console.log(user._id);
+			setButtonLoading(true);
 			dispatch(
 				addLeadership(user._id, values, () => {
 					notify("Organization Envolvement Added");
 					form.resetFields();
 					setImageFile(null);
 					setFileKey(Date.now());
+					setButtonLoading(false);
 				})
 			);
 		}
@@ -80,7 +83,7 @@ const OrganizationInvolvement = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 						<Form.Item
 							className="col-2 col-md-12 p-half"
@@ -94,7 +97,7 @@ const OrganizationInvolvement = ({ data }) => {
 								},
 							]}
 						>
-							<Select size="large">
+							<Select>
 								<Option value="Member">Member</Option>
 								<Option value="Officer">
 									Officer
@@ -104,7 +107,7 @@ const OrganizationInvolvement = ({ data }) => {
 
 						<Form.Item
 							className="col-3 col-md-12 p-half"
-							label="At what level does organization operate?"
+							label="At what level does the organization operate?"
 							name="levelOperate"
 							rules={[
 								{
@@ -114,7 +117,7 @@ const OrganizationInvolvement = ({ data }) => {
 								},
 							]}
 						>
-							<Select size="large">
+							<Select>
 								<Option value="Classroom">
 									Classroom
 								</Option>
@@ -152,20 +155,20 @@ const OrganizationInvolvement = ({ data }) => {
 
 						<Form.Item
 							className="col-3 col-md-12 p-half"
-							label="Inclusive Date"
+							label="Inclusive Dates"
 							name="inclusiveDate"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please input inclusive date!",
+										"Please input inclusive dates!",
 								},
 							]}
 						>
 							<Input
-								size="large"
 								allowClear
 								style={{ width: "100%" }}
+								placeholder="February 2020 to March 2020"
 							/>
 						</Form.Item>
 
@@ -185,16 +188,17 @@ const OrganizationInvolvement = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item
-							className="col-1 col-md-12 p-0 mb-0 mt-1 "
-							label="click here to save"
-						>
-							<button
-								type="submit"
-								className="branding-btn-primary"
-							>
-								Save changes
-							</button>
+						<Form.Item className="button-form-item">
+							<center>
+								<Button
+									htmlType="submit"
+									size="large"
+									type="primary"
+									loading={buttonLoading}
+								>
+									&nbsp; Save changes
+								</Button>
+							</center>
 						</Form.Item>
 					</div>
 				</div>

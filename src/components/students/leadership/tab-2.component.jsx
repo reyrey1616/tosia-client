@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Select, DatePicker } from "antd";
+import { Form, Input, Button, DatePicker } from "antd";
 import LeadershipTrainingAttendedTable from "./table-tab-2.component";
 import SelectYearLevel from "../../shared/level.component";
 import { notify } from "../../global/alerts/alerts.component";
@@ -13,6 +13,7 @@ const LeadershipTrainingAttended = ({ data }) => {
 	const [form] = Form.useForm();
 	const [imageFile, setImageFile] = useState();
 	const [fileKey, setFileKey] = useState(Date.now());
+	const [buttonLoading, setButtonLoading] = useState(false);
 	const onFinish = (values) => {
 		values.image = imageFile;
 		values.type = "leadership";
@@ -22,12 +23,14 @@ const LeadershipTrainingAttended = ({ data }) => {
 		} else {
 			console.log("Success:", values);
 			console.log(user._id);
+			setButtonLoading(true);
 			dispatch(
 				addLeadership(user._id, values, () => {
 					notify("Leadership Training Added");
 					form.resetFields();
 					setImageFile(null);
 					setFileKey(Date.now());
+					setButtonLoading(false);
 				})
 			);
 		}
@@ -79,14 +82,14 @@ const LeadershipTrainingAttended = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 
 						<SelectYearLevel />
 
 						<Form.Item
 							className="col-4 col-md-12 p-half mb-0"
-							label="Name of organization/institution that gives the award"
+							label="Name of the organization/institution that gave the award"
 							name="organization"
 							rules={[
 								{
@@ -96,7 +99,7 @@ const LeadershipTrainingAttended = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 
 						<Form.Item
@@ -112,7 +115,6 @@ const LeadershipTrainingAttended = ({ data }) => {
 							]}
 						>
 							<DatePicker
-								size="large"
 								allowClear
 								style={{ width: "100%" }}
 							/>
@@ -134,16 +136,17 @@ const LeadershipTrainingAttended = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item
-							className="col-1 col-md-12 p-0 mb-0 mt-1 "
-							label="click button below to save"
-						>
-							<button
-								type="submit"
-								className="branding-btn-primary"
-							>
-								Save changes
-							</button>
+						<Form.Item className="button-form-item">
+							<center>
+								<Button
+									htmlType="submit"
+									size="large"
+									type="primary"
+									loading={buttonLoading}
+								>
+									&nbsp; Save changes
+								</Button>
+							</center>
 						</Form.Item>
 					</div>
 				</div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Select, DatePicker } from "antd";
+import { Form, Input, Select, DatePicker, Button } from "antd";
 import AwardsAndCitationsReceivedTable from "./table-tab-4.component";
 import { notify } from "../../global/alerts/alerts.component";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +13,7 @@ const AwardsAndCitationsReceived = ({ data }) => {
 	const [form] = Form.useForm();
 	const [imageFile, setImageFile] = useState();
 	const [fileKey, setFileKey] = useState(Date.now());
+	const [buttonLoading, setButtonLoading] = useState(false);
 	const onFinish = (values) => {
 		values.image = imageFile;
 		values.type = "citation";
@@ -22,12 +23,14 @@ const AwardsAndCitationsReceived = ({ data }) => {
 		} else {
 			console.log("Success:", values);
 			console.log(user._id);
+			setButtonLoading(true);
 			dispatch(
 				addCommunityEnvolvement(user._id, values, () => {
 					notify("Award/Citation Added");
 					form.resetFields();
 					setImageFile(null);
 					setFileKey(Date.now());
+					setButtonLoading(false);
 				})
 			);
 		}
@@ -79,7 +82,7 @@ const AwardsAndCitationsReceived = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 						<Form.Item
 							className="col-3 col-md-12 p-half"
@@ -93,7 +96,7 @@ const AwardsAndCitationsReceived = ({ data }) => {
 								},
 							]}
 						>
-							<Select size="large">
+							<Select>
 								<Option value="School-based">
 									School-based
 								</Option>
@@ -117,17 +120,17 @@ const AwardsAndCitationsReceived = ({ data }) => {
 
 						<Form.Item
 							className="col-4 col-md-12 p-half mb-0"
-							label="Name of organization/institution that gives the award"
+							label="Name of the organization/institution that gave the award"
 							name="organization"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please input organization/institution name!",
+										"Please input the organization/institution name!",
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 
 						<Form.Item
@@ -143,7 +146,6 @@ const AwardsAndCitationsReceived = ({ data }) => {
 							]}
 						>
 							<DatePicker
-								size="large"
 								allowClear
 								style={{ width: "100%" }}
 							/>
@@ -165,16 +167,17 @@ const AwardsAndCitationsReceived = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item
-							className="col-1 col-md-12 p-0 mb-0 mt-1 "
-							label="click button below to save"
-						>
-							<button
-								type="submit"
-								className="branding-btn-primary"
-							>
-								Save changes
-							</button>
+						<Form.Item className="button-form-item">
+							<center>
+								<Button
+									htmlType="submit"
+									size="large"
+									type="primary"
+									loading={buttonLoading}
+								>
+									&nbsp; Save changes
+								</Button>
+							</center>
 						</Form.Item>
 					</div>
 				</div>

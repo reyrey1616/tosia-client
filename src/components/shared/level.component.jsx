@@ -5,7 +5,6 @@ import { selectCategory } from "../../redux/auth/auth.selectors";
 const { Option } = Select;
 const YearLevel = () => {
 	const level = useSelector(selectCategory);
-	console.log(level);
 	return level && level === "College" ? (
 		<Form.Item
 			className="col-2 col-md-12 p-half"
@@ -18,8 +17,10 @@ const YearLevel = () => {
 				},
 			]}
 		>
-			<Select defaultValue="1st Year" size="large">
-				<Option value="3rd Year">3rd Year</Option>
+			<Select>
+				<Option value="3rd Year" selected>
+					3rd Year
+				</Option>
 				<Option value="4th Year">4th Year</Option>
 				<Option value="5th Year">5th Year</Option>
 			</Select>
@@ -36,7 +37,7 @@ const YearLevel = () => {
 				},
 			]}
 		>
-			<Select size="large">
+			<Select>
 				<Option value="Grade 8">Grade 8</Option>
 				<Option value="Grade 9">Grade 9</Option>
 				<Option value="Grade 10">Grade 10</Option>

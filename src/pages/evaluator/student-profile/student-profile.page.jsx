@@ -162,7 +162,7 @@ const StudentProfile = () => {
 					<div className="card p-1 mb-2">
 						<p className="font-18 text-orange m-1">
 							{" "}
-							Most Significant Non Academic Awards
+							Most Significant Non-Academic Awards
 						</p>
 						<NonAcademicAwardsTable
 							data={
@@ -263,7 +263,8 @@ const StudentProfile = () => {
 					<div className="card p-1 mb-2">
 						<p className="font-18 text-orange m-1">
 							{" "}
-							Most Significant Awards and Citation Received
+							Most Significant Awards and Citations
+							Received
 						</p>
 
 						<LeadershipCitationTable
@@ -319,7 +320,8 @@ const StudentProfile = () => {
 					<div className="card p-1 mb-2">
 						<p className="font-18 text-orange m-1">
 							{" "}
-							Most Significant Religious Organizations
+							Most Significant Civic / NGO / Religious
+							Organizations and Position Held
 						</p>
 
 						<CommunityReligiousOrganizationTable
@@ -385,7 +387,8 @@ const StudentProfile = () => {
 					<div className="card p-1 mb-2">
 						<p className="font-18 text-orange m-1">
 							{" "}
-							Most Significant Awards and Citation Received
+							Most Significant Awards and Citations
+							Received
 						</p>
 
 						<CommunityCitationTable

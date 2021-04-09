@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Select, DatePicker } from "antd";
+import { Form, Input, Select, DatePicker, Button } from "antd";
 import ActivitiesAttendedTable from "./table-tab-2.component";
 import { notify } from "../../global/alerts/alerts.component";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +13,7 @@ const ActivitiesAttended = ({ data }) => {
 	const [form] = Form.useForm();
 	const [imageFile, setImageFile] = useState();
 	const [fileKey, setFileKey] = useState(Date.now());
+	const [buttonLoading, setButtonLoading] = useState(false);
 	const onFinish = (values) => {
 		values.image = imageFile;
 		values.type = "activities";
@@ -21,6 +22,7 @@ const ActivitiesAttended = ({ data }) => {
 			notify("Please add image!", "warning");
 		} else {
 			console.log("Success:", values);
+			setButtonLoading(true);
 			console.log(user._id);
 			dispatch(
 				addCommunityEnvolvement(user._id, values, () => {
@@ -28,6 +30,7 @@ const ActivitiesAttended = ({ data }) => {
 					form.resetFields();
 					setImageFile(null);
 					setFileKey(Date.now());
+					setButtonLoading(false);
 				})
 			);
 		}
@@ -79,7 +82,7 @@ const ActivitiesAttended = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 
 						<Form.Item
@@ -94,12 +97,12 @@ const ActivitiesAttended = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 
 						<Form.Item
 							className="col-4 col-md-12 p-half"
-							label="At what level the activity implemented implemented?"
+							label="At what level was the activity implemented?"
 							name="levelImplemented"
 							rules={[
 								{
@@ -109,7 +112,7 @@ const ActivitiesAttended = ({ data }) => {
 								},
 							]}
 						>
-							<Select size="large">
+							<Select>
 								<Option value="School-based">
 									School-based
 								</Option>
@@ -133,17 +136,17 @@ const ActivitiesAttended = ({ data }) => {
 
 						<Form.Item
 							className="col-4 col-md-12 p-half mb-0"
-							label="Name of Organization that organized the activity"
+							label="Name of the Organization that organized the activity"
 							name="organization"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please input name of organization that organized the activity!",
+										"Please input name of the organization that organized the activity!",
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 
 						<Form.Item
@@ -159,7 +162,6 @@ const ActivitiesAttended = ({ data }) => {
 							]}
 						>
 							<DatePicker
-								size="large"
 								allowClear
 								style={{ width: "100%" }}
 							/>
@@ -181,16 +183,17 @@ const ActivitiesAttended = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item
-							className="col-1 col-md-12 p-0 mb-0 mt-1 "
-							label="click button below to save"
-						>
-							<button
-								type="submit"
-								className="branding-btn-primary"
-							>
-								Save changes
-							</button>
+						<Form.Item className="button-form-item">
+							<center>
+								<Button
+									htmlType="submit"
+									size="large"
+									type="primary"
+									loading={buttonLoading}
+								>
+									&nbsp; Save changes
+								</Button>
+							</center>
 						</Form.Item>
 					</div>
 				</div>

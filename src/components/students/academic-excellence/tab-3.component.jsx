@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Select, DatePicker } from "antd";
+import { Form, Input, Select, DatePicker, Button } from "antd";
 import AcademicContestsWonTable from "./tab-3-contests-won.component";
 import SelectYearLevel from "../../shared/level.component";
 import { notify } from "../../global/alerts/alerts.component";
@@ -12,6 +12,7 @@ const AcademicContestsWon = ({ data }) => {
 	const user = useSelector(selectCurrentUser);
 	const [form] = Form.useForm();
 	const [imageFile, setImageFile] = useState();
+	const [buttonLoading, setButtonLoading] = useState(false);
 	const [fileKey, setFileKey] = useState(Date.now());
 	const onFinish = (values) => {
 		values.image = imageFile;
@@ -21,13 +22,14 @@ const AcademicContestsWon = ({ data }) => {
 			notify("Please add image!", "warning");
 		} else {
 			console.log("Success:", values);
-			console.log(user._id);
+			setButtonLoading(true);
 			dispatch(
 				addAcademicExcellence(user._id, values, () => {
 					notify("Contest Won Added");
 					form.resetFields();
 					setImageFile(null);
 					setFileKey(Date.now());
+					setButtonLoading(false);
 				})
 			);
 		}
@@ -79,7 +81,7 @@ const AcademicContestsWon = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 						<SelectYearLevel />
 
@@ -94,7 +96,7 @@ const AcademicContestsWon = ({ data }) => {
 								},
 							]}
 						>
-							<Select size="large">
+							<Select>
 								<Option value="1st">1st</Option>
 								<Option value="2nd">2nd</Option>{" "}
 								<Option value="3rd">3rd</Option>{" "}
@@ -115,7 +117,7 @@ const AcademicContestsWon = ({ data }) => {
 								},
 							]}
 						>
-							<Select size="large">
+							<Select>
 								<Option value="Individual">
 									Individual
 								</Option>
@@ -127,7 +129,7 @@ const AcademicContestsWon = ({ data }) => {
 
 						<Form.Item
 							className="col-4 col-md-12 p-half mb-0"
-							label="Name of organization/institution that gives the award"
+							label="Name of the organization/institution that gave the award"
 							name="organization"
 							rules={[
 								{
@@ -137,7 +139,7 @@ const AcademicContestsWon = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 
 						<Form.Item
@@ -153,7 +155,6 @@ const AcademicContestsWon = ({ data }) => {
 							]}
 						>
 							<DatePicker
-								size="large"
 								allowClear
 								style={{ width: "100%" }}
 							/>
@@ -176,16 +177,17 @@ const AcademicContestsWon = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item
-							className="col-1 col-md-12 p-0 mb-0 mt-1 "
-							label="click button below to save"
-						>
-							<button
-								type="submit"
-								className="branding-btn-primary"
-							>
-								Save changes
-							</button>
+						<Form.Item className="button-form-item">
+							<center>
+								<Button
+									htmlType="submit"
+									size="large"
+									type="primary"
+									loading={buttonLoading}
+								>
+									&nbsp; Save changes
+								</Button>
+							</center>
 						</Form.Item>
 					</div>
 				</div>

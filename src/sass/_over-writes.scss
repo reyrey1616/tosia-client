@@ -37,3 +37,17 @@ $fontWeights: 10;
 		font-weight: #{$i}00;
 	}
 }
+
+.ant-form-item-label > label {
+	font-size: 12px;
+}
+
+.ant-tabs-tab-btn {
+	font-size: 12px;
+}
+
+.button-form-item {
+	.ant-form-item-control {
+		justify-content: center;
+	}
+}

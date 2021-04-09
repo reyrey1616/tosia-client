@@ -49,11 +49,11 @@ const LeadershipMainPage = () => {
 					/>
 				</TabPane>
 				<TabPane
-					tab="Most Significant Awards and Citation Received"
+					tab="Most Significant Awards and Citations Received"
 					key="3"
 				>
 					<h2 className="text-subtitle text-orange m-1">
-						Most Significant Awards and Citation Received
+						Most Significant Awards and Citations Received
 					</h2>
 					<AwardsAndCitationsReceived
 						data={userData && userData}

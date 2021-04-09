@@ -27,7 +27,7 @@ const ActivitiesAttendedTable = ({ data, userType, docId, student }) => {
 			key: "levelImplemented",
 		},
 		{
-			title: "Name of Organization that organized the Activity",
+			title: "Name of the Organization that organized the Activity",
 			dataIndex: "organization",
 			key: "organization",
 		},
