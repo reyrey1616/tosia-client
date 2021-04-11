@@ -6,6 +6,7 @@ import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 import "./sass/main.scss";
 import axios from "axios";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import store from "./redux/store";
 // axios.defaults.baseURL = "http://localhost:5000/api/v1/";
 
@@ -16,10 +17,11 @@ if (process.env.NODE_ENV === "development") {
 	axios.defaults.baseURL = "https://tosia.xyz/api/v1/";
 }
 ReactDOM.render(
-	<Provider store={store}>
-		{" "}
-		<App />{" "}
-	</Provider>,
+	<BrowserRouter>
+		<Provider store={store}>
+			<App />
+		</Provider>
+	</BrowserRouter>,
 	document.getElementById("root")
 );
 

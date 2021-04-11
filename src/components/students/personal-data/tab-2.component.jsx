@@ -48,7 +48,7 @@ const FamilyData = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 						<Form.Item
 							className="col-6 col-md-12 p-half mb-0"
@@ -62,7 +62,7 @@ const FamilyData = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 					</div>
 
@@ -79,7 +79,7 @@ const FamilyData = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 						<Form.Item
 							className="col-6 col-md-12 p-half mb-0"
@@ -93,7 +93,7 @@ const FamilyData = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 					</div>
 
@@ -103,14 +103,14 @@ const FamilyData = ({ data }) => {
 							label="Legal Guardian's Name"
 							name="guardianName"
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 						<Form.Item
 							className="col-6 col-md-12 p-half mb-0"
 							label="Legal Guardian's Occupation"
 							name="guardianOccupation"
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 					</div>
 					<Form.Item
@@ -126,7 +126,6 @@ const FamilyData = ({ data }) => {
 						]}
 					>
 						<InputNumber
-							size="large"
 							allowClear
 							style={{ width: "100%" }}
 						/>
@@ -137,7 +136,6 @@ const FamilyData = ({ data }) => {
 					<center>
 						<Button
 							htmlType="submit"
-							size="large"
 							type="primary"
 							loading={buttonLoading}
 						>

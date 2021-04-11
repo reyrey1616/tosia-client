@@ -36,8 +36,8 @@ const PersonalData = ({ data, userType }) => {
 		setButtonLoading(true);
 		dispatch(
 			updateUserInfo(data && data._id, values, () => {
-					notify("Information updated successfully");
-					setButtonLoading(false);
+				notify("Information updated successfully");
+				setButtonLoading(false);
 			})
 		);
 	};
@@ -116,7 +116,7 @@ const PersonalData = ({ data, userType }) => {
 										},
 									]}
 								>
-									<Input size="large" allowClear />
+									<Input allowClear />
 								</Form.Item>
 								<Form.Item
 									className="col-4 col-md-12 p-half mb-0"
@@ -130,7 +130,7 @@ const PersonalData = ({ data, userType }) => {
 										},
 									]}
 								>
-									<Input size="large" allowClear />
+									<Input allowClear />
 								</Form.Item>
 								<Form.Item
 									className="col-4 col-md-12 p-half"
@@ -144,7 +144,7 @@ const PersonalData = ({ data, userType }) => {
 										},
 									]}
 								>
-									<Input size="large" allowClear />
+									<Input allowClear />
 								</Form.Item>
 								<Form.Item
 									className="col-3 col-md-12 p-half"
@@ -158,7 +158,7 @@ const PersonalData = ({ data, userType }) => {
 										},
 									]}
 								>
-									<Input size="large" allowClear />
+									<Input allowClear />
 								</Form.Item>
 								<Form.Item
 									className="col-3 col-md-6 col-md-6 p-half"
@@ -196,7 +196,7 @@ const PersonalData = ({ data, userType }) => {
 										},
 									]}
 								>
-									<Input size="large" allowClear />
+									<Input allowClear />
 								</Form.Item>
 								<Form.Item
 									className="col-3 col-md-12 p-half"
@@ -211,7 +211,6 @@ const PersonalData = ({ data, userType }) => {
 									]}
 								>
 									<DatePicker
-										size="large"
 										dateFormat={dateFormat}
 										allowClear
 										style={{ width: "100%" }}
@@ -233,7 +232,7 @@ const PersonalData = ({ data, userType }) => {
 									},
 								]}
 							>
-								<Select size="large">
+								<Select>
 									<Option value="Junior High School">
 										Junior High School
 									</Option>
@@ -254,7 +253,7 @@ const PersonalData = ({ data, userType }) => {
 									},
 								]}
 							>
-								<Input size="large" allowClear />
+								<Input allowClear />
 							</Form.Item>
 							<Form.Item
 								className="col-3 col-md-12 p-half"
@@ -268,7 +267,7 @@ const PersonalData = ({ data, userType }) => {
 									},
 								]}
 							>
-								<Input size="large" allowClear />
+								<Input allowClear />
 							</Form.Item>
 							<Form.Item
 								className="col-3 col-md-12 p-half"
@@ -282,7 +281,7 @@ const PersonalData = ({ data, userType }) => {
 									},
 								]}
 							>
-								<Input size="large" allowClear />
+								<Input allowClear />
 							</Form.Item>
 						</div>
 						<Form.Item
@@ -299,7 +298,6 @@ const PersonalData = ({ data, userType }) => {
 						>
 							<Input
 								className="mb-1"
-								size="large"
 								allowClear
 								placeholder="Lot No./Blk No., Street Name, Barangay, Town or City, Province, Zip Code, Country"
 							/>
@@ -318,7 +316,6 @@ const PersonalData = ({ data, userType }) => {
 						>
 							<Input
 								className="mb-1"
-								size="large"
 								allowClear
 								placeholder="Lot No./Blk No., Street Name, Barangay, Town or City, Province, Zip Code, Country"
 							/>
@@ -338,7 +335,6 @@ const PersonalData = ({ data, userType }) => {
 								]}
 							>
 								<Input
-									size="large"
 									allowClear
 									placeholder="+639-000-0000"
 								/>
@@ -355,7 +351,7 @@ const PersonalData = ({ data, userType }) => {
 								// 	},
 								// ]}
 							>
-								<Input size="large" allowClear />
+								<Input allowClear />
 							</Form.Item>
 							<Form.Item
 								className="col-4 col-md-12 p-half"
@@ -369,7 +365,7 @@ const PersonalData = ({ data, userType }) => {
 									},
 								]}
 							>
-								<Select size="large">
+								<Select>
 									<Option value="Principal's Office">
 										Principal's Office
 									</Option>
@@ -407,7 +403,7 @@ const PersonalData = ({ data, userType }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input  allowClear />
 						</Form.Item>
 						<Form.Item
 							className="col-4 col-md-12 p-half"
@@ -421,7 +417,7 @@ const PersonalData = ({ data, userType }) => {
 							// 	},
 							// ]}
 						>
-							<Input.Password size="large" allowClear />
+							<Input.Password  allowClear />
 						</Form.Item> */}
 							{/* <Form.Item
 							className="col-4 col-md-12 p-half"
@@ -452,7 +448,7 @@ const PersonalData = ({ data, userType }) => {
 								}),
 							]}
 						>
-							<Input.Password size="large" allowClear />
+							<Input.Password  allowClear />
 						</Form.Item> */}
 						</div>
 					</div>
@@ -462,7 +458,6 @@ const PersonalData = ({ data, userType }) => {
 							<center>
 								<Button
 									htmlType="submit"
-									size="large"
 									type="primary"
 									loading={buttonLoading}
 								>

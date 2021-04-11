@@ -1,5 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
+.home-page {
+	min-width: 100vw;
+	min-height: 100vh;
+
+	.home-page-carousel {
+		width: 100vw;
+		height: 100vh;
+
+		.carousel-item {
+			min-width: 100vw;
+			min-height: 100vh;
+			position: relative;
+			button {
+				position: absolute;
+				width: 210px;
+				background: transparent;
+				font-size: 20px;
+				letter-spacing: 0.4rem;
+				padding: 11px 2rem;
+				border: 2px solid orange;
+				color: white;
+				bottom: 182px;
+				left: calc(50% - 107px);
+				outline: none;
+				a {
+					color: white;
+				}
+
+				&:hover {
+					background: orange;
+					color: black;
+				}
+			}
+			img {
+				width: 100%;
+				min-height: 100vh;
+				max-height: 100vh;
+			}
+		}
+	}
+}
+
 // Responsive Design
 @import "./responsive/breakpoints";
 

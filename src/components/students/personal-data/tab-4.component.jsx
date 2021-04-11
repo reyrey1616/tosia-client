@@ -67,7 +67,7 @@ const CharacterReferences = ({ data, userType }) => {
 									},
 								]}
 							>
-								<Input size="large" allowClear />
+								<Input allowClear />
 							</Form.Item>
 							<Form.Item
 								className="col-3 col-md-12 p-half mb-0"
@@ -81,7 +81,7 @@ const CharacterReferences = ({ data, userType }) => {
 									},
 								]}
 							>
-								<Input size="large" allowClear />
+								<Input allowClear />
 							</Form.Item>
 							<Form.Item
 								className="col-3 col-md-12 p-half mb-0"
@@ -95,7 +95,7 @@ const CharacterReferences = ({ data, userType }) => {
 									},
 								]}
 							>
-								<Input size="large" allowClear />
+								<Input allowClear />
 							</Form.Item>
 							<Form.Item
 								className="col-2 col-md-12 p-half mb-0"
@@ -103,7 +103,6 @@ const CharacterReferences = ({ data, userType }) => {
 							>
 								<Button
 									htmlType="submit"
-									size="large"
 									type="primary"
 									loading={buttonLoading}
 								>

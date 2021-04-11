@@ -59,7 +59,7 @@ const RegistrationForm = () => {
 						},
 					]}
 				>
-					<Input size="large" allowClear />
+					<Input allowClear />
 				</Form.Item>
 				<Form.Item
 					className="col-6 col-md-12 p-half mb-0"
@@ -72,7 +72,7 @@ const RegistrationForm = () => {
 						},
 					]}
 				>
-					<Input size="large" allowClear />
+					<Input allowClear />
 				</Form.Item>
 				<Form.Item
 					className="col-6 col-md-12 p-half"
@@ -85,7 +85,7 @@ const RegistrationForm = () => {
 						},
 					]}
 				>
-					<Input size="large" allowClear />
+					<Input allowClear />
 				</Form.Item>
 				<Form.Item
 					className="col-6 col-md-12 p-half"
@@ -98,7 +98,7 @@ const RegistrationForm = () => {
 						},
 					]}
 				>
-					<Radio.Group buttonStyle="solid" size="large">
+					<Radio.Group buttonStyle="solid">
 						<Radio.Button value="Male">Male</Radio.Button>
 						<Radio.Button value="Female">Female</Radio.Button>
 					</Radio.Group>
@@ -114,7 +114,7 @@ const RegistrationForm = () => {
 						},
 					]}
 				>
-					<Input size="large" allowClear />
+					<Input allowClear />
 				</Form.Item>
 				<Form.Item
 					className="col-6 col-md-12 p-half"
@@ -127,11 +127,7 @@ const RegistrationForm = () => {
 						},
 					]}
 				>
-					<DatePicker
-						size="large"
-						allowClear
-						style={{ width: "100%" }}
-					/>
+					<DatePicker allowClear style={{ width: "100%" }} />
 				</Form.Item>
 				<Form.Item
 					className="col-12 col-md-12 p-half"
@@ -144,7 +140,7 @@ const RegistrationForm = () => {
 						},
 					]}
 				>
-					<Input size="large" allowClear />
+					<Input allowClear />
 				</Form.Item>
 				<Form.Item
 					className="col-12 col-md-12 p-half"
@@ -157,7 +153,7 @@ const RegistrationForm = () => {
 						},
 					]}
 				>
-					<Select size="large">
+					<Select>
 						<Option value="Principal's Office">
 							Principal's Office
 						</Option>
@@ -188,7 +184,7 @@ const RegistrationForm = () => {
 						},
 					]}
 				>
-					<Input size="large" allowClear />
+					<Input allowClear />
 				</Form.Item>
 				<Form.Item
 					className="col-6 col-md-12 p-half"
@@ -201,7 +197,7 @@ const RegistrationForm = () => {
 						},
 					]}
 				>
-					<Input.Password size="large" allowClear />
+					<Input.Password allowClear />
 				</Form.Item>
 				<Form.Item
 					className="col-6 col-md-12 p-half"
@@ -228,7 +224,7 @@ const RegistrationForm = () => {
 						}),
 					]}
 				>
-					<Input.Password size="large" allowClear />
+					<Input.Password allowClear />
 				</Form.Item>
 			</div>
 

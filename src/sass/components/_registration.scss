@@ -1,8 +1,42 @@
 .registration-image {
+	padding: 0 !important;
+	@include query(tab-port) {
+		display: none;
+	}
 	.button-cta {
 		display: none;
 		@include query(tab-land) {
 			display: block;
 		}
 	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		border-top-left-radius: 15px;
+		border-bottom-left-radius: 15px;
+	}
+}
+
+.login-page-wrapper {
+	height: 100vh;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.login-page-container {
+		width: 80%;
+		div {
+			&:nth-child(2) > div {
+				@include query(tab-port) {
+					padding: 1rem !important;
+				}
+			}
+		}
+	}
+}
+
+body {
+	min-width: 700px;
 }

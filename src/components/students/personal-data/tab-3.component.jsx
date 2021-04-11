@@ -50,7 +50,7 @@ const SchoolContactDetails = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 						<Form.Item
 							className="col-6 col-md-12 p-half mb-0"
@@ -64,7 +64,7 @@ const SchoolContactDetails = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 					</div>
 
@@ -82,7 +82,6 @@ const SchoolContactDetails = ({ data }) => {
 							]}
 						>
 							<Input
-								size="large"
 								allowClear
 								placeholder="Lot No./Blk No., Street Name, Barangay, Town or City, Province, Zip Code, Country"
 							/>
@@ -102,7 +101,7 @@ const SchoolContactDetails = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 						<Form.Item
 							className="col-6 col-md-12 p-half mb-0"
@@ -116,7 +115,7 @@ const SchoolContactDetails = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 					</div>
 
@@ -133,7 +132,7 @@ const SchoolContactDetails = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 						<Form.Item
 							className="col-6 col-md-12 p-half mb-0"
@@ -147,7 +146,7 @@ const SchoolContactDetails = ({ data }) => {
 								},
 							]}
 						>
-							<Input size="large" allowClear />
+							<Input allowClear />
 						</Form.Item>
 					</div>
 				</div>
@@ -156,7 +155,6 @@ const SchoolContactDetails = ({ data }) => {
 					<center>
 						<Button
 							htmlType="submit"
-							size="large"
 							type="primary"
 							loading={buttonLoading}
 						>

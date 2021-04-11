@@ -51,7 +51,7 @@ const LoginForm = () => {
 						},
 					]}
 				>
-					<Input size="large" allowClear />
+					<Input allowClear />
 				</Form.Item>
 				<Form.Item
 					className="col-12 col-md-12 p-half"
@@ -64,7 +64,7 @@ const LoginForm = () => {
 						},
 					]}
 				>
-					<Input.Password size="large" allowClear />
+					<Input.Password allowClear />
 				</Form.Item>
 			</div>
 

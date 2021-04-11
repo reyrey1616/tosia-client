@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserStart } from "../redux/auth/auth.actions";
 import { selectCurrentUser } from "../redux/auth/auth.selectors";
 import Spinner from "../components/hoc/spinner/spinner.component";
+import Reminders from "../components/shared/reminders.component";
 const PersonalData = lazy(() =>
 	import("../pages/students/personal-data/main.page")
 );
@@ -65,6 +66,7 @@ const StudentRoutes = () => {
 						</Link>
 					</Tooltip>
 				</div>
+				<Reminders />
 				<div className="admin-main-content">
 					<Switch>
 						<PrivateRoute

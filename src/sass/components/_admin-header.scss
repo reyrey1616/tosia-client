@@ -57,6 +57,8 @@
 	border-radius: 25px;
 	padding-left: 0;
 	background: $dirtywhite;
+	min-height: 100vh;
+	overflow: auto;
 	.admin-main-content {
 		border-radius: 25px;
 		box-shadow: 4px 8px 16px 4px rgba(0, 0, 0, 0.1);

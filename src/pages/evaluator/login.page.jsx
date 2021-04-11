@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import LoginForm from "../../components/evaluator/login-form/login-form.component";
-import Image from "../../assets/registration-image.svg";
-import Logo from "../../assets/logo-circle.png";
+import Image from "../../assets/Login.png";
 import { Link } from "react-router-dom";
 import setAuthToken from "../../utils/setAuthToken";
 import axios from "axios";
@@ -44,43 +43,12 @@ const LoginPage = () => {
 
 	return (
 		<div
-			className="flex bg-dirtywhite  p-1"
+			className="flex bg-dirtywhite login-page-wrapper p-5"
 			style={{ height: "auto", minHeight: "100vh" }}
 		>
-			<div className="flex card bg-gradient">
+			<div className="flex card bg-gradient login-page-container">
 				<div className="col-6 col-md-12 animate__animated animate__fadeInRightBig flex-column p-2 pl-6 pr-6 registration-image">
-					<div className="flex align-items-flex-center pb-1 pt-1">
-						<img
-							src={Logo}
-							alt="TOSIA-logo"
-							width="100"
-							height="100"
-						/>
-						<h1 className="text-title-big text-white ml-1 m-0">
-							TOSIA - The Outstanding Students of Iloilo
-							Award
-						</h1>
-					</div>
-					<div className="text-subtitle text-white">
-						Intends to give due honor and credit to students
-						who are not only outstanding in academics and
-						leadership, but most importantly, have a high
-						sense of social responsibility
-					</div>
-					<div className="m-1">
-						<center>
-							<button
-								className="branding-btn-primary bg-orange button-cta"
-								onClick={executeScroll}
-							>
-								{" "}
-								Login
-							</button>
-						</center>
-					</div>
-					<div className="col-12 align-items-flex-center mt-4 justify-content-center">
-						<img src={Image} width="400" height="400" />
-					</div>
+					<img src={Image} alt="Tosia" />
 				</div>
 				<div
 					className="col-6 col-md-12 p-1 animate__animated animate__fadeInLeftBig bg-white"

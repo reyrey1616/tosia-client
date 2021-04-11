@@ -13,41 +13,41 @@ const EvaluatorRegistrationPage = lazy(() =>
 	import("./pages/evaluator/registration.page")
 );
 const EvaluatorLoginPage = lazy(() => import("./pages/evaluator/login.page"));
+const Homepage = lazy(() => import("./pages/home.page"));
+
 const App = () => {
 	return (
 		<div className="m-0 p-0">
 			<ErrorBoundary>
 				<Suspense fallback={<Spinner />}>
-					<BrowserRouter>
-						<Switch>
-							{/* <Route path="/" component={StudentRoutes} /> */}
+					<Switch>
+						{/* Student */}
 
-							{/* Student */}
-							<Route
-								path="/registration"
-								component={RegistrationPage}
-							/>
-							<Route path="/login" component={LoginPage} />
-							<Route
-								path="/student"
-								component={StudentRoutes}
-							/>
+						<Route
+							path="/registration"
+							component={RegistrationPage}
+						/>
+						<Route path="/login" component={LoginPage} />
+						<Route
+							path="/student"
+							component={StudentRoutes}
+						/>
 
-							{/* Evaluator */}
-							<Route
-								path="/evaluator"
-								component={EvaluatorRoutes}
-							/>
-							<Route
-								path="/evaluator-registration"
-								component={EvaluatorRegistrationPage}
-							/>
-							<Route
-								path="/evaluator-login"
-								component={EvaluatorLoginPage}
-							/>
-						</Switch>
-					</BrowserRouter>
+						{/* Evaluator */}
+						<Route
+							path="/evaluator"
+							component={EvaluatorRoutes}
+						/>
+						<Route
+							path="/evaluator-registration"
+							component={EvaluatorRegistrationPage}
+						/>
+						<Route
+							path="/evaluator-login"
+							component={EvaluatorLoginPage}
+						/>
+						<Route path="/" component={Homepage} />
+					</Switch>
 				</Suspense>
 			</ErrorBoundary>
 		</div>
