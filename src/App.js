@@ -14,6 +14,7 @@ const EvaluatorRegistrationPage = lazy(() =>
 );
 const EvaluatorLoginPage = lazy(() => import("./pages/evaluator/login.page"));
 const Homepage = lazy(() => import("./pages/home.page"));
+const VerificationPage = lazy(() => import("./pages/verification.page"));
 
 const App = () => {
 	return (
@@ -22,7 +23,10 @@ const App = () => {
 				<Suspense fallback={<Spinner />}>
 					<Switch>
 						{/* Student */}
-
+						<Route
+							path="/verification/:id"
+							component={VerificationPage}
+						/>
 						<Route
 							path="/registration"
 							component={RegistrationPage}

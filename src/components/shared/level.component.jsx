@@ -18,6 +18,12 @@ const YearLevel = () => {
 			]}
 		>
 			<Select>
+				<Option value="1st Year" selected>
+					1st Year
+				</Option>
+				<Option value="2nd Year" selected>
+					2nd Year
+				</Option>
 				<Option value="3rd Year" selected>
 					3rd Year
 				</Option>
@@ -38,11 +44,10 @@ const YearLevel = () => {
 			]}
 		>
 			<Select>
+				<Option value="Grade 7">Grade 7</Option>
 				<Option value="Grade 8">Grade 8</Option>
 				<Option value="Grade 9">Grade 9</Option>
 				<Option value="Grade 10">Grade 10</Option>
-				<Option value="Grade 11">Grade 11</Option>
-				<Option value="Grade 12">Grade 12</Option>
 			</Select>
 		</Form.Item>
 	);

@@ -35,7 +35,8 @@
 }
 
 .admin-sidebar {
-	height: 100vh;
+	height: calc(100vh - 70px);
+	overflow: auto;
 	background: $dirtywhite !important;
 
 	.logo-container {
@@ -46,9 +47,11 @@
 	}
 	.menu-container {
 		background: $dirtywhite !important;
+		padding-top: 1vh;
+		padding-bottom: 1vh;
 
-		padding-top: 5vh;
-		padding-bottom: 5vh;
+		a {
+		}
 	}
 }
 
@@ -57,14 +60,14 @@
 	border-radius: 25px;
 	padding-left: 0;
 	background: $dirtywhite;
-	min-height: 100vh;
-	overflow: auto;
+	min-height: calc(100vh - 80vh);
+
 	.admin-main-content {
 		border-radius: 25px;
 		box-shadow: 4px 8px 16px 4px rgba(0, 0, 0, 0.1);
 		padding: 1rem;
 		background: rgb(253, 253, 253) !important;
-		min-height: 85vh !important;
+		height: calc(100vh - 100px);
 		overflow: auto;
 	}
 }

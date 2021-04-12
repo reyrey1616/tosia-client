@@ -107,6 +107,46 @@ const CitationsReceived = ({ data }) => {
 								</Option>{" "}
 							</Select>
 						</Form.Item>
+						<Form.Item
+							className="col-4 col-md-12 p-half"
+							label="At what level the award is given?"
+							name="levelAwardGiven"
+							rules={[
+								{
+									required: true,
+									message:
+										"Please select level award given!",
+								},
+							]}
+						>
+							<Select>
+								<Option value="Classroom">
+									Classroom
+								</Option>
+								<Option value="Department">
+									Department
+								</Option>
+								<Option value="College">College</Option>
+								<Option value="University">
+									University
+								</Option>{" "}
+								<Option value="District/Municipal">
+									District/Municipal
+								</Option>{" "}
+								<Option value="Provincial">
+									Provincial
+								</Option>{" "}
+								<Option value="Regional">
+									Regional
+								</Option>{" "}
+								<Option value="National">
+									National
+								</Option>{" "}
+								<Option value="International">
+									International
+								</Option>
+							</Select>
+						</Form.Item>
 
 						<Form.Item
 							className="col-4 col-md-12 p-half mb-0"
@@ -158,20 +198,18 @@ const CitationsReceived = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item className="button-form-item">
-							<center>
-								<Button
-									htmlType="submit"
-									size="large"
-									type="primary"
-									loading={buttonLoading}
-								>
-									&nbsp; Save changes
-								</Button>
-							</center>
-						</Form.Item>
 					</div>
 				</div>
+				<Form.Item className="button-form-item">
+					<Button
+						htmlType="submit"
+						size="large"
+						type="primary"
+						loading={buttonLoading}
+					>
+						&nbsp; Save changes
+					</Button>
+				</Form.Item>
 			</Form>
 
 			<div className="table-container mt-2">

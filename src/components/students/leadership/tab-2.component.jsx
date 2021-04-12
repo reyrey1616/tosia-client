@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Form, Input, Button, DatePicker } from "antd";
+import { Form, Input, Button, DatePicker, Select } from "antd";
 import LeadershipTrainingAttendedTable from "./table-tab-2.component";
 import SelectYearLevel from "../../shared/level.component";
 import { notify } from "../../global/alerts/alerts.component";
 import { useDispatch, useSelector } from "react-redux";
 import { addLeadership } from "../../../functions/leadership";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
-
+const { Option } = Select;
 const LeadershipTrainingAttended = ({ data }) => {
 	const dispatch = useDispatch();
 	const user = useSelector(selectCurrentUser);
@@ -103,6 +103,40 @@ const LeadershipTrainingAttended = ({ data }) => {
 						</Form.Item>
 
 						<Form.Item
+							className="col-3 col-md-12 p-half"
+							label="At what level the award is given?"
+							name="levelAwardGiven"
+							rules={[
+								{
+									required: true,
+									message:
+										"Please select level award given!",
+								},
+							]}
+						>
+							<Select>
+								<Option value="School-based">
+									School-based
+								</Option>
+								<Option value="District/Municipal">
+									District/Municipal
+								</Option>
+								<Option value="Provincial">
+									Provincial
+								</Option>{" "}
+								<Option value="Regional">
+									Regional
+								</Option>{" "}
+								<Option value="National">
+									National
+								</Option>{" "}
+								<Option value="International">
+									International
+								</Option>
+							</Select>
+						</Form.Item>
+
+						<Form.Item
 							className="col-2 col-md-12 p-half"
 							label="Date Attended"
 							name="dateAttended"
@@ -136,20 +170,18 @@ const LeadershipTrainingAttended = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item className="button-form-item">
-							<center>
-								<Button
-									htmlType="submit"
-									size="large"
-									type="primary"
-									loading={buttonLoading}
-								>
-									&nbsp; Save changes
-								</Button>
-							</center>
-						</Form.Item>
 					</div>
 				</div>
+				<Form.Item className="button-form-item">
+					<Button
+						htmlType="submit"
+						size="large"
+						type="primary"
+						loading={buttonLoading}
+					>
+						&nbsp; Save changes
+					</Button>
+				</Form.Item>
 			</Form>
 
 			<div className="table-container mt-2">

@@ -1,26 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 
 const UploadWithPreview = ({ image, handleChange, label, name }) => {
+	const [withImage, setImage] = useState(true);
+
+	useEffect(() => {
+		if (image && image) {
+			setImage(true);
+		}
+	}, [image]);
 	return (
 		<div className="mb-1">
 			<label htmlFor={name}>
-				{image ? (
+				{withImage ? (
 					<img
+						onError={() => setImage(false)}
 						src={image && image}
 						alt="Image preview"
 						className="image-preview width-100"
 						style={{ objectFit: "cover" }}
 					/>
 				) : (
-					<div className="image-preview bg-dirtywhite flex align-items-flex-center justify-content-center width-100">
-						<div>
-							<center>
-								<PlusOutlined />
-								<p>{label} </p>
-							</center>
-						</div>
-					</div>
+					<UploadButton label={label} />
 				)}
 			</label>
 
@@ -35,5 +36,16 @@ const UploadWithPreview = ({ image, handleChange, label, name }) => {
 		</div>
 	);
 };
+
+const UploadButton = ({ label }) => (
+	<div className="image-preview bg-dirtywhite flex align-items-flex-center justify-content-center width-100">
+		<div>
+			<center>
+				<PlusOutlined />
+				<p>{label} </p>
+			</center>
+		</div>
+	</div>
+);
 
 export default UploadWithPreview;

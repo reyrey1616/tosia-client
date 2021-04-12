@@ -100,7 +100,7 @@ const PersonalData = ({ data, userType }) => {
 									handleChange={
 										handleMainPhotoChange
 									}
-									label="Upload Photo"
+									label="Upload 2x2 Photo"
 								/>
 							</div>
 							<div className="col-9 col-md-12 flex-wrap">
@@ -147,7 +147,7 @@ const PersonalData = ({ data, userType }) => {
 									<Input allowClear />
 								</Form.Item>
 								<Form.Item
-									className="col-3 col-md-12 p-half"
+									className="col-4 col-md-12 p-half"
 									label="Nickname"
 									name="nickname"
 									rules={[
@@ -161,7 +161,7 @@ const PersonalData = ({ data, userType }) => {
 									<Input allowClear />
 								</Form.Item>
 								<Form.Item
-									className="col-3 col-md-6 col-md-6 p-half"
+									className="col-4 col-md-6 col-md-6 p-half"
 									label="Gender"
 									name="gender"
 									rules={[
@@ -185,7 +185,7 @@ const PersonalData = ({ data, userType }) => {
 									</Radio.Group>
 								</Form.Item>
 								<Form.Item
-									className="col-3 col-md-12 p-half"
+									className="col-4 col-md-12 p-half"
 									label="Nationality"
 									name="nationality"
 									rules={[
@@ -199,7 +199,7 @@ const PersonalData = ({ data, userType }) => {
 									<Input allowClear />
 								</Form.Item>
 								<Form.Item
-									className="col-3 col-md-12 p-half"
+									className="col-4 col-md-12 p-half"
 									label="Birthdate"
 									name="birthdate"
 									rules={[
@@ -216,47 +216,47 @@ const PersonalData = ({ data, userType }) => {
 										style={{ width: "100%" }}
 									/>
 								</Form.Item>
+								<Form.Item
+									className="col-4 col-md-12 p-half"
+									label="Category"
+									name="category"
+									rules={[
+										{
+											required: true,
+											message:
+												"Please select category!",
+										},
+									]}
+								>
+									<Select>
+										<Option value="Junior High School">
+											Junior High School
+										</Option>
+										<Option value="College">
+											College
+										</Option>
+									</Select>
+								</Form.Item>
+								<Form.Item
+									className="col-4 col-md-12 p-half"
+									label="Program/College/Department"
+									name="department"
+									rules={[
+										{
+											required: true,
+											message:
+												"Please input your program/college/department!",
+										},
+									]}
+								>
+									<Input allowClear />
+								</Form.Item>
 							</div>
 						</div>
 
 						<div className="col-12 flex mb-1">
 							<Form.Item
-								className="col-3 col-md-12 p-half"
-								label="Category"
-								name="category"
-								rules={[
-									{
-										required: true,
-										message:
-											"Please select category!",
-									},
-								]}
-							>
-								<Select>
-									<Option value="Junior High School">
-										Junior High School
-									</Option>
-									<Option value="College">
-										College
-									</Option>
-								</Select>
-							</Form.Item>
-							<Form.Item
-								className="col-3 col-md-12 p-half"
-								label="Program/College/Department"
-								name="department"
-								rules={[
-									{
-										required: true,
-										message:
-											"Please input your program/college/department!",
-									},
-								]}
-							>
-								<Input allowClear />
-							</Form.Item>
-							<Form.Item
-								className="col-3 col-md-12 p-half"
+								className="col-6 col-md-12 p-half"
 								label="Course"
 								name="course"
 								rules={[
@@ -270,7 +270,7 @@ const PersonalData = ({ data, userType }) => {
 								<Input allowClear />
 							</Form.Item>
 							<Form.Item
-								className="col-3 col-md-12 p-half"
+								className="col-6 col-md-12 p-half"
 								label="Level"
 								name="level"
 								rules={[

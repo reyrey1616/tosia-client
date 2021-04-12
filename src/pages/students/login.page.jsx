@@ -52,29 +52,38 @@ const LoginPage = () => {
 					<img src={Image} alt="Tosia" />
 				</div>
 				<div
-					className="col-6 col-md-12 p-1 animate__animated animate__fadeInLeftBig bg-white"
+					className="col-6 col-md-12 animate__animated animate__fadeInLeftBig bg-white"
 					style={{
 						borderTopRightRadius: "15px",
 						borderBottomRightRadius: "15px",
 					}}
 					ref={signUpRef}
 				>
-					<div className="p-2 pr-6 pl-6">
-						<p className="text-body m-0 text-grey">
-							{" "}
-							WELCOME BACK!
-						</p>
-						<h2 className="text-title-big text-blue m-0">
-							Please login your account.
-						</h2>
-						<p className="text-body mb-2 text-grey">
-							<label> DON'T HAVE AN ACCOUNT? </label>{" "}
-							<Link to="/registration">
+					<div
+						className="p-1 pr-3 pl-3 login-page-login-form"
+						style={{ justifyContent: "space-evenly" }}
+					>
+						<div>
+							<p className="text-body m-0 text-grey">
 								{" "}
-								Click here to register
-							</Link>
-						</p>
+								WELCOME BACK!
+							</p>
+							<h2 className="text-title text-blue m-0 ">
+								Please login your account.
+							</h2>
+						</div>
+
 						<LoginForm />
+
+						<center>
+							<p className="text-body text-grey">
+								<label> DON'T HAVE AN ACCOUNT? </label>{" "}
+								<Link to="/registration">
+									{" "}
+									Click here to register
+								</Link>
+							</p>
+						</center>
 					</div>
 				</div>
 			</div>

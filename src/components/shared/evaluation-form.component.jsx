@@ -5,7 +5,6 @@ import { notify } from "../global/alerts/alerts.component";
 import errorCatch from "../../utils/errorCatch";
 const addEvaluation = async ({ data }, callback) => {
 	try {
-		console.log(data);
 		const request = await axios.post(`/evaluations`, data);
 		const response = request.data;
 		if (response.success === true) {

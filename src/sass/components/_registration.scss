@@ -1,7 +1,7 @@
 .registration-image {
 	padding: 0 !important;
-	@include query(tab-port) {
-		display: none;
+	@include query(tab-land) {
+		display: none !important;
 	}
 	.button-cta {
 		display: none;
@@ -21,14 +21,42 @@
 .login-page-wrapper {
 	height: 100vh;
 	min-height: 100vh;
+	max-height: 100vh;
 	display: flex;
+	overflow: auto;
 	justify-content: center;
 	align-items: center;
 
 	.login-page-container {
-		width: 80%;
+		width: 65%;
+		height: 65vh;
+
+		@include query(laptop) {
+			width: 80%;
+			height: 80vh;
+
+			div:nth-child(1) {
+				width: 100% !important;
+			}
+		}
+
+		.login-page-login-form {
+			@include query(laptop) {
+				max-height: 80vh;
+			}
+			max-height: 60vh;
+			overflow: auto;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
+
+		@include query(tab-land) {
+			width: 85%;
+		}
 		div {
 			&:nth-child(2) > div {
+				overflow: auto;
 				@include query(tab-port) {
 					padding: 1rem !important;
 				}

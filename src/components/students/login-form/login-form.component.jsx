@@ -1,5 +1,5 @@
-import React from "react";
-import { Form, Input } from "antd";
+import React, { useState } from "react";
+import { Form, Input, Button } from "antd";
 import axios from "axios";
 import errorCatch from "../../../utils/errorCatch";
 import { useHistory } from "react-router-dom";
@@ -7,21 +7,26 @@ import { notify } from "../../global/alerts/alerts.component";
 
 const LoginForm = () => {
 	const history = useHistory();
+	const [loading, setLoading] = useState(false);
 	const onFinish = async (values) => {
 		try {
+			setLoading(true);
+
 			const request = await axios.post("/auth/student-login", values);
 			const response = request.data;
-			console.log(response.data);
 			if (response.success) {
 				notify("Login Success!", "success", "Welcome to TOSIA");
 				localStorage.setItem("stkn", response.token);
 				setTimeout(() => {
 					history.push("/student/personal-data");
+					setLoading(true);
 				}, 1500);
 			} else {
 				throw Error;
 			}
 		} catch (error) {
+			setLoading(false);
+
 			errorCatch(error, "Login Failed");
 		}
 	};
@@ -68,9 +73,13 @@ const LoginForm = () => {
 
 			<Form.Item>
 				<center>
-					<button type="submit" className="branding-btn-primary">
+					<Button
+						htmlType="submit"
+						type="primary"
+						loading={loading}
+					>
 						Login
-					</button>
+					</Button>
 				</center>
 			</Form.Item>
 		</Form>

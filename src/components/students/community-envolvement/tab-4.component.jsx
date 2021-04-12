@@ -71,7 +71,7 @@ const AwardsAndCitationsReceived = ({ data }) => {
 				<div className="flex flex-wrap mb-2">
 					<div className="col-12 flex-wrap">
 						<Form.Item
-							className="col-3 col-md-12 p-half mb-0"
+							className="col-4 col-md-12 p-half mb-0"
 							label="Award and Citation Received"
 							name="citationReceived"
 							rules={[
@@ -85,7 +85,7 @@ const AwardsAndCitationsReceived = ({ data }) => {
 							<Input allowClear />
 						</Form.Item>
 						<Form.Item
-							className="col-3 col-md-12 p-half"
+							className="col-4 col-md-12 p-half"
 							label="At what level the award is given?"
 							name="levelGiven"
 							rules={[
@@ -150,6 +150,36 @@ const AwardsAndCitationsReceived = ({ data }) => {
 								style={{ width: "100%" }}
 							/>
 						</Form.Item>
+						<Form.Item
+							className="col-4 col-md-12 p-half"
+							label="At what level the award is given?"
+							name="levelAwardGiven"
+							rules={[
+								{
+									required: true,
+									message:
+										"Please select level award given!",
+								},
+							]}
+						>
+							<Select>
+								<Option value="District/Municipal">
+									District/Municipal
+								</Option>
+								<Option value="Provincial">
+									Provincial
+								</Option>{" "}
+								<Option value="Regional">
+									Regional
+								</Option>{" "}
+								<Option value="National">
+									National
+								</Option>{" "}
+								<Option value="International">
+									International
+								</Option>
+							</Select>
+						</Form.Item>
 
 						<div
 							className="col-3 col-md-12 p-half mb-0"
@@ -167,20 +197,18 @@ const AwardsAndCitationsReceived = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item className="button-form-item">
-							<center>
-								<Button
-									htmlType="submit"
-									size="large"
-									type="primary"
-									loading={buttonLoading}
-								>
-									&nbsp; Save changes
-								</Button>
-							</center>
-						</Form.Item>
 					</div>
 				</div>
+				<Form.Item className="button-form-item">
+					<Button
+						htmlType="submit"
+						size="large"
+						type="primary"
+						loading={buttonLoading}
+					>
+						&nbsp; Save changes
+					</Button>
+				</Form.Item>
 			</Form>
 
 			<div className="table-container mt-2">

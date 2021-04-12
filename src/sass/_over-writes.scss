@@ -8,9 +8,9 @@ html {
 
 .tab-page-container {
 	padding: 1rem 3rem;
-	min-height: 72vh;
-	height: 72vh;
-	overflow: auto;
+	// min-height: 72vh;
+	// height: 72vh;
+	// overflow: auto;
 }
 
 .tab-page-container-no-scroll {
@@ -53,5 +53,39 @@ $fontWeights: 10;
 }
 
 .ant-alert-description {
-	font-size: 12px;
+	font-size: 11px;
+	line-height: 1rem;
+}
+
+.ant-btn.ant-btn-primary {
+	background: crimson;
+	border-color: crimson;
+
+	:active,
+	:hover {
+		background: crimson;
+		border-color: crimson;
+	}
+}
+
+.ant-form-item-control-input {
+	.ant-form-item-control-input-content {
+		span {
+			border-radius: 5px !important;
+		}
+	}
+}
+
+.ant-select > div {
+	border-radius: 5px !important;
+}
+
+.ant-input-number {
+	border-radius: 5px !important;
+}
+
+.instructions-ul {
+	li {
+		font-size: 12px;
+	}
 }

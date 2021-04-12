@@ -72,7 +72,7 @@ const OrganizationInvolvement = ({ data }) => {
 				<div className="flex flex-wrap mb-2">
 					<div className="col-12 flex-wrap">
 						<Form.Item
-							className="col-4 col-md-12 p-half mb-0"
+							className="col-5 col-md-12 p-half mb-0"
 							label="Organization Name"
 							name="organizationName"
 							rules={[
@@ -86,7 +86,7 @@ const OrganizationInvolvement = ({ data }) => {
 							<Input allowClear />
 						</Form.Item>
 						<Form.Item
-							className="col-2 col-md-12 p-half"
+							className="col-3 col-md-12 p-half"
 							label="Position/Designation"
 							name="position"
 							rules={[
@@ -97,16 +97,11 @@ const OrganizationInvolvement = ({ data }) => {
 								},
 							]}
 						>
-							<Select>
-								<Option value="Member">Member</Option>
-								<Option value="Officer">
-									Officer
-								</Option>{" "}
-							</Select>
+							<Input />
 						</Form.Item>
 
 						<Form.Item
-							className="col-3 col-md-12 p-half"
+							className="col-4 col-md-12 p-half"
 							label="At what level does the organization operate?"
 							name="levelOperate"
 							rules={[
@@ -122,27 +117,26 @@ const OrganizationInvolvement = ({ data }) => {
 									Classroom
 								</Option>
 
-								<Option value="Batch">Batch</Option>
-
-								<Option value="Department Level">
-									Department Level
+								<Option value="Department">
+									Department
 								</Option>
 
-								<Option value="College Level">
-									College Level
+								<Option value="College">College</Option>
+
+								<Option value="University">
+									University
 								</Option>
 
-								<Option value="University Level">
-									University Level
+								<Option value="District/Municipal">
+									District/Municipal
 								</Option>
-
+								<Option value="Provincial">
+									Provincial
+								</Option>
 								<Option value="Regional">
 									Regional
 								</Option>
 
-								<Option value="Provincial">
-									Provincial
-								</Option>
 								<Option value="National">
 									National
 								</Option>
@@ -188,20 +182,18 @@ const OrganizationInvolvement = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item className="button-form-item">
-							<center>
-								<Button
-									htmlType="submit"
-									size="large"
-									type="primary"
-									loading={buttonLoading}
-								>
-									&nbsp; Save changes
-								</Button>
-							</center>
-						</Form.Item>
 					</div>
 				</div>
+				<Form.Item className="button-form-item">
+					<Button
+						htmlType="submit"
+						size="large"
+						type="primary"
+						loading={buttonLoading}
+					>
+						&nbsp; Save changes
+					</Button>
+				</Form.Item>
 			</Form>
 
 			<div className="table-container mt-2">

@@ -18,7 +18,6 @@ const LoginPage = () => {
 				try {
 					const request = await axios.get("/auth/get-evaluator");
 					const response = request.data;
-					console.log(response.data);
 					if (response.success) {
 						notify(
 							"Login Success!",
@@ -51,29 +50,35 @@ const LoginPage = () => {
 					<img src={Image} alt="Tosia" />
 				</div>
 				<div
-					className="col-6 col-md-12 p-1 animate__animated animate__fadeInLeftBig bg-white"
+					className="col-6 col-md-12 animate__animated animate__fadeInLeftBig bg-white"
 					style={{
 						borderTopRightRadius: "15px",
 						borderBottomRightRadius: "15px",
 					}}
 					ref={signUpRef}
 				>
-					<div className="p-2 pr-6 pl-6">
-						<p className="text-body m-0 text-grey">
-							{" "}
-							WELCOME BACK,
-						</p>
-						<h2 className="text-title-big text-blue m-0">
-							Please Login your account!
-						</h2>
-						<p className="text-body mb-2 text-grey">
-							<label> DON'T HAVE AN ACCOUNT? </label>{" "}
-							<Link to="/evaluator-registration">
+					<div className="p-1 pr-3 pl-3 login-page-login-form" 		style={{ justifyContent: "space-evenly" }}>
+						<div className="mb-1">
+							<p className="text-body m-0 text-grey">
 								{" "}
-								REGISTER AS EVALUATOR
-							</Link>
-						</p>
+								WELCOME BACK,
+							</p>
+							<h2 className="text-title text-blue m-0">
+								Please Login your account!
+							</h2>
+						</div>
+
 						<LoginForm />
+
+						<center>
+							<p className="text-body mt-1 text-grey">
+								<label> DON'T HAVE AN ACCOUNT? </label>{" "}
+								<Link to="/evaluator-registration">
+									{" "}
+									REGISTER AS EVALUATOR
+								</Link>
+							</p>
+						</center>
 					</div>
 				</div>
 			</div>

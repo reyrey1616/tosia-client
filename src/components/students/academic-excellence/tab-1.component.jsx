@@ -104,20 +104,18 @@ const AcademicHonorsReceived = ({ data }) => {
 								onChange={handleImageChange}
 							/>
 						</div>
-						<Form.Item className="button-form-item">
-							<center>
-								<Button
-									htmlType="submit"
-									size="large"
-									type="primary"
-									loading={buttonLoading}
-								>
-									&nbsp; Save changes
-								</Button>
-							</center>
-						</Form.Item>
 					</div>
 				</div>
+				<Form.Item className="button-form-item">
+					<Button
+						htmlType="submit"
+						size="large"
+						type="primary"
+						loading={buttonLoading}
+					>
+						&nbsp; Save changes
+					</Button>
+				</Form.Item>
 			</Form>
 
 			<div className="table-container mt-2">

@@ -15,26 +15,35 @@ const RegistrationPage = () => {
 					<img src={Image} alt="Tosia" />
 				</div>
 				<div
-					className="col-6 col-md-12 p-1 animate__animated animate__fadeInLeftBig bg-white"
+					className="col-6 col-md-12  animate__animated animate__fadeInLeftBig bg-white"
 					style={{
 						borderTopRightRadius: "15px",
 						borderBottomRightRadius: "15px",
 					}}
 					ref={signUpRef}
 				>
-					<div className="p-2">
-						<p className="text-body m-0 text-grey">
-							{" "}
-							REGISTER FOR FREE{" "}
-						</p>
-						<h2 className="text-title-big text-blue m-0">
-							Register
-						</h2>
-						<p className="text-body mb-2 text-grey">
-							<label> ALREADY A MEMBER? </label>{" "}
-							<Link to="/login"> LOG IN</Link>
-						</p>
+					<div
+						className="p-1 login-page-login-form"
+						style={{ justifyContent: "space-between" }}
+					>
+						<div>
+							<p className="text-body m-0 text-grey">
+								{" "}
+								REGISTER FOR FREE{" "}
+							</p>
+							<h2 className="text-title-big text-blue m-0">
+								Register
+							</h2>
+						</div>
+
 						<RegistrationForm />
+
+						<center>
+							<p className="text-body mt-1 text-grey">
+								<label> ALREADY A MEMBER? </label>{" "}
+								<Link to="/login"> LOG IN</Link>
+							</p>
+						</center>
 					</div>
 				</div>
 			</div>

@@ -12,17 +12,31 @@ const CommunityEnvolvementMainPage = () => {
 
 	return (
 		<div className="admin-page-content card-container">
-			<ul>
+			<ul className="instructions-ul">
 				<li>
 					List all your activities in chronological order and
 					kindly spell out acronyms.
 				</li>
 				<li>
-					All activities must be supported by
-					documents/Photographs in the portfolio accordingly.
-					Indicate the page number in the portfolio.
+					All activities must be supported by a related document.
+					Please scan or take a clear photo of your supporting
+					document. Scanned documents should be converted to
+					image format. Only one supporting document / image is
+					required for each activity.
 				</li>
-				<li>Use the format as indicated in this sample form.</li>
+				<li>
+					The system only accepts ONE IMAGE. And it must be less
+					than 2MB.
+				</li>
+				<li>
+					Each category has limits, please refer to the maximum
+					number of entries indicated in each sub-category.
+				</li>
+				<li>
+					Click the “Save Changes” button to add an entry. All
+					entries will be recorded upon clicking the button.
+				</li>
+				<li>Review entries before leaving the portal.</li>
 			</ul>
 			<Tabs defaultActiveKey="1" type="card">
 				<TabPane

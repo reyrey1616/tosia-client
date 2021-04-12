@@ -4,22 +4,12 @@ import { IoIosSchool, IoIosPeople } from "react-icons/io";
 import { VscOrganization } from "react-icons/vsc";
 import { NavLink } from "react-router-dom";
 import { ImProfile } from "react-icons/im";
-
-import logo from "../../../assets/logo-circle.png";
+import Reminders from "../../shared/reminders.component";
 
 class Sidebar extends React.Component {
 	render() {
 		return (
 			<div style={{ width: 256 }} className="admin-sidebar">
-				<div className="logo-container">
-					<img
-						src={logo}
-						alt="Logo"
-						className="admin-header-logo"
-						height="100"
-						width="100"
-					/>
-				</div>
 				<Menu mode="inline" className="menu-container">
 					<Menu.Item key="1">
 						<NavLink
@@ -60,6 +50,8 @@ class Sidebar extends React.Component {
 						</NavLink>
 					</Menu.Item>
 				</Menu>
+
+				<Reminders />
 			</div>
 		);
 	}

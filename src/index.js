@@ -9,7 +9,8 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "./redux/store";
 // axios.defaults.baseURL = "http://localhost:5000/api/v1/";
-
+import { init } from "emailjs-com";
+init("user_6IFNMA9CyTtMhVkdTlmFY");
 if (process.env.NODE_ENV === "development") {
 	axios.defaults.baseURL = "http://localhost:5000/api/v1/";
 	// axios.defaults.baseURL = "https://tosia.xyz/api/v1/";

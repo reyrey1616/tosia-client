@@ -1,14 +1,17 @@
-import React from "react";
-import { Form, Input, Radio, Select, DatePicker } from "antd";
+import React, { useState } from "react";
+import { Form, Input, Radio, Select, DatePicker, Button } from "antd";
 import axios from "axios";
 import { notify } from "../../global/alerts/alerts.component";
 import { useHistory } from "react-router-dom";
 import errorCatch from "../../../utils/errorCatch";
+import { verificationEmail } from "../../../utils/sendMail";
 const { Option } = Select;
 const RegistrationForm = () => {
 	const history = useHistory();
+	const [loading, setLoading] = useState(false);
 	const onFinish = async (values) => {
 		try {
+			setLoading(true);
 			const request = await axios.post("/auth/register", values);
 			const response = request.data;
 
@@ -16,15 +19,27 @@ const RegistrationForm = () => {
 				notify(
 					"Registration success!",
 					"success",
-					"You can now login your account."
+					"We've sent you an email to verify your email address to activate your account!"
 				);
 				setTimeout(() => {
+					setLoading(false);
+
+					verificationEmail({
+						name: `${response?.data?.fname} ${response?.data?.mname} ${response?.data?.lname}`,
+						to_email: values?.email,
+						verification_link: `<a href = "https://jciregattailoilo.org/verification/${response?.data?.id}">I'm confirming my account</a>`,
+					});
+
+					console.log(values);
+
 					history.push("/login");
 				}, 1500);
 			} else {
 				throw Error;
 			}
 		} catch (error) {
+			setLoading(false);
+
 			errorCatch(
 				error,
 				"Registration Error, Please refresh the page!"
@@ -230,9 +245,14 @@ const RegistrationForm = () => {
 
 			<Form.Item>
 				<center>
-					<button type="submit" className="branding-btn-primary">
+					<Button
+						htmlType="submit"
+						type="primary"
+						loading={loading}
+					>
+						{" "}
 						Submit
-					</button>
+					</Button>
 				</center>
 			</Form.Item>
 		</Form>
