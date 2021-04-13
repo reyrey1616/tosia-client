@@ -60,7 +60,7 @@ const DataPrivacy = () => {
 									? Promise.resolve()
 									: Promise.reject(
 											new Error(
-												"Should accept agreement"
+												"Should accept agreement!"
 											)
 									  ),
 						},
