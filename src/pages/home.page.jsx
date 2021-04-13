@@ -13,10 +13,23 @@ import Image9 from "../assets/2017.png";
 import Image10 from "../assets/2018.png";
 import Image11 from "../assets/2019.png";
 import Image12 from "../assets/2020.png";
+import LandingLogos from "../assets/landing-logos.png";
 
 const HomePage = () => {
 	return (
 		<div className="home-page">
+			<div className="landing-details">
+				<img
+					src={LandingLogos}
+					alt="TOSIA"
+					className="landing-logos"
+				/>
+				<p className="m-0 text-1">
+					THE OUTSTANDING STUDENTS OF ILOILO AWARDS 2021
+				</p>
+				<p className="m-0 text-2">BID NOMINATION PLATFORM</p>
+			</div>
+
 			<Carousel className="home-page-carousel">
 				<div className="carousel-item">
 					<img src={Image1} alt="TOSIA" />

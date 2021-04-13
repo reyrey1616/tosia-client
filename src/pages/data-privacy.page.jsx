@@ -17,10 +17,6 @@ const DataPrivacy = () => {
 		dispatch(
 			updateUserInfo(data && data?._id, values, () => {
 				notify("Welcome to your profile!");
-
-				// setTimeout(() => {
-				// 	window.location = "/student";
-				// }, 1500);
 			})
 		);
 	};
