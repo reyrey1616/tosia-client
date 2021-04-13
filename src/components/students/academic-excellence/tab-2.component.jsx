@@ -66,6 +66,7 @@ const CitationsReceived = ({ data }) => {
 				name="basic"
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
+				hidden={user && user?.isFinished ? true : false}
 			>
 				<div className="flex flex-wrap mb-2">
 					<div className="col-12 flex-wrap">

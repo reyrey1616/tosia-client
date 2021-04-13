@@ -45,14 +45,14 @@ const CommunityEnvolvementMainPage = () => {
 				>
 					<h2 className="text-subtitle text-orange m-1">
 						Most Significant Civic / NGO / Religious
-						Organizations and Position Held
+						Organizations and Position Held (Limit: 20)
 					</h2>
 
 					<OrganizationInvolvement data={userData && userData} />
 				</TabPane>
 				<TabPane tab="Most Significant Activities Attended" key="2">
 					<h2 className="text-subtitle text-orange m-1">
-						Most Significant Activities Attended
+						Most Significant Activities Attended (Limit: 20)
 					</h2>
 
 					<ActivitiesAttended data={userData && userData} />
@@ -62,7 +62,7 @@ const CommunityEnvolvementMainPage = () => {
 					key="3"
 				>
 					<h2 className="text-subtitle text-orange m-1">
-						Most Significant Activities Organized
+						Most Significant Activities Organized (Limit: 30)
 					</h2>
 
 					<ActivitiesOrganized data={userData && userData} />
@@ -73,6 +73,7 @@ const CommunityEnvolvementMainPage = () => {
 				>
 					<h2 className="text-subtitle text-orange m-1">
 						Most Significant Awards and Citations Received
+						(Limit: 20)
 					</h2>
 
 					<AwardsAndCitationsReceived

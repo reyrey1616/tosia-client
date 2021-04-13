@@ -26,6 +26,11 @@ const OrganizationInvolvementTable = ({ data, userType, docId, student }) => {
 			key: "levelOperate",
 		},
 		{
+			title: "Level the Organization operate",
+			dataIndex: "levelOperate",
+			key: "levelOperate",
+		},
+		{
 			title: "Inclusive Dates",
 			dataIndex: "inclusiveDate",
 			key: "inclusiveDate",
@@ -83,7 +88,9 @@ const OrganizationInvolvementTable = ({ data, userType, docId, student }) => {
 							}
 						}}
 					>
-						<Button danger> Delete</Button>
+						{!currentUser?.isFinished && (
+							<Button danger> Delete</Button>
+						)}
 					</Confirmation>
 				);
 			},

@@ -66,6 +66,7 @@ const AwardsAndCitationsReceived = ({ data }) => {
 				initialValues={{ remember: true }}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
+				hidden={user && user?.isFinished ? true : false}
 			>
 				<div className="flex flex-wrap mb-2">
 					<div className="col-12 flex-wrap">
@@ -83,72 +84,6 @@ const AwardsAndCitationsReceived = ({ data }) => {
 						>
 							<Input allowClear />
 						</Form.Item>
-						<Form.Item
-							className="col-3 col-md-12 p-half"
-							label="At what level is the award given?"
-							name="levelGiven"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please select what level thr award is given!",
-								},
-							]}
-						>
-							<Select>
-								<Option value="School-based">
-									School-based
-								</Option>
-								<Option value="District">
-									District
-								</Option>
-								<Option value="Regional">
-									Regional
-								</Option>
-								<Option value="Provincial">
-									Provincial
-								</Option>
-								<Option value="National">
-									National
-								</Option>
-								<Option value="International">
-									International
-								</Option>
-							</Select>
-						</Form.Item>
-						{/* <Form.Item
-							className="col-2 col-md-12 p-half"
-							label="College Year Level"
-							name="collegeYearLevel"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input college year level!",
-								},
-							]}
-						>
-							<Select defaultValue="1st Year" >
-								<Option value="1st Year">
-									1st Year
-								</Option>
-								<Option value="2nd Year">
-									2nd Year
-								</Option>
-
-								<Option value="3rd Year">
-									3rd Year
-								</Option>
-
-								<Option value="4th Year">
-									4th Year
-								</Option>
-
-								<Option value="5th Year">
-									5th Year
-								</Option>
-							</Select>
-						</Form.Item> */}
 
 						<Form.Item
 							className="col-5 col-md-12 p-half mb-0"

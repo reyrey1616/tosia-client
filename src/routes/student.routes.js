@@ -1,16 +1,19 @@
 import React, { lazy, useEffect } from "react";
-import { Button, Tooltip } from "antd";
-import { Redirect, Switch, Link } from "react-router-dom";
+import { Tooltip, Button } from "antd";
+import { Redirect, Switch } from "react-router-dom";
 import Sidebar from "../components/students/sidebar/sidebar.component";
-import { LogoutOutlined, QuestionCircleOutlined } from "@ant-design/icons";
 import PrivateRoute from "../components/hoc/private-route/private-route.component";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserStart } from "../redux/auth/auth.actions";
 import { selectCurrentUser } from "../redux/auth/auth.selectors";
 import Spinner from "../components/hoc/spinner/spinner.component";
-import Reminders from "../components/shared/reminders.component";
 import Logo from "../assets/logo-circle.png";
+import {
+	Confirmation,
+	notify,
+} from "../components/global/alerts/alerts.component";
+import { updateUserInfo } from "../functions/personal-data";
 const PersonalData = lazy(() =>
 	import("../pages/students/personal-data/main.page")
 );
@@ -24,6 +27,8 @@ const CommunityEnvolvementMainPage = lazy(() =>
 	import("../pages/students/community-envolvement/main.page")
 );
 
+const DataPrivacy = lazy(() => import("../pages/data-privacy.page"));
+
 const StudentRoutes = () => {
 	const history = useHistory();
 	const dispatch = useDispatch();
@@ -32,109 +37,149 @@ const StudentRoutes = () => {
 		dispatch(getUserStart("student"));
 	}, []);
 
-	const logout = () => {
-		history.push("/login");
-		// localStorage.removeItem("stkn");
-	};
-
 	return !!userData ? (
-		<div
-			className="height-full flex width-full bg-dirtywhite"
-			style={{ display: "flex", flexDirection: "column" }}
-		>
+		userData?.isFirstLoggedIn ? (
+			<DataPrivacy />
+		) : (
 			<div
-				className="student-header p-half flex align-items-flex-center justify-content-space-between bg-blue"
-				style={{ position: "fixed", width: "100%" }}
+				className="height-full flex width-full bg-dirtywhite"
+				style={{ display: "flex", flexDirection: "column" }}
 			>
-				<div className="flex col-6 col-md-12 align-items-flex-center ">
-					<img
-						src={Logo}
-						alt="Logo"
-						className="admin-header-logo"
-						height="50"
-						width="50"
-					/>
-					<h3 className="m-0 text-white fw-700">
-						{" "}
-						The Outstanding Students of Iloilo Awards
-					</h3>
-				</div>
-				<div className="col-6 col-md-12 justify-content-end align-items-flex-center">
-					<h3 className="text-white m-0 mr-1 fw-700">
-						{" "}
-						Welcome,{" "}
-						{`${userData.fname} ${userData.mname.substring(
-							0,
-							1
-						)} ${userData.lname}!`}
-					</h3>
-					<Tooltip title="Logout">
-						<button
-							className="text-white mr-1 fw-700"
-							style={{
-								background: "transparent",
-								outline: "none",
-								border: 0,
-							}}
-							onClick={() => {
-								localStorage.removeItem("stkn");
-								history.push("/login");
-							}}
-						>
+				<div
+					className="student-header p-half flex align-items-flex-center justify-content-space-between bg-blue"
+					style={{ position: "fixed", width: "100%" }}
+				>
+					<div className="flex col-6 col-md-12 align-items-flex-center ">
+						<img
+							src={Logo}
+							alt="Logo"
+							className="admin-header-logo"
+							height="50"
+							width="50"
+						/>
+						<h3 className="m-0 text-white fw-700">
 							{" "}
-							Logout{" "}
-						</button>
-					</Tooltip>
-					<Tooltip title="Logout">
-						<a
-							className="text-white mr-1 fw-700"
-							href="https://www.facebook.com/jciregattailoilo/"
-							target="_blank"
-						>
+							The Outstanding Students of Iloilo Awards
+						</h3>
+					</div>
+					<div className="col-6 col-md-12 justify-content-end align-items-flex-center">
+						<h3 className="text-white m-0 mr-1 fw-700">
 							{" "}
-							Help
-						</a>
-					</Tooltip>
-				</div>
-			</div>
-			<div
-				className="flex"
-				style={{
-					height: "calc(100vh - 70px)",
-					marginTop: "70px",
-				}}
-			>
-				<Sidebar />
+							Welcome,{" "}
+							{`${
+								userData.fname
+							} ${userData.mname.substring(0, 1)} ${
+								userData.lname
+							}!`}
+						</h3>
+						{userData && userData?.isFinished ? null : (
+							<Confirmation
+								title="Are you sure you want submit?"
+								confirmFn={() => {
+									dispatch(
+										updateUserInfo(
+											userData &&
+												userData?._id,
+											{ isFinished: true },
+											() => {
+												notify(
+													"Successfully Submitted"
+												);
 
-				<div className="admin-content p-1">
-					<div className="admin-main-content">
-						<Switch>
-							<PrivateRoute
-								path="/student/personal-data/"
-								component={PersonalData}
-							/>
-							<Redirect
-								from="/student/"
-								exact
-								to="/student/personal-data"
-							/>
-							<PrivateRoute
-								path="/student/academic-excellence/"
-								component={AcademicExcellenceMainPage}
-							/>
-							<PrivateRoute
-								path="/student/leadership/"
-								component={LeadershipMainPage}
-							/>
-							<PrivateRoute
-								path="/student/community-envolvement/"
-								component={CommunityEnvolvementMainPage}
-							/>
-						</Switch>
+												setTimeout(() => {
+													window.location.href =
+														"/student/personal-data";
+												}, [1500]);
+											}
+										)
+									);
+								}}
+							>
+								<button
+									className="text-white mr-1 fw-700"
+									style={{
+										background: "transparent",
+										outline: "none",
+										border: 0,
+									}}
+								>
+									Submit
+								</button>
+							</Confirmation>
+						)}
+						<Tooltip title="Logout">
+							<a
+								className="text-white mr-1 fw-700"
+								href="https://www.facebook.com/jciregattailoilo/"
+								target="_blank"
+								rel="noreferrer"
+							>
+								{" "}
+								Help
+							</a>
+						</Tooltip>
+						<Tooltip title="Logout">
+							<button
+								className="text-white mr-1 fw-700"
+								style={{
+									background: "transparent",
+									outline: "none",
+									border: 0,
+								}}
+								onClick={() => {
+									localStorage.removeItem("stkn");
+									history.push("/login");
+								}}
+							>
+								{" "}
+								Logout{" "}
+							</button>
+						</Tooltip>
+					</div>
+				</div>
+				<div
+					className="flex"
+					style={{
+						height: "calc(100vh - 70px)",
+						marginTop: "70px",
+					}}
+				>
+					<Sidebar />
+
+					<div className="admin-content p-1">
+						<div className="admin-main-content">
+							<Switch>
+								<PrivateRoute
+									path="/student/personal-data/"
+									component={PersonalData}
+								/>
+								<Redirect
+									from="/student/"
+									exact
+									to="/student/personal-data"
+								/>
+								<PrivateRoute
+									path="/student/academic-excellence/"
+									component={
+										AcademicExcellenceMainPage
+									}
+								/>
+								<PrivateRoute
+									path="/student/leadership/"
+									component={LeadershipMainPage}
+								/>
+								<PrivateRoute
+									path="/student/community-envolvement/"
+									component={
+										CommunityEnvolvementMainPage
+									}
+								/>
+							</Switch>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		)
 	) : (
 		<Spinner />
 	);

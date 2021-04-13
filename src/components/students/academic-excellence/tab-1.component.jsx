@@ -63,12 +63,7 @@ const AcademicHonorsReceived = ({ data }) => {
 				name="basic"
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
-				// initialValues={{
-				// 	level:
-				// 		data && data.category === "College"
-				// 			? "3rd Year"
-				// 			: "Grade 8",
-				// }}
+				hidden={user && user?.isFinished ? true : false}
 			>
 				<div className="flex flex-wrap mb-2">
 					<div className="col-12 flex">

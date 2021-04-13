@@ -67,6 +67,7 @@ const AwardsAndCitationsReceived = ({ data }) => {
 				initialValues={{ remember: true }}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
+				hidden={user && user?.isFinished ? true : false}
 			>
 				<div className="flex flex-wrap mb-2">
 					<div className="col-12 flex-wrap">
@@ -87,31 +88,38 @@ const AwardsAndCitationsReceived = ({ data }) => {
 						<Form.Item
 							className="col-4 col-md-12 p-half"
 							label="At what level the award is given?"
-							name="levelGiven"
+							name="levelAwardGiven"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please select what level thr award is given!",
+										"Please select what level the award is given!",
 								},
 							]}
 						>
 							<Select>
-								<Option value="School-based">
-									School-based
+								<Option value="Classroom">
+									Classroom
 								</Option>
-								<Option value="District">
-									District
+								<Option value="Department">
+									Department
 								</Option>
-								<Option value="Regional">
-									Regional
-								</Option>
+								<Option value="College">College</Option>
+								<Option value="University">
+									University
+								</Option>{" "}
+								<Option value="District/Municipal">
+									District/Municipal
+								</Option>{" "}
 								<Option value="Provincial">
 									Provincial
-								</Option>
+								</Option>{" "}
+								<Option value="Regional">
+									Regional
+								</Option>{" "}
 								<Option value="National">
 									National
-								</Option>
+								</Option>{" "}
 								<Option value="International">
 									International
 								</Option>
@@ -149,36 +157,6 @@ const AwardsAndCitationsReceived = ({ data }) => {
 								allowClear
 								style={{ width: "100%" }}
 							/>
-						</Form.Item>
-						<Form.Item
-							className="col-4 col-md-12 p-half"
-							label="At what level the award is given?"
-							name="levelAwardGiven"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please select level award given!",
-								},
-							]}
-						>
-							<Select>
-								<Option value="District/Municipal">
-									District/Municipal
-								</Option>
-								<Option value="Provincial">
-									Provincial
-								</Option>{" "}
-								<Option value="Regional">
-									Regional
-								</Option>{" "}
-								<Option value="National">
-									National
-								</Option>{" "}
-								<Option value="International">
-									International
-								</Option>
-							</Select>
 						</Form.Item>
 
 						<div

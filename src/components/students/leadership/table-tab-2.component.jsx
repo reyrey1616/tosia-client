@@ -34,6 +34,11 @@ const LeadershipTrainingAttendedTable = ({
 			key: "organization",
 		},
 		{
+			title: "Level the award is given",
+			dataIndex: "levelAwardGiven",
+			key: "levelAwardGiven",
+		},
+		{
 			title: "Date Attended",
 			dataIndex: "dateAttended",
 			key: "dateAttended",
@@ -91,7 +96,9 @@ const LeadershipTrainingAttendedTable = ({
 							}
 						}}
 					>
-						<Button danger> Delete</Button>
+						{!currentUser?.isFinished && (
+							<Button danger> Delete</Button>
+						)}
 					</Confirmation>
 				);
 			},

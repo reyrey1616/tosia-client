@@ -35,6 +35,11 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 			key: "role",
 		},
 		{
+			title: "Level the award is given",
+			dataIndex: "levelAwardGiven",
+			key: "levelAwardGiven",
+		},
+		{
 			title: "Date Implemented",
 			dataIndex: "dateImplemented",
 			key: "dateImplemented",
@@ -93,7 +98,9 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 							}
 						}}
 					>
-						<Button danger> Delete</Button>
+						{!currentUser?.isFinished && (
+							<Button danger> Delete</Button>
+						)}
 					</Confirmation>
 				);
 			},

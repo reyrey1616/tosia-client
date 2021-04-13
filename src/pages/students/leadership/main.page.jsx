@@ -45,7 +45,7 @@ const LeadershipMainPage = () => {
 				>
 					<h2 className="text-subtitle text-orange m-1">
 						Most Significant Organization Envolvement and
-						Position Held
+						Position Held (Limit: 20)
 					</h2>
 					<OrganizationInvolvement data={userData && userData} />
 				</TabPane>
@@ -55,7 +55,7 @@ const LeadershipMainPage = () => {
 				>
 					<h2 className="text-subtitle text-orange m-1">
 						Most Significant Leadership Trainings and Seminars
-						Attended
+						Attended (Limit: 20)
 					</h2>
 
 					<LeadershipTrainingAttended
@@ -68,6 +68,7 @@ const LeadershipMainPage = () => {
 				>
 					<h2 className="text-subtitle text-orange m-1">
 						Most Significant Awards and Citations Received
+						(Limit: 20)
 					</h2>
 					<AwardsAndCitationsReceived
 						data={userData && userData}
@@ -78,7 +79,7 @@ const LeadershipMainPage = () => {
 					key="4"
 				>
 					<h2 className="text-subtitle text-orange m-1">
-						Most Significant Activities Organized
+						Most Significant Activities Organized (Limit: 30)
 					</h2>
 
 					<ActivitiesOrganized data={userData && userData} />

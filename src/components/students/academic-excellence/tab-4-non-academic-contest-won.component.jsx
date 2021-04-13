@@ -31,6 +31,12 @@ const NonAcademicContestsWonTable = ({ data, userType, docId, student }) => {
 			key: "organization",
 		},
 		{
+			title: "Level the award is given",
+			dataIndex: "levelAwardGiven",
+			key: "levelAwardGiven",
+		},
+
+		{
 			title: "Date Received",
 			dataIndex: "dateReceived",
 			key: "dateReceived",
@@ -88,7 +94,9 @@ const NonAcademicContestsWonTable = ({ data, userType, docId, student }) => {
 							}
 						}}
 					>
-						<Button danger> Delete</Button>
+						{!currentUser?.isFinished && (
+							<Button danger> Delete</Button>
+						)}
 					</Confirmation>
 				);
 			},

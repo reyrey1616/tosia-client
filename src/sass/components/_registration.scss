@@ -29,7 +29,7 @@
 
 	.login-page-container {
 		width: 65%;
-		height: 65vh;
+		height: 72vh;
 
 		@include query(laptop) {
 			width: 80%;
@@ -44,7 +44,7 @@
 			@include query(laptop) {
 				max-height: 80vh;
 			}
-			max-height: 60vh;
+			max-height: 70vh;
 			overflow: auto;
 			display: flex;
 			flex-direction: column;

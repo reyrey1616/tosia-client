@@ -89,7 +89,9 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 							}
 						}}
 					>
-						<Button danger> Delete</Button>
+						{!currentUser?.isFinished && (
+							<Button danger> Delete</Button>
+						)}
 					</Confirmation>
 				);
 			},
