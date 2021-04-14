@@ -8,15 +8,15 @@ const UploadWithPreview = ({ image, handleChange, label, name }) => {
 		if (image && image) {
 			setImage(true);
 		}
-	}, [image]);
+	}, [image, withImage]);
 	return (
 		<div className="mb-1">
 			<label htmlFor={name}>
-				{withImage ? (
+				{withImage && image ? (
 					<img
 						onError={() => setImage(false)}
 						src={image && image}
-						alt="Image preview"
+						alt="Profile Photo"
 						className="image-preview width-100"
 						style={{ objectFit: "cover" }}
 					/>
