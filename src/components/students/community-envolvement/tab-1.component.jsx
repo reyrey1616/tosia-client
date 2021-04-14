@@ -28,7 +28,7 @@ const Organizations = ({ data }) => {
 			setButtonLoading(true);
 			dispatch(
 				addCommunityEnvolvement(user._id, values, () => {
-					notify("Religious Organization Added");
+					notify("Organization Added");
 					form.resetFields();
 					setImageFile(null);
 					setFileKey(Date.now());
@@ -69,9 +69,16 @@ const Organizations = ({ data }) => {
 				initialValues={{ remember: true }}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
-				hidden={user && user?.isFinished ? true : false}
+				hidden={
+					user && user?.isFinished
+						? true
+						: data &&
+						  data?.community[0]?.organizations?.length >= 20
+						? true
+						: false
+				}
 			>
-				<div className="flex flex-wrap mb-2">
+				<div className="flex flex-wrap mb-1">
 					<div className="col-12 flex-wrap">
 						<Form.Item
 							className="col-4 col-md-12 p-half mb-0"

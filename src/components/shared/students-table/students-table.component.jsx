@@ -67,7 +67,7 @@ const StudentsTable = ({ data }) => {
 			dataSource={data && data}
 			rowKey={`_id`}
 			columns={columns}
-			pagination={true}
+			pagination={{ defaultPageSize: 5 }}
 		/>
 	);
 };

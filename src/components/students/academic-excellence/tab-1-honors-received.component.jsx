@@ -86,7 +86,7 @@ const HonorsReceivedTable = ({ data, userType, docId, student }) => {
 			dataSource={data && data}
 			rowKey={`id`}
 			columns={columns}
-			pagination={true}
+			pagination={{ defaultPageSize: 5 }}
 		/>
 	);
 };

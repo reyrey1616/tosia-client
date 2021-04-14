@@ -1,5 +1,5 @@
 import React, { lazy, useEffect } from "react";
-import { Tooltip, Button } from "antd";
+import { Tooltip, Alert, Button } from "antd";
 import { Redirect, Switch } from "react-router-dom";
 import Sidebar from "../components/students/sidebar/sidebar.component";
 import PrivateRoute from "../components/hoc/private-route/private-route.component";
@@ -80,7 +80,9 @@ const StudentRoutes = () => {
 										updateUserInfo(
 											userData &&
 												userData?._id,
-											{ isFinished: true },
+											{
+												isFinished: true,
+											},
 											() => {
 												notify(
 													"Successfully Submitted"
@@ -95,22 +97,24 @@ const StudentRoutes = () => {
 									);
 								}}
 							>
-								<button
-									className="text-white mr-1 fw-700"
-									style={{
-										background: "transparent",
-										outline: "none",
-										border: 0,
-									}}
-								>
-									Submit
-								</button>
+								<Tooltip title="Submit">
+									<Button
+										className="text-white mr-1 fw-700 submit-final-btn"
+										style={{
+											background: "#f16626",
+											outline: "none",
+											border: 0,
+										}}
+									>
+										Submit
+									</Button>
+								</Tooltip>
 							</Confirmation>
 						)}
-						<Tooltip title="Logout">
+						<Tooltip title="Help">
 							<a
 								className="text-white mr-1 fw-700"
-								href="https://www.facebook.com/jciregattailoilo/"
+								href="https://www.facebook.com/TheOutstandingStudentsofIloiloAwards"
 								target="_blank"
 								rel="noreferrer"
 							>
@@ -147,6 +151,14 @@ const StudentRoutes = () => {
 					<Sidebar />
 
 					<div className="admin-content p-1">
+						{userData && userData?.isFinished === true && (
+							<Alert
+								className="mb-1"
+								// message="Directions"
+								description="Thank you for submitting your application. The encoded information in the version you submitted is considered final and changes can no longer be made."
+								type="success"
+							/>
+						)}
 						<div className="admin-main-content">
 							<Switch>
 								<PrivateRoute

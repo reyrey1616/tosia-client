@@ -63,9 +63,17 @@ const AcademicHonorsReceived = ({ data }) => {
 				name="basic"
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
-				hidden={user && user?.isFinished ? true : false}
+				hidden={
+					user && user?.isFinished
+						? true
+						: data &&
+						  data?.academic[0]?.academicHonorsReceived
+								?.length >= 10
+						? true
+						: false
+				}
 			>
-				<div className="flex flex-wrap mb-2">
+				<div className="flex flex-wrap mb-1">
 					<div className="col-12 flex">
 						<SelectYearLevel />
 

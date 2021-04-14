@@ -49,6 +49,11 @@ $fontWeights: 10;
 .button-form-item {
 	.ant-form-item-control {
 		justify-content: center;
+		button {
+			span {
+				text-align: center !important;
+			}
+		}
 	}
 }
 
@@ -87,5 +92,13 @@ $fontWeights: 10;
 .instructions-ul {
 	li {
 		font-size: 12px;
+	}
+}
+
+.submit-final-btn {
+	transition: all 0.3s;
+	&:hover {
+		color: #fff;
+		transform: scale(1.1);
 	}
 }

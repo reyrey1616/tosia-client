@@ -43,7 +43,7 @@ const AcademicExcellenceMainPage = () => {
 				<TabPane tab="Academic Honors Received" key="1">
 					<h2 className="text-subtitle text-orange m-1">
 						{" "}
-						Academic Honors Received
+						Academic Honors Received (Limit: 10)
 					</h2>
 
 					<AcademicHonorsReceived data={userData && userData} />

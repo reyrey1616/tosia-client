@@ -15,7 +15,7 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 			key: "activityName",
 		},
 		{
-			title: "Short Description",
+			title: "Name of Activity and Short Description",
 			dataIndex: "description",
 			key: "description",
 		},
@@ -111,7 +111,7 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 			dataSource={data && data}
 			rowKey={`id`}
 			columns={columns}
-			pagination={true}
+			pagination={{ defaultPageSize: 5 }}
 		/>
 	);
 };

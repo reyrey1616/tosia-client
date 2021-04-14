@@ -68,9 +68,17 @@ const OrganizationInvolvement = ({ data }) => {
 				name="basic"
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
-				hidden={user && user?.isFinished ? true : false}
+				hidden={
+					user && user?.isFinished
+						? true
+						: data &&
+						  data?.leadership_virtual[0]?.orgEnvolvement
+								?.length >= 20
+						? true
+						: false
+				}
 			>
-				<div className="flex flex-wrap mb-2">
+				<div className="flex flex-wrap mb-1">
 					<div className="col-12 flex-wrap">
 						<Form.Item
 							className="col-5 col-md-12 p-half mb-0"

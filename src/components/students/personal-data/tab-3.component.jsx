@@ -91,6 +91,29 @@ const SchoolContactDetails = ({ data }) => {
 					<div className="col-12 flex">
 						<Form.Item
 							className="col-6 col-md-12 p-half mb-0"
+							label="Telephone No."
+							name="schoolContactNumber"
+							rules={[
+								{
+									required: true,
+									message:
+										"Please input your school contact number!",
+								},
+							]}
+						>
+							<Input allowClear />
+						</Form.Item>
+						<Form.Item
+							className="col-6 col-md-12 p-half mb-0"
+							label="Fax No."
+							name="schoolFaxNumber"
+						>
+							<Input allowClear />
+						</Form.Item>
+					</div>
+					<div className="col-12 flex">
+						<Form.Item
+							className="col-6 col-md-12 p-half mb-0"
 							label="Adviser Name"
 							name="schoolAdviserName"
 							rules={[
@@ -118,44 +141,14 @@ const SchoolContactDetails = ({ data }) => {
 							<Input allowClear />
 						</Form.Item>
 					</div>
-
-					<div className="col-12 flex">
-						<Form.Item
-							className="col-6 col-md-12 p-half mb-0"
-							label="Telephone No."
-							name="schoolContactNumber"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input your school contact number!",
-								},
-							]}
-						>
-							<Input allowClear />
-						</Form.Item>
-						<Form.Item
-							className="col-6 col-md-12 p-half mb-0"
-							label="Fax No."
-							name="schoolFaxNumber"
-							rules={[
-								{
-									required: true,
-									message:
-										"Please input your school fax number",
-								},
-							]}
-						>
-							<Input allowClear />
-						</Form.Item>
-					</div>
 				</div>
 
-				<Form.Item>
+				<Form.Item className="button-form-item">
 					<center>
 						<Button
 							htmlType="submit"
 							type="primary"
+							size="large"
 							loading={buttonLoading}
 						>
 							&nbsp; Save changes

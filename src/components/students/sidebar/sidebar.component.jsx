@@ -46,7 +46,7 @@ class Sidebar extends React.Component {
 							className="align-items-flex-center"
 						>
 							<VscOrganization className="mr-1" />{" "}
-							Community Envolvement
+							Community Involvement
 						</NavLink>
 					</Menu.Item>
 				</Menu>

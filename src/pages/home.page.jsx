@@ -30,7 +30,11 @@ const HomePage = () => {
 				<p className="m-0 text-2">BID NOMINATION PLATFORM</p>
 			</div>
 
-			<Carousel className="home-page-carousel">
+			<Carousel
+				className="home-page-carousel"
+				autoplay
+				autoplaySpeed={3000}
+			>
 				<div className="carousel-item">
 					<img src={Image1} alt="TOSIA" />
 					<button>

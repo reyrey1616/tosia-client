@@ -33,7 +33,7 @@ const LoginPage = () => {
 						throw Error;
 					}
 				} catch (error) {
-					errorCatch(error, "Login Failed");
+						errorCatch(error, "Login Failed");
 				}
 			}
 		})();

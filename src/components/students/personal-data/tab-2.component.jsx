@@ -132,11 +132,12 @@ const FamilyData = ({ data }) => {
 					</Form.Item>
 				</div>
 
-				<Form.Item>
+				<Form.Item className="button-form-item">
 					<center>
 						<Button
 							htmlType="submit"
 							type="primary"
+							size="large"
 							loading={buttonLoading}
 						>
 							Save changes

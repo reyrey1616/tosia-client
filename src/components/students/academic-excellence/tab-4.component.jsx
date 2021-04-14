@@ -67,9 +67,17 @@ const NonAcademicContestsWon = ({ data }) => {
 				initialValues={{ remember: true }}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
-				hidden={user && user?.isFinished ? true : false}
+				hidden={
+					user && user?.isFinished
+						? true
+						: data &&
+						  data?.academic[0]?.nonAcademicAwards?.length >=
+								50
+						? true
+						: false
+				}
 			>
-				<div className="flex flex-wrap mb-2">
+				<div className="flex flex-wrap mb-1">
 					<div className="col-12 flex-wrap">
 						<Form.Item
 							className="col-6 col-md-12 p-half mb-0"
@@ -130,7 +138,7 @@ const NonAcademicContestsWon = ({ data }) => {
 						</Form.Item>
 						<Form.Item
 							className="col-3 col-md-12 p-half"
-							label="At what level the award is given?"
+							label="At what level is the award given?"
 							name="levelAwardGiven"
 							rules={[
 								{
@@ -141,12 +149,25 @@ const NonAcademicContestsWon = ({ data }) => {
 							]}
 						>
 							<Select>
-								<Option value="School-based">
-									School-based
+								<Option value="Classroom">
+									Classroom
 								</Option>
-								<Option value="District/Municipal">
-									District/Municipal
+								<Option value="Department/Grade Level">
+									Department/Grade Level
 								</Option>
+								<Option value="College/Program (ex: Regular, STE, SPA, SPJ, SPS)">
+									College/Program (ex: Regular, STE,
+									SPA, SPJ, SPS)
+								</Option>
+								<Option value="University/School">
+									University/School
+								</Option>{" "}
+								<Option value="Municipal/District">
+									Municipal/District
+								</Option>{" "}
+								<Option value="Congressional District">
+									Congressional District
+								</Option>{" "}
 								<Option value="Provincial">
 									Provincial
 								</Option>{" "}

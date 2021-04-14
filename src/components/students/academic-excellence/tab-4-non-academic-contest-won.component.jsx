@@ -106,7 +106,7 @@ const NonAcademicContestsWonTable = ({ data, userType, docId, student }) => {
 		<Table
 			dataSource={data && data}
 			columns={columns}
-			pagination={true}
+			pagination={{ defaultPageSize: 5 }}
 			rowKey="id"
 		/>
 	);

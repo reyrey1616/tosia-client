@@ -60,7 +60,8 @@
 	border-radius: 25px;
 	padding-left: 0.5rem;
 	background: $dirtywhite;
-	min-height: calc(100vh - 80vh);
+	min-height: calc(90vh - 80vh) !important;
+	overflow: auto;
 
 	.admin-main-content {
 		border-radius: 25px;

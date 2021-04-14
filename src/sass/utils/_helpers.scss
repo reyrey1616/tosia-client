@@ -8,7 +8,7 @@ $paddings: 12;
 	padding: 0;
 }
 .p-half {
-	padding: 0.5rem;
+	padding: 0.3rem;
 }
 @for $i from 1 through $paddings {
 	.p-#{$i} {

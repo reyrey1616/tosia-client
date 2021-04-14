@@ -454,12 +454,13 @@ const PersonalData = ({ data, userType }) => {
 					</div>
 
 					{userType === "evaluator" ? null : (
-						<Form.Item>
+						<Form.Item className="button-form-item">
 							<center>
 								<Button
 									htmlType="submit"
 									type="primary"
 									loading={buttonLoading}
+									size="large"
 								>
 									&nbsp; Save changes
 								</Button>

@@ -104,6 +104,7 @@ const CharacterReferences = ({ data, userType }) => {
 								<Button
 									htmlType="submit"
 									type="primary"
+									size="large"
 									loading={buttonLoading}
 								>
 									Add Entry
