@@ -8,7 +8,7 @@ const UploadWithPreview = ({ image, handleChange, label, name }) => {
 		if (image && image) {
 			setImage(true);
 		}
-	}, [image, withImage]);
+	}, [image]);
 	return (
 		<div className="mb-1">
 			<label htmlFor={name}>
