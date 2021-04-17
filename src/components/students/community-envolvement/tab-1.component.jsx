@@ -127,7 +127,32 @@ const Organizations = ({ data }) => {
 							]}
 						>
 							<Select>
-								<Option value="Local">Local</Option>
+								<Option value="Classroom">
+									Classroom
+								</Option>
+								<Option value="Department/Grade Level">
+									Department/Grade Level
+								</Option>
+								<Option value="College/Program ((ex: Regular, STE, SPA, SPJ, SPS)">
+									College/Program ((ex: Regular, STE,
+									SPA, SPJ, SPS)
+								</Option>
+								<Option value="University/School">
+									University/School
+								</Option>
+								<Option value="Municipal/District">
+									Municipal/District
+								</Option>
+								<Option value="Congressional District">
+									Congressional District
+								</Option>
+								<Option value="Provincial">
+									Provincial
+								</Option>
+								<Option value="Regional">
+									Regional
+								</Option>
+
 								<Option value="National">
 									National
 								</Option>

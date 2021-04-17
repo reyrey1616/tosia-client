@@ -162,13 +162,13 @@ const PersonalData = ({ data, userType }) => {
 								</Form.Item>
 								<Form.Item
 									className="col-4 col-md-6 col-md-6 p-half"
-									label="Gender"
+									label="Sex"
 									name="gender"
 									rules={[
 										{
 											required: true,
 											message:
-												"Please select your gender!",
+												"Please select your sex!",
 										},
 									]}
 								>

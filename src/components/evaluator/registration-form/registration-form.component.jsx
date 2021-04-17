@@ -91,12 +91,12 @@ const RegistrationForm = () => {
 				</Form.Item>
 				<Form.Item
 					className="col-6 col-md-12 p-half"
-					label="Gender"
+					label="Sex"
 					name="gender"
 					rules={[
 						{
 							required: true,
-							message: "Please select your gender!",
+							message: "Please select your sex!",
 						},
 					]}
 				>

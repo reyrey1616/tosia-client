@@ -125,19 +125,21 @@ const OrganizationInvolvement = ({ data }) => {
 								<Option value="Classroom">
 									Classroom
 								</Option>
-
-								<Option value="Department">
-									Department
+								<Option value="Department/Grade Level">
+									Department/Grade Level
 								</Option>
-
-								<Option value="College">College</Option>
-
-								<Option value="University">
-									University
+								<Option value="College/Program ((ex: Regular, STE, SPA, SPJ, SPS)">
+									College/Program ((ex: Regular, STE,
+									SPA, SPJ, SPS)
 								</Option>
-
-								<Option value="District/Municipal">
-									District/Municipal
+								<Option value="University/School">
+									University/School
+								</Option>
+								<Option value="Municipal/District">
+									Municipal/District
+								</Option>
+								<Option value="Congressional District">
+									Congressional District
 								</Option>
 								<Option value="Provincial">
 									Provincial

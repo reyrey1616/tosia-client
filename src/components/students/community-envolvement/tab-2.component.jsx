@@ -157,7 +157,7 @@ const ActivitiesAttended = ({ data }) => {
 						>
 							<Input allowClear />
 						</Form.Item>
-						<Form.Item
+						{/* <Form.Item
 							className="col-4 col-md-12 p-half"
 							label="At what level is the award given?"
 							name="levelAwardGiven"
@@ -202,7 +202,7 @@ const ActivitiesAttended = ({ data }) => {
 									International
 								</Option>
 							</Select>
-						</Form.Item>
+						</Form.Item> */}
 
 						<Form.Item
 							className="col-3 col-md-12 p-half"

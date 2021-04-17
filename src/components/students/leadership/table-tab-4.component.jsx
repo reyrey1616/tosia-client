@@ -34,11 +34,11 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 			dataIndex: "role",
 			key: "role",
 		},
-		{
-			title: "Level the award is given",
-			dataIndex: "levelAwardGiven",
-			key: "levelAwardGiven",
-		},
+		// {
+		// 	title: "Level the award is given",
+		// 	dataIndex: "levelAwardGiven",
+		// 	key: "levelAwardGiven",
+		// },
 		{
 			title: "Date Implemented",
 			dataIndex: "dateImplemented",

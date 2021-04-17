@@ -205,7 +205,7 @@ const ActivitiesOrganized = ({ data }) => {
 								/>
 							</Form.Item>
 
-							<Form.Item
+							{/* <Form.Item
 								className="col-6 col-md-12 p-half"
 								label="At what level is the award given?"
 								name="levelAwardGiven"
@@ -250,7 +250,7 @@ const ActivitiesOrganized = ({ data }) => {
 										International
 									</Option>
 								</Select>
-							</Form.Item>
+							</Form.Item> */}
 
 							<div
 								className="col-6 col-md-12 p-half mb-0"

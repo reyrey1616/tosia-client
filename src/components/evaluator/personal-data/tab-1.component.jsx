@@ -25,7 +25,7 @@ const PersonalData = ({ data }) => {
 							{data.schoolName} - {data.level} -{" "}
 							{data.category}
 						</p>
-						<Item title="Gender" value={data.gender} />
+						<Item title="Sex" value={data.gender} />
 						<Item
 							title="Nationality"
 							value={data.nationality}

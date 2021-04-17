@@ -31,11 +31,11 @@ const ActivitiesAttendedTable = ({ data, userType, docId, student }) => {
 			dataIndex: "organization",
 			key: "organization",
 		},
-		{
-			title: "Level the award is given",
-			dataIndex: "levelAwardGiven",
-			key: "levelAwardGiven",
-		},
+		// {
+		// 	title: "Level the award is given",
+		// 	dataIndex: "levelAwardGiven",
+		// 	key: "levelAwardGiven",
+		// },
 		{
 			title: "Date Attended",
 			dataIndex: "dateAttended",

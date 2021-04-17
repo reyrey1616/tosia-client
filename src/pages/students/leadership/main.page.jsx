@@ -44,7 +44,7 @@ const LeadershipMainPage = () => {
 					key="1"
 				>
 					<h2 className="text-subtitle text-orange m-1">
-						Most Significant Organization Envolvement and
+						Most Significant Organization Involvement and
 						Position Held (Limit: 20)
 					</h2>
 					<OrganizationInvolvement data={userData && userData} />
