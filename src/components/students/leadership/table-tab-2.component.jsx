@@ -29,14 +29,14 @@ const LeadershipTrainingAttendedTable = ({
 
 		{
 			title:
-				"Name of the Organization/Institution that gave the award",
+				"Name of the organization/institution that organized the seminar/training",
 			dataIndex: "organization",
 			key: "organization",
 		},
 		{
-			title: "Level the award is given",
-			dataIndex: "levelAwardGiven",
-			key: "levelAwardGiven",
+			title: "Level the event organized",
+			dataIndex: "eventOrganizedLevel",
+			key: "eventOrganizedLevel",
 		},
 		{
 			title: "Date Attended",

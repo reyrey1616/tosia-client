@@ -1,14 +1,32 @@
+import React, { useEffect } from "react";
 import { Tabs } from "antd";
 import OrganizationInvolvement from "../../../components/students/leadership/tab-1.component";
 import LeadershipTrainingAttended from "../../../components/students/leadership/tab-2.component";
 import AwardsAndCitationsReceived from "../../../components/students/leadership/tab-3.component";
 import ActivitiesOrganized from "../../../components/students/leadership/tab-4.component";
 import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
+import {
+	selectCurrentUser,
+	selectCategory,
+} from "../../../redux/auth/auth.selectors";
+import { notify } from "../../../components/global/alerts/alerts.component";
 const { TabPane } = Tabs;
 
 const LeadershipMainPage = () => {
 	const userData = useSelector(selectCurrentUser);
+	const category = useSelector(selectCategory);
+
+	useEffect(() => {
+		if (!category) {
+			notify(
+				"Please select your category on the Personal Data section before encoding another information.",
+				"warning"
+			);
+			setTimeout(() => {
+				window.location.href = "/student/personal-data";
+			}, 3500);
+		}
+	}, []);
 	return (
 		<div className="admin-page-content card-container">
 			<h3 className="text-orange pl-1">Instructions</h3>

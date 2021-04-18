@@ -94,11 +94,9 @@ const LeadershipTrainingAttended = ({ data }) => {
 							<Input allowClear />
 						</Form.Item>
 
-						<SelectYearLevel />
-
 						<Form.Item
-							className="col-4 col-md-12 p-half mb-0"
-							label="Name of the organization/institution that gave the award"
+							className="col-6 col-md-12 p-half mb-0"
+							label="Name of the organization/institution that organized the seminar/training"
 							name="organization"
 							rules={[
 								{
@@ -112,14 +110,14 @@ const LeadershipTrainingAttended = ({ data }) => {
 						</Form.Item>
 
 						<Form.Item
-							className="col-3 col-md-12 p-half"
-							label="At what level is the award given?"
-							name="levelAwardGiven"
+							className="col-4 col-md-12 p-half"
+							label="At what level was the event organized?"
+							name="eventOrganizedLevel"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please select level award given!",
+										"Please select level of event organized!",
 								},
 							]}
 						>
@@ -157,6 +155,7 @@ const LeadershipTrainingAttended = ({ data }) => {
 								</Option>
 							</Select>
 						</Form.Item>
+						<SelectYearLevel />
 
 						<Form.Item
 							className="col-2 col-md-12 p-half"

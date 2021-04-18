@@ -113,13 +113,13 @@ const TrainingAttended = ({ data }) => {
 						<SelectYearLevel />
 						<Form.Item
 							className="col-3 col-md-12 p-half"
-							label="At what level is the award given?"
-							name="levelAwardGiven"
+							label="At what level was the event organized?"
+							name="eventOrganizedLevel"
 							rules={[
 								{
 									required: true,
 									message:
-										"Please select level award given!",
+										"Please select level of event organized!",
 								},
 							]}
 						>
@@ -158,8 +158,8 @@ const TrainingAttended = ({ data }) => {
 							</Select>
 						</Form.Item>
 						<Form.Item
-							className="col-4 col-md-12 p-half mb-0"
-							label="Name of the organization/institution that gave the award"
+							className="col-6 col-md-12 p-half mb-0"
+							label="Name of the organization/institution that organized the seminar/training"
 							name="organization"
 							rules={[
 								{
@@ -173,7 +173,7 @@ const TrainingAttended = ({ data }) => {
 						</Form.Item>
 
 						<Form.Item
-							className="col-4 col-md-12 p-half"
+							className="col-3 col-md-12 p-half"
 							label="Date Attended"
 							name="dateAttended"
 							rules={[
@@ -191,7 +191,7 @@ const TrainingAttended = ({ data }) => {
 						</Form.Item>
 
 						<div
-							className="col-4 col-md-12 p-half mb-0"
+							className="col-3 col-md-12 p-half mb-0"
 							label="Image"
 							name="image"
 						>

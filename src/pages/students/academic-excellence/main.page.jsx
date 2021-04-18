@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { Tabs } from "antd";
 import AcademicHonorsReceived from "../../../components/students/academic-excellence/tab-1.component";
 import CitationsReceivedTab from "../../../components/students/academic-excellence/tab-2.component";
@@ -5,11 +6,28 @@ import AcademicContestsWon from "../../../components/students/academic-excellenc
 import NonAcademicContestsWon from "../../../components/students/academic-excellence/tab-4.component";
 import TrainingAttended from "../../../components/students/academic-excellence/tab-5.component";
 import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
+import {
+	selectCurrentUser,
+	selectCategory,
+} from "../../../redux/auth/auth.selectors";
+import { notify } from "../../../components/global/alerts/alerts.component";
 const { TabPane } = Tabs;
 
 const AcademicExcellenceMainPage = () => {
 	const userData = useSelector(selectCurrentUser);
+	const category = useSelector(selectCategory);
+
+	useEffect(() => {
+		if (!category) {
+			notify(
+				"Please select your category on the Personal Data section before encoding another information.",
+				"warning"
+			);
+			setTimeout(() => {
+				window.location.href = "/student/personal-data";
+			}, 3500);
+		}
+	}, []);
 	return (
 		<div className="admin-page-content card-container">
 			<h3 className="text-orange pl-1">Instructions</h3>
