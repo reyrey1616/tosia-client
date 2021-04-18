@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteCommunityEnvolvement } from "../../../functions/community-envolvement";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
 import EvaluationForm from "../../shared/evaluation-form.component";
+import moment from "moment";
 
 const AwardsAndCitationsReceivedTable = ({
 	data,
@@ -40,6 +41,7 @@ const AwardsAndCitationsReceivedTable = ({
 			title: "Date Received",
 			dataIndex: "dateReceived",
 			key: "dateReceived",
+			render: (val) => moment(val).format("MMMM DD, YYYY"),
 		},
 		{
 			title: "Image",

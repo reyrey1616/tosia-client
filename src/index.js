@@ -12,8 +12,8 @@ import store from "./redux/store";
 import { init } from "emailjs-com";
 init("user_6IFNMA9CyTtMhVkdTlmFY");
 if (process.env.NODE_ENV === "development") {
-	// axios.defaults.baseURL = "http://localhost:5000/api/v1/";
-	axios.defaults.baseURL = "https://tosia.xyz/api/v1/";
+	axios.defaults.baseURL = "http://localhost:5000/api/v1/";
+	// axios.defaults.baseURL = "https://tosia.xyz/api/v1/";
 } else {
 	axios.defaults.baseURL = "https://tosia.xyz/api/v1/";
 }

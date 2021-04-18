@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteLeadership } from "../../../functions/leadership";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
 import EvaluationForm from "../../shared/evaluation-form.component";
+import moment from "moment";
 
 const LeadershipTrainingAttendedTable = ({
 	data,
@@ -42,6 +43,7 @@ const LeadershipTrainingAttendedTable = ({
 			title: "Date Attended",
 			dataIndex: "dateAttended",
 			key: "dateAttended",
+			render: (val) => moment(val).format("MMMM DD, YYYY"),
 		},
 		{
 			title: "Image",

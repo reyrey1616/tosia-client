@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteAcademicExcellence } from "../../../functions/academic-excellence";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
 import EvaluationForm from "../../shared/evaluation-form.component";
+import moment from "moment";
 const NonAcademicContestsWonTable = ({ data, userType, docId, student }) => {
 	const dispatch = useDispatch();
 	const currentUser = useSelector(selectCurrentUser);
@@ -40,6 +41,7 @@ const NonAcademicContestsWonTable = ({ data, userType, docId, student }) => {
 			title: "Date Received",
 			dataIndex: "dateReceived",
 			key: "dateReceived",
+			render: (val) => moment(val).format("MMMM DD, YYYY"),
 		},
 		{
 			title: "Image",

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteLeadership } from "../../../functions/leadership";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
 import EvaluationForm from "../../shared/evaluation-form.component";
+import moment from "moment";
 const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 	const dispatch = useDispatch();
 	const currentUser = useSelector(selectCurrentUser);
@@ -43,6 +44,7 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 			title: "Date Implemented",
 			dataIndex: "dateImplemented",
 			key: "dateImplemented",
+			render: (val) => moment(val).format("MMMM DD, YYYY"),
 		},
 		{
 			title: "Image",
