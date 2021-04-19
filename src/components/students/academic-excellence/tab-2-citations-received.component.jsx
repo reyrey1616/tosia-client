@@ -1,11 +1,12 @@
 import React from "react";
-import { Table, Avatar, Image, Button, InputNumber } from "antd";
+import { Table, Avatar, Image, Button } from "antd";
 import { Confirmation, notify } from "../../global/alerts/alerts.component";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteAcademicExcellence } from "../../../functions/academic-excellence";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
 import EvaluationForm from "../../shared/evaluation-form.component";
 import moment from "moment";
+import sorter from "../../../utils/sorter";
 
 const CitationsReceivedTable = ({ data, userType, docId, student }) => {
 	const dispatch = useDispatch();
@@ -105,9 +106,10 @@ const CitationsReceivedTable = ({ data, userType, docId, student }) => {
 			},
 		},
 	];
+
 	return (
 		<Table
-			dataSource={data && data}
+			dataSource={data && sorter(data, "dateReceived")}
 			rowKey="id"
 			columns={columns}
 			pagination={{ defaultPageSize: 5 }}

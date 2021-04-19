@@ -6,7 +6,7 @@ import { deleteLeadership } from "../../../functions/leadership";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
 import EvaluationForm from "../../shared/evaluation-form.component";
 import moment from "moment";
-
+import sorter from "../../../utils/sorter";
 const AwardsAndCitationsReceivedTable = ({
 	data,
 	userType,
@@ -102,7 +102,7 @@ const AwardsAndCitationsReceivedTable = ({
 	];
 	return (
 		<Table
-			dataSource={data && data}
+			dataSource={data && sorter(data, "dateReceived")}
 			rowKey={`id`}
 			columns={columns}
 			pagination={{ defaultPageSize: 5 }}

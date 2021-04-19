@@ -6,6 +6,7 @@ import { deleteLeadership } from "../../../functions/leadership";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
 import EvaluationForm from "../../shared/evaluation-form.component";
 import moment from "moment";
+import sorter from "../../../utils/sorter";
 
 const LeadershipTrainingAttendedTable = ({
 	data,
@@ -108,7 +109,7 @@ const LeadershipTrainingAttendedTable = ({
 	];
 	return (
 		<Table
-			dataSource={data && data}
+			dataSource={data && sorter(data, "dateAttended")}
 			rowKey={`id`}
 			columns={columns}
 			pagination={{ defaultPageSize: 5 }}

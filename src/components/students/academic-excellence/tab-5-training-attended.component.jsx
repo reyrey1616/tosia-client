@@ -6,6 +6,8 @@ import { deleteAcademicExcellence } from "../../../functions/academic-excellence
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
 import EvaluationForm from "../../shared/evaluation-form.component";
 import moment from "moment";
+import sorter from "../../../utils/sorter";
+
 const TrainingAttendedTable = ({ data, userType, docId, student }) => {
 	const dispatch = useDispatch();
 	const currentUser = useSelector(selectCurrentUser);
@@ -106,7 +108,7 @@ const TrainingAttendedTable = ({ data, userType, docId, student }) => {
 	];
 	return (
 		<Table
-			dataSource={data && data}
+			dataSource={data && sorter(data, "dateAttended")}
 			columns={columns}
 			pagination={{ defaultPageSize: 5 }}
 			rowKey="id"

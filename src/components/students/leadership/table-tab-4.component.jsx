@@ -6,6 +6,7 @@ import { deleteLeadership } from "../../../functions/leadership";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
 import EvaluationForm from "../../shared/evaluation-form.component";
 import moment from "moment";
+import sorter from "../../../utils/sorter";
 const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 	const dispatch = useDispatch();
 	const currentUser = useSelector(selectCurrentUser);
@@ -110,7 +111,7 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 	];
 	return (
 		<Table
-			dataSource={data && data}
+			dataSource={data && sorter(data, "dateImplemented")}
 			rowKey={`id`}
 			columns={columns}
 			pagination={{ defaultPageSize: 5 }}
