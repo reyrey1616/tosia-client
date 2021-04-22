@@ -72,6 +72,7 @@ const AcademicContestsWonTable = ({ data, userType, docId, student }) => {
 							awardType: "academic",
 							subAwardId: val.id,
 							subAwardType: "contest",
+							point: val?.points,
 						}}
 					/>
 				) : (

@@ -73,6 +73,7 @@ const CitationsReceivedTable = ({ data, userType, docId, student }) => {
 							awardType: "academic",
 							subAwardId: val.id,
 							subAwardType: "citation",
+							point: val?.points,
 						}}
 					/>
 				) : (

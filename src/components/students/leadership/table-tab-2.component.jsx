@@ -73,7 +73,8 @@ const LeadershipTrainingAttendedTable = ({
 							parentAward: docId,
 							awardType: "leadership",
 							subAwardId: val.id,
-							subAwardType: "training",
+							subAwardType: "leadership",
+							point: val?.points,
 						}}
 					/>
 				) : (

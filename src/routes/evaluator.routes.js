@@ -1,14 +1,13 @@
 import React, { lazy, useEffect } from "react";
-import { Button, Tooltip } from "antd";
-import { Redirect, Switch, Link } from "react-router-dom";
-import Sidebar from "../components/evaluator/sidebar/sidebar.component";
-import { LogoutOutlined } from "@ant-design/icons";
+import { Tooltip } from "antd";
+import { Redirect, Switch } from "react-router-dom";
 import PrivateRoute from "../components/hoc/private-route/evaluator-private-route.component";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserStart } from "../redux/auth/auth.actions";
 import { selectCurrentUser } from "../redux/auth/auth.selectors";
 import Spinner from "../components/hoc/spinner/spinner.component";
+import Logo from "../assets/logo-circle.png";
 
 const StudentsPage = lazy(() =>
 	import("../pages/evaluator/students/students.page")
@@ -25,33 +24,77 @@ const StudentRoutes = () => {
 	}, []);
 
 	return !!userData ? (
-		<div className="height-full flex width-full bg-dirtywhite">
-			<Sidebar />
-			<div className="admin-content p-1">
-				<div className="student-header flex align-items-flex-center justify-content-space-between">
-					<h2 className="text-title text-black">
+		<div className="height-full width-full bg-dirtywhite">
+			<div
+				className="student-header p-half flex-unwrap row align-items-flex-center justify-content-space-between bg-blue"
+				style={{ width: "100%", position: "sticky" }}
+			>
+				<div
+					className="flex col-6 col-md-12 align-items-flex-center"
+					onClick={() => {
+						history.push("/evaluator/students");
+					}}
+					style={{
+						cursor: "pointer",
+					}}
+				>
+					<img
+						src={Logo}
+						alt="Logo"
+						className="admin-header-logo"
+						height="50"
+						width="50"
+					/>
+					<h3 className="m-0 text-white fw-700">
+						{" "}
+						The Outstanding Students of Iloilo Awards
+					</h3>
+				</div>
+				<div className="col-6 col-md-12 justify-content-end align-items-flex-center">
+					<h3 className="text-white m-0 mr-1 fw-700">
 						{" "}
 						Welcome,{" "}
-                            {`${userData.fname} ${userData.mname.substring(
-                                0,
-                                1
-                            )} ${userData.lname}`}
-					</h2>
+						{`${userData.fname} ${userData.mname.substring(
+							0,
+							1
+						)} ${userData.lname}!`}
+					</h3>
+
+					<Tooltip title="Help">
+						<a
+							className="text-white mr-1 fw-700"
+							href="https://www.facebook.com/TheOutstandingStudentsofIloiloAwards"
+							target="_blank"
+							rel="noreferrer"
+						>
+							{" "}
+							Help
+						</a>
+					</Tooltip>
 					<Tooltip title="Logout">
-						<Link to="/login">
-							<Button
-								onClick={() =>
-									localStorage.removeItem("etkn")
-								}
-								shape="circle"
-								size="large"
-								className="mr-1"
-								icon={<LogoutOutlined />}
-							/>
-						</Link>
+						<button
+							className="text-white mr-1 fw-700"
+							style={{
+								background: "transparent",
+								outline: "none",
+								border: 0,
+							}}
+							onClick={() => {
+								localStorage.removeItem("etkn");
+								history.push("/evaluator-login");
+							}}
+						>
+							{" "}
+							Logout{" "}
+						</button>
 					</Tooltip>
 				</div>
-				<div className="admin-main-content">
+			</div>
+			<div className="admin-content p-1 " style={{ width: "100%" }}>
+				<div
+					className="admin-main-content"
+					style={{ height: "auto", overflow: "unset" }}
+				>
 					<Switch>
 						<PrivateRoute
 							path="/evaluator/students"
@@ -66,14 +109,6 @@ const StudentRoutes = () => {
 							path="/evaluator/student-profile/:id"
 							component={StudentProfilePage}
 						/>
-						{/* <PrivateRoute
-							path="/student/leadership/"
-							component={LeadershipMainPage}
-						/>
-						<PrivateRoute
-							path="/student/community-envolvement/"
-							component={CommunityEnvolvementMainPage}
-						/> */}
 					</Switch>
 				</div>
 			</div>

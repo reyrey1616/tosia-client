@@ -71,6 +71,7 @@ const AwardsAndCitationsReceivedTable = ({
 							awardType: "community",
 							subAwardId: val.id,
 							subAwardType: "citation",
+							point: val?.points,
 						}}
 					/>
 				) : (

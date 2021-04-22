@@ -70,6 +70,7 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 							awardType: "community",
 							subAwardId: val.id,
 							subAwardType: "activities_organized",
+							point: val?.points,
 						}}
 					/>
 				) : (

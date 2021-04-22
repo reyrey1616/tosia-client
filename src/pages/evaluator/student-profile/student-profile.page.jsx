@@ -102,16 +102,16 @@ const StudentProfile = () => {
 						<AcademicHonorsReceivedTable
 							data={
 								student &&
-								student.academic &&
-								student.academic[0]
-									.academicHonorsReceived
+								student?.academic &&
+								student?.academic[0]
+									?.academicHonorsReceived
 							}
 							docId={
 								student &&
-								student.academic &&
-								student.academic[0]._id
+								student?.academic &&
+								student?.academic[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -125,15 +125,15 @@ const StudentProfile = () => {
 						<CitationsReceivedTable
 							data={
 								student &&
-								student.academic &&
-								student.academic[0].citationsReceived
+								student?.academic &&
+								student?.academic[0]?.citationsReceived
 							}
 							docId={
 								student &&
-								student.academic &&
-								student.academic[0]._id
+								student?.academic &&
+								student?.academic[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -146,15 +146,16 @@ const StudentProfile = () => {
 						<ContestWonTable
 							data={
 								student &&
-								student.academic &&
-								student.academic[0].academicContestsWon
+								student?.academic &&
+								student?.academic[0]
+									?.academicContestsWon
 							}
 							docId={
 								student &&
-								student.academic &&
-								student.academic[0]._id
+								student?.academic &&
+								student?.academic[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -167,15 +168,15 @@ const StudentProfile = () => {
 						<NonAcademicAwardsTable
 							data={
 								student &&
-								student.academic &&
-								student.academic[0].nonAcademicAwards
+								student?.academic &&
+								student?.academic[0]?.nonAcademicAwards
 							}
 							docId={
 								student &&
-								student.academic &&
-								student.academic[0]._id
+								student?.academic &&
+								student?.academic[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -189,15 +190,15 @@ const StudentProfile = () => {
 						<TrainingsAttendedTable
 							data={
 								student &&
-								student.academic &&
-								student.academic[0].seminarsAttended
+								student?.academic &&
+								student?.academic[0]?.seminarsAttended
 							}
 							docId={
 								student &&
-								student.academic &&
-								student.academic[0]._id
+								student?.academic &&
+								student?.academic[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -222,16 +223,16 @@ const StudentProfile = () => {
 						<LeadershipOrganizationEnvolvementTable
 							data={
 								student &&
-								student.leadership_virtual &&
-								student.leadership_virtual[0]
+								student?.leadership_virtual &&
+								student?.leadership_virtual[0]
 									.orgEnvolvement
 							}
 							docId={
 								student &&
-								student.leadership_virtual &&
-								student.leadership_virtual[0]._id
+								student?.leadership_virtual &&
+								student?.leadership_virtual[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -246,16 +247,16 @@ const StudentProfile = () => {
 						<LeadershipTraningAttendedTable
 							data={
 								student &&
-								student.leadership_virtual &&
-								student.leadership_virtual[0]
+								student?.leadership_virtual &&
+								student?.leadership_virtual[0]
 									.leadershipTraining
 							}
 							docId={
 								student &&
-								student.leadership_virtual &&
-								student.leadership_virtual[0]._id
+								student?.leadership_virtual &&
+								student?.leadership_virtual[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -270,15 +271,15 @@ const StudentProfile = () => {
 						<LeadershipCitationTable
 							data={
 								student &&
-								student.leadership_virtual &&
-								student.leadership_virtual[0].citation
+								student?.leadership_virtual &&
+								student?.leadership_virtual[0]?.citation
 							}
 							docId={
 								student &&
-								student.leadership_virtual &&
-								student.leadership_virtual[0]._id
+								student?.leadership_virtual &&
+								student?.leadership_virtual[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -292,16 +293,16 @@ const StudentProfile = () => {
 						<LeadershipActivitiesOrganizedTable
 							data={
 								student &&
-								student.leadership_virtual &&
-								student.leadership_virtual[0]
+								student?.leadership_virtual &&
+								student?.leadership_virtual[0]
 									.activitiesOrganized
 							}
 							docId={
 								student &&
-								student.leadership_virtual &&
-								student.leadership_virtual[0]._id
+								student?.leadership_virtual &&
+								student?.leadership_virtual[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -327,15 +328,15 @@ const StudentProfile = () => {
 						<CommunityReligiousOrganizationTable
 							data={
 								student &&
-								student.community &&
-								student.community[0].organizations
+								student?.community &&
+								student?.community[0]?.organizations
 							}
 							docId={
 								student &&
-								student.community &&
-								student.community[0]._id
+								student?.community &&
+								student?.community[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -349,15 +350,16 @@ const StudentProfile = () => {
 						<CommunityActivitiesAttendedTable
 							data={
 								student &&
-								student.community &&
-								student.community[0].activitiesAttended
+								student?.community &&
+								student?.community[0]
+									?.activitiesAttended
 							}
 							docId={
 								student &&
-								student.community &&
-								student.community[0]._id
+								student?.community &&
+								student?.community[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -371,15 +373,16 @@ const StudentProfile = () => {
 						<CommunityActivitiesOrganizedTable
 							data={
 								student &&
-								student.community &&
-								student.community[0].activitiesOrganized
+								student?.community &&
+								student?.community[0]
+									.activitiesOrganized
 							}
 							docId={
 								student &&
-								student.community &&
-								student.community[0]._id
+								student?.community &&
+								student?.community[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>
@@ -394,15 +397,16 @@ const StudentProfile = () => {
 						<CommunityCitationTable
 							data={
 								student &&
-								student.community &&
-								student.community[0].awardsAndCitations
+								student?.community &&
+								student?.community[0]
+									?.awardsAndCitations
 							}
 							docId={
 								student &&
-								student.community &&
-								student.community[0]._id
+								student?.community &&
+								student?.community[0]?._id
 							}
-							student={student && student._id}
+							student={student && student?._id}
 							userType="evaluator"
 						/>
 					</div>

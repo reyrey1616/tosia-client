@@ -63,6 +63,7 @@ const OrganizationInvolvementTable = ({ data, userType, docId, student }) => {
 							awardType: "community",
 							subAwardId: val.id,
 							subAwardType: "organization",
+							point: val?.points,
 						}}
 					/>
 				) : (

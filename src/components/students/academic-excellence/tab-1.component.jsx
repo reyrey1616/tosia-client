@@ -124,7 +124,9 @@ const AcademicHonorsReceived = ({ data }) => {
 			<div className="table-container mt-2">
 				{/* <AcademicHonorsReceivedTable /> */}
 				<HonorsReceivedTable
-					data={data && data.academic[0].academicHonorsReceived}
+					data={
+						data && data?.academic[0]?.academicHonorsReceived
+					}
 				/>
 			</div>
 		</div>

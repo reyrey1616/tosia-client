@@ -72,7 +72,8 @@ const TrainingAttendedTable = ({ data, userType, docId, student }) => {
 							parentAward: docId,
 							awardType: "academic",
 							subAwardId: val.id,
-							subAwardType: "training",
+							subAwardType: "seminar",
+							point: val?.points,
 						}}
 					/>
 				) : (

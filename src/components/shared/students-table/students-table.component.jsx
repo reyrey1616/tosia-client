@@ -56,7 +56,7 @@ const StudentsTable = ({ data }) => {
 						}}
 					>
 						{" "}
-						View{" "}
+						View
 					</Button>
 				);
 			},

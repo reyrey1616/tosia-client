@@ -70,7 +70,8 @@ const ActivitiesAttendedTable = ({ data, userType, docId, student }) => {
 							parentAward: docId,
 							awardType: "community",
 							subAwardId: val.id,
-							subAwardType: "activities_attended",
+							subAwardType: "activities",
+							point: val?.points,
 						}}
 					/>
 				) : (

@@ -211,7 +211,8 @@ const OrganizationInvolvement = ({ data }) => {
 				{/* <AcademicHonorsReceivedTable /> */}
 				<OrganizationInvolvementTable
 					data={
-						data && data.leadership_virtual[0].orgEnvolvement
+						data &&
+						data?.leadership_virtual[0]?.orgEnvolvement
 					}
 				/>
 			</div>

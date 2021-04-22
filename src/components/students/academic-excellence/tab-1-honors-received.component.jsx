@@ -46,8 +46,9 @@ const HonorsReceivedTable = ({ data, userType, docId, student }) => {
 							student,
 							parentAward: docId,
 							awardType: "academic",
-							subAwardId: val.id,
+							subAwardId: val?.id,
 							subAwardType: "honor",
+							point: val?.points,
 						}}
 					/>
 				) : (
