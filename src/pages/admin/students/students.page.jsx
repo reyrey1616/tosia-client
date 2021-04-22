@@ -14,7 +14,7 @@ const StudentsPage = () => {
 	const [searchText, setSearchText] = useState("");
 	// const [categorySelected, setCategory] = useState("");
 	useEffect(async () => {
-		const data = await getStudents("evaluator");
+		const data = await getStudents("admin");
 		setStudents(data);
 	}, [getStudents]);
 
@@ -66,7 +66,7 @@ const StudentsPage = () => {
 			</div>
 			<StudentsTable
 				data={students && filteredData()}
-				userType="evaluator"
+				userType="admin"
 			/>
 		</div>
 	) : (

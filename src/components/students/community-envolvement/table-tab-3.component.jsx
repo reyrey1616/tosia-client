@@ -59,8 +59,11 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 			),
 		},
 		{
-			title: "Action",
+			title: userType === "admin" ? "Points" : "Action",
 			render: (val) => {
+				if (userType === "admin") {
+					return val?.points;
+				}
 				return userType === "evaluator" ? (
 					<EvaluationForm
 						data={{

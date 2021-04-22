@@ -1,5 +1,6 @@
 import React from "react";
 import { Image } from "antd";
+import moment from "moment";
 
 const PersonalData = ({ data }) => {
 	return (
@@ -12,34 +13,39 @@ const PersonalData = ({ data }) => {
 							className="card"
 							style={{ borderRadius: "20px" }}
 							width={250}
-							src={`${process.env.REACT_APP_MEDIA_DIRECTORY}students/${data.image}`}
+							src={`${process.env.REACT_APP_MEDIA_DIRECTORY}students/${data?.image}`}
 						/>
 					</div>
 					<div className="col-9 p-1">
 						<p className="font-25 fw-600 text-orange m-0">
-							{data.fname} "{data.nickname}" {data.mname}{" "}
-							{data.lname}
+							{data?.fname} "{data?.nickname}"{" "}
+							{data?.mname} {data?.lname}
 						</p>
 						<p className="font-16 mb-1">
 							{" "}
-							{data.schoolName} - {data.level} -{" "}
-							{data.category}
+							{data?.schoolName} - {data?.level} -{" "}
+							{data?.category}
 						</p>
-						<Item title="Sex" value={data.gender} />
+						<Item title="Sex" value={data?.gender} />
 						<Item
 							title="Nationality"
-							value={data.nationality}
+							value={data?.nationality}
 						/>
-						<Item title="Birthdate" value={data.birthdate} />
-						<Item title="Phone #" value={data.phoneNumber} />
-						<Item title="Tel #" value={data.telNumber} />
-						<Item title="Email" value={data.email} />
+						<Item
+							title="Birthdate"
+							value={moment(
+								moment(data?.birthdate, "YYYY-MM-DD")
+							).format("YYYY-MM-DD")}
+						/>
+						<Item title="Phone #" value={data?.phoneNumber} />
+						<Item title="Tel #" value={data?.telNumber} />
+						<Item title="Email" value={data?.email} />
 						<Item
 							title="Department"
-							value={data.department}
+							value={data?.department}
 						/>
-						<Item title="Course" value={data.course} />
-						<Item title="Referral" value={data.referral} />
+						<Item title="Course" value={data?.course} />
+						<Item title="Referral" value={data?.referral} />
 					</div>
 				</div>
 			</div>

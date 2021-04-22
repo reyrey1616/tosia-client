@@ -3,7 +3,7 @@ import { Table, Avatar, Image, Button } from "antd";
 
 import { useHistory } from "react-router-dom";
 
-const StudentsTable = ({ data }) => {
+const StudentsTable = ({ data, userType }) => {
 	const history = useHistory();
 	const columns = [
 		{
@@ -47,12 +47,14 @@ const StudentsTable = ({ data }) => {
 		{
 			title: "Action",
 			render: (val) => {
+				const url =
+					userType === "evaluator"
+						? `/evaluator/student-profile/${val._id}`
+						: `/admin/student-profile/${val._id}`;
 				return (
 					<Button
 						onClick={() => {
-							history.push(
-								`/evaluator/student-profile/${val._id}`
-							);
+							history.push(url);
 						}}
 					>
 						{" "}

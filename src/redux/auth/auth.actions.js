@@ -8,8 +8,10 @@ export const getUserStart = (userType = "student") => (dispatch) => {
 		let token;
 		if (userType === "student") {
 			token = localStorage.getItem("stkn");
-		} else {
+		} else if (userType === "evaluator") {
 			token = localStorage.getItem("etkn");
+		} else {
+			token = localStorage.getItem("atkn");
 		}
 		if (token) {
 			setAuthToken(token);
@@ -18,8 +20,10 @@ export const getUserStart = (userType = "student") => (dispatch) => {
 
 				if (userType === "student") {
 					request = await axios.get("/auth/get-student");
-				} else {
+				} else if (userType === "evaluator") {
 					request = await axios.get("/auth/get-evaluator");
+				} else {
+					request = await axios.get("/auth/get-admin");
 				}
 				const response = request.data;
 				if (response.success) {
@@ -29,7 +33,7 @@ export const getUserStart = (userType = "student") => (dispatch) => {
 				}
 			} catch (error) {
 				dispatch(getUserFail(error));
-				errorCatch(error, "Error loading student's information");
+				errorCatch(error, "Error loading account information");
 			}
 		}
 	})();

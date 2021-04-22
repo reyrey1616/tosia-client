@@ -16,6 +16,9 @@ const EvaluatorLoginPage = lazy(() => import("./pages/evaluator/login.page"));
 const Homepage = lazy(() => import("./pages/home.page"));
 const VerificationPage = lazy(() => import("./pages/verification.page"));
 
+const AdminRoutes = lazy(() => import("./routes/admin.routes"));
+const AdminLogin = lazy(() => import("./pages/admin/login.page"));
+
 const App = () => {
 	return (
 		<div className="m-0 p-0">
@@ -50,6 +53,19 @@ const App = () => {
 							path="/evaluator-login"
 							component={EvaluatorLoginPage}
 						/>
+
+						{/* Evaluator */}
+						<Route path="/admin" component={AdminRoutes} />
+						<Route
+							path="/admin-login"
+							component={AdminLogin}
+						/>
+
+						<Route
+							path="/evaluator-login"
+							component={EvaluatorLoginPage}
+						/>
+
 						<Route path="/" component={Homepage} />
 					</Switch>
 				</Suspense>
