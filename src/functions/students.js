@@ -2,7 +2,10 @@ import setAuthToken from "../utils/setAuthToken";
 import axios from "axios";
 import errorCatch from "../utils/errorCatch";
 
-export const getStudents = async (userType = "evaluator") => {
+export const getStudents = async (
+	userType = "evaluator",
+	withEvaluator = true
+) => {
 	let token;
 	if (userType === "evaluator") {
 		token = localStorage.getItem("etkn");
@@ -12,7 +15,13 @@ export const getStudents = async (userType = "evaluator") => {
 	if (token) {
 		setAuthToken(token);
 		try {
-			let request = await axios.get("/students");
+			let request;
+
+			if (withEvaluator) {
+				request = await axios.get("/students");
+			} else {
+				request = await axios.get("/students/without-evaluator");
+			}
 
 			const response = await request.data;
 			if (response.success) {

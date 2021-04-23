@@ -11,9 +11,9 @@ import {
 class Sidebar extends React.Component {
 	render() {
 		return (
-			<div style={{ width: 256 }} className="admin-sidebar">
+			<div style={{ width: 220 }} className="admin-sidebar pt-1">
 				<Menu mode="inline" className="menu-container">
-					<Menu.Item key="1">
+					{/* <Menu.Item key="1">
 						<NavLink
 							activeClassName="ant-menu-item-selected"
 							to="/admin/dashboard"
@@ -22,8 +22,8 @@ class Sidebar extends React.Component {
 							<PieChartOutlined />
 							Dashboard
 						</NavLink>
-					</Menu.Item>
-					<Menu.Item key="2">
+					</Menu.Item> */}
+					<Menu.Item key="1">
 						<NavLink
 							activeClassName="ant-menu-item-selected"
 							to="/admin/students"
@@ -33,7 +33,7 @@ class Sidebar extends React.Component {
 							Students
 						</NavLink>
 					</Menu.Item>
-					<Menu.Item key="3">
+					<Menu.Item key="2">
 						<NavLink
 							activeClassName="ant-menu-item-selected"
 							to="/admin/evaluators"
@@ -43,7 +43,7 @@ class Sidebar extends React.Component {
 							Evaluators
 						</NavLink>
 					</Menu.Item>
-					<Menu.Item key="4">
+					{/* <Menu.Item key="4">
 						<NavLink
 							activeClassName="ant-menu-item-selected"
 							to="/admin/reports"
@@ -52,7 +52,7 @@ class Sidebar extends React.Component {
 							<SnippetsOutlined />
 							Reports
 						</NavLink>
-					</Menu.Item>
+					</Menu.Item> */}
 				</Menu>
 			</div>
 		);

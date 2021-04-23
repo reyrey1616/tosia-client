@@ -2,8 +2,9 @@ import React from "react";
 import { Table, Avatar, Image, Button } from "antd";
 
 import { useHistory } from "react-router-dom";
+import { Confirmation } from "../../global/alerts/alerts.component";
 
-const StudentsTable = ({ data, userType }) => {
+const StudentsTable = ({ data, userType, removeStudent }) => {
 	const history = useHistory();
 	const columns = [
 		{
@@ -52,14 +53,32 @@ const StudentsTable = ({ data, userType }) => {
 						? `/evaluator/student-profile/${val._id}`
 						: `/admin/student-profile/${val._id}`;
 				return (
-					<Button
-						onClick={() => {
-							history.push(url);
-						}}
-					>
-						{" "}
-						View
-					</Button>
+					<div className="flex">
+						<Button
+							className="m-half"
+							onClick={() => {
+								history.push(url);
+							}}
+						>
+							{" "}
+							View
+						</Button>
+						{userType === "admin" && (
+							<Confirmation
+								title="Click Yes to remove this student"
+								confirmFn={() => {
+									if (val._id) {
+										removeStudent(val);
+									}
+								}}
+							>
+								<Button className="m-half" danger>
+									{" "}
+									Remove
+								</Button>
+							</Confirmation>
+						)}
+					</div>
 				);
 			},
 		},

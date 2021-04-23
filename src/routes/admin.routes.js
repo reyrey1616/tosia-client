@@ -2,7 +2,7 @@ import React, { lazy, useEffect } from "react";
 import { Tooltip } from "antd";
 import { Redirect, Switch } from "react-router-dom";
 import Sidebar from "../components/admin/sidebar/sidebar.component";
-import PrivateRoute from "../components/hoc/private-route/private-route.component";
+import PrivateRoute from "../components/hoc/private-route/admin-private-route.component";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserStart } from "../redux/auth/auth.actions";
@@ -16,13 +16,20 @@ const StudentsPage = lazy(() =>
 const StudentProfilePage = lazy(() =>
 	import("../pages/admin/student-profile/student-profile.page")
 );
+const EvaluatorsPage = lazy(() =>
+	import("../pages/admin/evaluators/evaluators.page")
+);
+
+const StudentsToEvaluatePage = lazy(() =>
+	import("../pages/admin/students-to-evaluate/students-to-evaluate.page")
+);
 
 const StudentRoutes = () => {
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const userData = useSelector(selectCurrentUser);
 	useEffect(async () => {
-		dispatch(getUserStart("student"));
+		dispatch(getUserStart("admin"));
 	}, []);
 
 	return !!userData ? (
@@ -90,14 +97,20 @@ const StudentRoutes = () => {
 			<div
 				className="flex"
 				style={{
-					height: "calc(100vh - 70px)",
-					marginTop: "70px",
+					height: "calc(100vh - 50px)",
+					marginTop: "50px",
 				}}
 			>
 				<Sidebar />
 
-				<div className="admin-content p-1">
-					<div className="admin-main-content">
+				<div
+					className="admin-content p-1"
+					style={{ width: "calc(100vw - 220px)" }}
+				>
+					<div
+						className="admin-main-content"
+						style={{ minHeight: "90vh" }}
+					>
 						<Switch>
 							{/* <PrivateRoute
 								path="/student/personal-data/"
@@ -114,8 +127,16 @@ const StudentRoutes = () => {
 								component={StudentsPage}
 							/>
 							<PrivateRoute
+								path="/admin/evaluators"
+								component={EvaluatorsPage}
+							/>
+							<PrivateRoute
 								path="/admin/student-profile/:id"
 								component={StudentProfilePage}
+							/>
+							<PrivateRoute
+								path="/admin/evaluator/:id/students"
+								component={StudentsToEvaluatePage}
 							/>
 						</Switch>
 					</div>

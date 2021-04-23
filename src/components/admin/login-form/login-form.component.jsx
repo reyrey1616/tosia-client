@@ -18,7 +18,7 @@ const LoginForm = () => {
 				notify("Login Success!", "success", "Welcome to TOSIA");
 				localStorage.setItem("atkn", response.token);
 				setTimeout(() => {
-					history.push("/admin/dashboard");
+					history.push("/admin/students");
 					setLoading(true);
 				}, 1500);
 			} else {

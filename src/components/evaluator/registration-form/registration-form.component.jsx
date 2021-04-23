@@ -134,12 +134,40 @@ const RegistrationForm = () => {
 
 				<Form.Item
 					className="col-12 col-md-12 p-half"
+					label="Designation/Affliation"
+					name="designation"
+					rules={[
+						{
+							required: true,
+							message: "Please input your designation!",
+						},
+					]}
+				>
+					<Input allowClear />
+				</Form.Item>
+
+				<Form.Item
+					className="col-12 col-md-12 p-half"
 					label="Email"
 					name="email"
 					rules={[
 						{
 							required: true,
 							message: "Please input your email!",
+						},
+					]}
+				>
+					<Input allowClear />
+				</Form.Item>
+
+				<Form.Item
+					className="col-12 col-md-12 p-half"
+					label="Address"
+					name="address"
+					rules={[
+						{
+							required: true,
+							message: "Please input your address!",
 						},
 					]}
 				>

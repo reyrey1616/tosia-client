@@ -24,7 +24,7 @@ const LoginPage = () => {
 							"Welcome to TOSIA"
 						);
 						setTimeout(() => {
-							history.push("/admin/dashboard");
+							history.push("/admin/students");
 						}, 1500);
 					} else {
 						throw Error;
