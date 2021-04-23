@@ -7,31 +7,29 @@ import Spinner from "../../../components/hoc/spinner/spinner.component";
 import { selectCurrentUser } from "../../../redux/auth/auth.selectors";
 import { getStudents } from "../../../functions/students";
 
-const { Option } = Select;
 const StudentsPage = () => {
 	const userData = useSelector(selectCurrentUser);
 	const [students, setStudents] = useState([]);
 	const [searchText, setSearchText] = useState("");
-	// const [categorySelected, setCategory] = useState("");
 	useEffect(async () => {
-		const data = await getStudents("evaluator");
+		const data = await getStudents("evaluator", true, userData?._id);
 		setStudents(data);
 	}, [getStudents]);
 
 	const filteredData = () => {
 		return (
 			students &&
-			students.filter((item) => {
+			students?.filter((item) => {
 				return (
-					item.fname
+					item?.fname
 						.toLowerCase()
-						.includes(searchText.toLowerCase()) ||
-					item.mname
+						.includes(searchText?.toLowerCase()) ||
+					item?.lname
 						.toLowerCase()
-						.includes(searchText.toLowerCase()) ||
-					item.category
+						.includes(searchText?.toLowerCase()) ||
+					item?.schoolName
 						.toLowerCase()
-						.includes(searchText.toLowerCase())
+						.includes(searchText?.toLowerCase())
 				);
 			})
 		);
@@ -49,7 +47,7 @@ const StudentsPage = () => {
 						placeholder="Search Student"
 					/>
 				</div>
-				<div className="col-2 col-md-4 pl-1">
+				{/* <div className="col-2 col-md-4 pl-1">
 					<Select
 						style={{ width: "100%" }}
 						onChange={(e) => setSearchText(e)}
@@ -62,7 +60,7 @@ const StudentsPage = () => {
 						</Option>
 						<Option value="College">College </Option>
 					</Select>
-				</div>
+				</div> */}
 			</div>
 			<StudentsTable
 				data={students && filteredData()}

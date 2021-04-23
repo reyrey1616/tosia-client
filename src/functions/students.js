@@ -4,7 +4,8 @@ import errorCatch from "../utils/errorCatch";
 
 export const getStudents = async (
 	userType = "evaluator",
-	withEvaluator = true
+	assigned = false,
+	evaluator = null
 ) => {
 	let token;
 	if (userType === "evaluator") {
@@ -17,10 +18,16 @@ export const getStudents = async (
 		try {
 			let request;
 
-			if (withEvaluator) {
-				request = await axios.get("/students");
-			} else {
+			if (!assigned) {
 				request = await axios.get("/students/without-evaluator");
+			} else {
+				if (evaluator) {
+					request = await axios.get(
+						`/students/evaluator/${evaluator}`
+					);
+				} else {
+					request = await axios.get("/students");
+				}
 			}
 
 			const response = await request.data;
