@@ -72,7 +72,7 @@ const ActivitiesOrganized = ({ data }) => {
 						? true
 						: data &&
 						  data?.community[0]?.activitiesOrganized
-								?.length >= 20
+								?.length >= 30
 						? true
 						: false
 				}
