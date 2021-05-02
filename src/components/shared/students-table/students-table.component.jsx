@@ -44,7 +44,12 @@ const StudentsTable = ({ data, userType, removeStudent }) => {
 			dataIndex: "category",
 			key: "category",
 		},
-
+		{
+			title: "Evaluation",
+			dataIndex: "isDoneEvaluated",
+			key: "isDoneEvaluated",
+			render: (val) => (val === true ? "Finished" : "Not Finish Yet"),
+		},
 		{
 			title: "Action",
 			render: (val) => {

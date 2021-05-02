@@ -43,7 +43,7 @@ class Sidebar extends React.Component {
 							Evaluators
 						</NavLink>
 					</Menu.Item>
-					{/* <Menu.Item key="4">
+					<Menu.Item key="3">
 						<NavLink
 							activeClassName="ant-menu-item-selected"
 							to="/admin/reports"
@@ -52,7 +52,7 @@ class Sidebar extends React.Component {
 							<SnippetsOutlined />
 							Reports
 						</NavLink>
-					</Menu.Item> */}
+					</Menu.Item>
 				</Menu>
 			</div>
 		);

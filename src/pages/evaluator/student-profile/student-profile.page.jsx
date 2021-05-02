@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Tabs } from "antd";
+import React, { useEffect, useState } from "react";
+import { Button, Tabs } from "antd";
 import PersonalData from "../../../components/evaluator/personal-data/tab-1.component";
 import FamilyData from "../../../components/evaluator/personal-data/family-data.component";
 import SchoolContactDetails from "../../../components/evaluator/personal-data/school-details.component";
@@ -32,19 +32,62 @@ import CommunityReligiousOrganizationTable from "../../../components/students/co
 import CommunityActivitiesAttendedTable from "../../../components/students/community-envolvement/table-tab-2.component";
 import CommunityActivitiesOrganizedTable from "../../../components/students/community-envolvement/table-tab-3.component";
 import CommunityCitationTable from "../../../components/students/community-envolvement/table-tab-4.component";
+import {
+	Confirmation,
+	notify,
+} from "../../../components/global/alerts/alerts.component";
+import errorCatch from "../../../utils/errorCatch";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const { TabPane } = Tabs;
 
 const StudentProfile = () => {
+	const history = useHistory();
 	const userData = useSelector(selectCurrentUser);
 	const student = useSelector(selectCurrentSelectedStudent);
 	const params = useParams();
 	const dispatch = useDispatch();
+	const [buttonLoading, setButtonLoading] = useState(false);
 	// const [student, setStudent] = useState({});
 
 	useEffect(async () => {
 		dispatch(getOneStudentStart(params.id, "evaluator"));
 	}, [getOneStudent]);
+
+	const submitEvaluation = async () => {
+		const studentId = params?.id;
+		if (!student && !studentId) {
+			notify(
+				"Error submitting evaluation, Please refresh the page and try again!",
+				"error"
+			);
+		} else {
+			try {
+				setButtonLoading(true);
+				const request = await axios.put(
+					`/students/${studentId}/submit-evaluation`
+				);
+				const response = request?.data;
+
+				if (response?.success === true) {
+					notify("Evaluation submitted!", "success");
+					setTimeout(() => {
+						setButtonLoading(false);
+						history.push("/evaluator/students");
+					}, 500);
+				} else {
+					throw Error;
+				}
+			} catch (error) {
+				setButtonLoading(true);
+				errorCatch(
+					error,
+					"Error submitting evaluation, Please refresh the page and try again!"
+				);
+			}
+		}
+	};
 
 	return !!userData && !!student ? (
 		<div className="admin-page-content">
@@ -410,6 +453,26 @@ const StudentProfile = () => {
 							userType="evaluator"
 						/>
 					</div>
+
+					<center>
+						<Confirmation
+							title="Are you want to submit your final evaluation for this student?"
+							confirmFn={() => {
+								submitEvaluation();
+							}}
+						>
+							<Button
+								className="m-half"
+								size="large"
+								type="primary"
+								loading={buttonLoading}
+							>
+								Submit Evaluation for
+								{student &&
+									` ${student?.fname} ${student?.mname} ${student?.lname}`}
+							</Button>
+						</Confirmation>
+					</center>
 				</TabPane>
 			</Tabs>
 		</div>

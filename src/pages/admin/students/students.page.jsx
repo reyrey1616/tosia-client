@@ -23,15 +23,16 @@ const StudentsPage = () => {
 			students &&
 			students.filter((item) => {
 				return (
-					item.fname
+					item?.fname
 						.toLowerCase()
-						.includes(searchText.toLowerCase()) ||
-					item.mname
+						.includes(searchText?.toLowerCase()) ||
+					item?.lname
 						.toLowerCase()
-						.includes(searchText.toLowerCase()) ||
-					item.category
-						.toLowerCase()
-						.includes(searchText.toLowerCase())
+						.includes(searchText?.toLowerCase()) ||
+					(item?.category &&
+						item?.category
+							.toLowerCase()
+							.includes(searchText?.toLowerCase()))
 				);
 			})
 		);

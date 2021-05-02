@@ -24,6 +24,8 @@ const StudentsToEvaluatePage = lazy(() =>
 	import("../pages/admin/students-to-evaluate/students-to-evaluate.page")
 );
 
+const ReportsPage = lazy(() => import("../pages/admin/reports/reports.page"));
+
 const StudentRoutes = () => {
 	const history = useHistory();
 	const dispatch = useDispatch();
@@ -137,6 +139,10 @@ const StudentRoutes = () => {
 							<PrivateRoute
 								path="/admin/evaluator/:id/students"
 								component={StudentsToEvaluatePage}
+							/>
+							<PrivateRoute
+								path="/admin/reports"
+								component={ReportsPage}
 							/>
 						</Switch>
 					</div>
