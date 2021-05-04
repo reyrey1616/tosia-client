@@ -21,8 +21,6 @@ const AwardsAndCitationsReceived = ({ data }) => {
 		if (!imageFile) {
 			notify("Please add image!", "warning");
 		} else {
-			console.log("Success:", values);
-			console.log(user._id);
 			setButtonLoading(true);
 			dispatch(
 				addLeadership(user._id, values, () => {
@@ -70,8 +68,8 @@ const AwardsAndCitationsReceived = ({ data }) => {
 					user && user?.isFinished
 						? true
 						: data &&
-						  data?.leadership_virtual[0]?.leadershipTraining
-								?.length >= 20
+						  data?.leadership_virtual[0]?.citation?.length >=
+								20
 						? true
 						: false
 				}

@@ -58,7 +58,7 @@ const LeadershipMainPage = () => {
 			</ul>
 			<Tabs defaultActiveKey="1" type="card">
 				<TabPane
-					tab="Most Significant Organization Envolvement"
+					tab="Most Significant Organization Involvement"
 					key="1"
 				>
 					<h2 className="text-subtitle text-orange m-1">
