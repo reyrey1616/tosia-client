@@ -19,18 +19,23 @@ export const getStudents = async (
 			let request;
 
 			if (!assigned) {
-				request = await axios.get("/students/without-evaluator");
+				if (userType === "admin") {
+					request = await axios.get("/students");
+				} else {
+					request = await axios.get(
+						`/students/evaluator/${evaluator}`
+					);
+				}
 			} else {
 				if (evaluator) {
 					request = await axios.get(
 						`/students/evaluator/${evaluator}`
 					);
-				} else {
-					request = await axios.get("/students");
 				}
 			}
 
 			const response = await request.data;
+
 			if (response.success) {
 				return response.data;
 			} else {

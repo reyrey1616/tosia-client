@@ -102,3 +102,29 @@ $fontWeights: 10;
 		transform: scale(1.1);
 	}
 }
+
+#academic-score-table {
+	thead {
+		th {
+			background: #3498db;
+			color: #fff;
+		}
+	}
+}
+#leadership-score-table {
+	thead {
+		th {
+			background: crimson;
+			color: #fff;
+		}
+	}
+}
+
+#community-score-table {
+	thead {
+		th {
+			background: #2ecc71;
+			color: #fff;
+		}
+	}
+}

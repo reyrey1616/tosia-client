@@ -16,6 +16,9 @@ const StudentsPage = lazy(() =>
 const StudentProfilePage = lazy(() =>
 	import("../pages/admin/student-profile/student-profile.page")
 );
+const StudentScorePage = lazy(() =>
+	import("../pages/admin/student-score/student-score.page")
+);
 const EvaluatorsPage = lazy(() =>
 	import("../pages/admin/evaluators/evaluators.page")
 );
@@ -60,10 +63,9 @@ const StudentRoutes = () => {
 					<h3 className="text-white m-0 mr-1 fw-700">
 						{" "}
 						Welcome,{" "}
-						{`${userData.fname} ${userData.mname.substring(
-							0,
-							1
-						)} ${userData.lname}!`}
+						{`${userData.fname} ${userData.mname.substring(0, 1)} ${
+							userData.lname
+						}!`}
 					</h3>
 
 					<Tooltip title="Help">
@@ -137,9 +139,14 @@ const StudentRoutes = () => {
 								component={StudentProfilePage}
 							/>
 							<PrivateRoute
+								path="/admin/student-score/:id"
+								component={StudentScorePage}
+							/>
+							<PrivateRoute
 								path="/admin/evaluator/:id/students"
 								component={StudentsToEvaluatePage}
 							/>
+
 							<PrivateRoute
 								path="/admin/reports"
 								component={ReportsPage}

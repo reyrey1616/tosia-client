@@ -4,7 +4,7 @@ import { Table, Avatar, Image, Button } from "antd";
 import { useHistory } from "react-router-dom";
 import { Confirmation } from "../../global/alerts/alerts.component";
 
-const StudentsTable = ({ data, userType, removeStudent }) => {
+const StudentsTable = ({ data, userType, removeStudent, isReport }) => {
 	const history = useHistory();
 	const columns = [
 		{
@@ -53,10 +53,15 @@ const StudentsTable = ({ data, userType, removeStudent }) => {
 		{
 			title: "Action",
 			render: (val) => {
-				const url =
+				let url =
 					userType === "evaluator"
 						? `/evaluator/student-profile/${val._id}`
 						: `/admin/student-profile/${val._id}`;
+
+				if (isReport) {
+					url = `/admin/student-score/${val._id}`;
+				}
+
 				return (
 					<div className="flex">
 						<Button
@@ -68,7 +73,7 @@ const StudentsTable = ({ data, userType, removeStudent }) => {
 							{" "}
 							View
 						</Button>
-						{userType === "admin" && (
+						{userType === "admin" && !isReport && (
 							<Confirmation
 								title="Click Yes to remove this student"
 								confirmFn={() => {

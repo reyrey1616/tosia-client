@@ -65,10 +65,7 @@ const StudentsPage = () => {
 					</Select>
 				</div>
 			</div>
-			<StudentsTable
-				data={students && filteredData()}
-				userType="admin"
-			/>
+			<StudentsTable data={students && filteredData()} userType="admin" />
 		</div>
 	) : (
 		<Spinner />
