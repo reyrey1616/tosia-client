@@ -87,8 +87,7 @@ const LeadershipTrainingAttendedTable = ({
 							if (val.id) {
 								dispatch(
 									deleteLeadership(
-										currentUser &&
-											currentUser._id,
+										currentUser && currentUser._id,
 										{
 											type: "leadership",
 											row_id: val.id,
@@ -104,7 +103,10 @@ const LeadershipTrainingAttendedTable = ({
 						}}
 					>
 						{!currentUser?.isFinished && (
-							<Button danger> Delete</Button>
+							<Button hidden={true} danger>
+								{" "}
+								Delete
+							</Button>
 						)}
 					</Confirmation>
 				);

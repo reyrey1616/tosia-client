@@ -63,15 +63,16 @@ const AcademicHonorsReceived = ({ data }) => {
 				name="basic"
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
-				hidden={
-					user && user?.isFinished
-						? true
-						: data &&
-						  data?.academic[0]?.academicHonorsReceived
-								?.length >= 10
-						? true
-						: false
-				}
+				// hidden={
+				// 	user && user?.isFinished
+				// 		? true
+				// 		: data &&
+				// 		  data?.academic[0]?.academicHonorsReceived
+				// 				?.length >= 10
+				// 		? true
+				// 		: false
+				// }
+				hidden={true}
 			>
 				<div className="flex flex-wrap mb-1">
 					<div className="col-12 flex">
@@ -124,9 +125,7 @@ const AcademicHonorsReceived = ({ data }) => {
 			<div className="table-container mt-2">
 				{/* <AcademicHonorsReceivedTable /> */}
 				<HonorsReceivedTable
-					data={
-						data && data?.academic[0]?.academicHonorsReceived
-					}
+					data={data && data?.academic[0]?.academicHonorsReceived}
 				/>
 			</div>
 		</div>

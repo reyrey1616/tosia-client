@@ -68,15 +68,16 @@ const OrganizationInvolvement = ({ data }) => {
 				name="basic"
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
-				hidden={
-					user && user?.isFinished
-						? true
-						: data &&
-						  data?.leadership_virtual[0]?.orgEnvolvement
-								?.length >= 20
-						? true
-						: false
-				}
+				// hidden={
+				// 	user && user?.isFinished
+				// 		? true
+				// 		: data &&
+				// 		  data?.leadership_virtual[0]?.orgEnvolvement
+				// 				?.length >= 20
+				// 		? true
+				// 		: false
+				// }
+				hidden={true}
 			>
 				<div className="flex flex-wrap mb-1">
 					<div className="col-12 flex-wrap">
@@ -87,8 +88,7 @@ const OrganizationInvolvement = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please input organization name",
+									message: "Please input organization name",
 								},
 							]}
 						>
@@ -122,15 +122,13 @@ const OrganizationInvolvement = ({ data }) => {
 							]}
 						>
 							<Select>
-								<Option value="Classroom">
-									Classroom
-								</Option>
+								<Option value="Classroom">Classroom</Option>
 								<Option value="Department/Grade Level">
 									Department/Grade Level
 								</Option>
 								<Option value="College/Program ((ex: Regular, STE, SPA, SPJ, SPS)">
-									College/Program ((ex: Regular, STE,
-									SPA, SPJ, SPS)
+									College/Program ((ex: Regular, STE, SPA,
+									SPJ, SPS)
 								</Option>
 								<Option value="University/School">
 									University/School
@@ -141,16 +139,10 @@ const OrganizationInvolvement = ({ data }) => {
 								<Option value="Congressional District">
 									Congressional District
 								</Option>
-								<Option value="Provincial">
-									Provincial
-								</Option>
-								<Option value="Regional">
-									Regional
-								</Option>
+								<Option value="Provincial">Provincial</Option>
+								<Option value="Regional">Regional</Option>
 
-								<Option value="National">
-									National
-								</Option>
+								<Option value="National">National</Option>
 
 								<Option value="International">
 									International
@@ -165,8 +157,7 @@ const OrganizationInvolvement = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please input inclusive dates!",
+									message: "Please input inclusive dates!",
 								},
 							]}
 						>
@@ -210,10 +201,7 @@ const OrganizationInvolvement = ({ data }) => {
 			<div className="table-container mt-2">
 				{/* <AcademicHonorsReceivedTable /> */}
 				<OrganizationInvolvementTable
-					data={
-						data &&
-						data?.leadership_virtual[0]?.orgEnvolvement
-					}
+					data={data && data?.leadership_virtual[0]?.orgEnvolvement}
 				/>
 			</div>
 		</div>

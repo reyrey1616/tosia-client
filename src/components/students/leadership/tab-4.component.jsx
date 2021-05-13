@@ -68,15 +68,16 @@ const ActivitiesOrganized = ({ data }) => {
 				initialValues={{ remember: true }}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
-				hidden={
-					user && user?.isFinished
-						? true
-						: data &&
-						  data?.leadership_virtual[0]?.activitiesOrganized
-								?.length >= 30
-						? true
-						: false
-				}
+				// hidden={
+				// 	user && user?.isFinished
+				// 		? true
+				// 		: data &&
+				// 		  data?.leadership_virtual[0]?.activitiesOrganized
+				// 				?.length >= 30
+				// 		? true
+				// 		: false
+				// }
+				hidden={true}
 			>
 				<div className="flex flex-wrap mb-1">
 					<div className="col-12 flex-wrap">
@@ -88,8 +89,7 @@ const ActivitiesOrganized = ({ data }) => {
 								rules={[
 									{
 										required: true,
-										message:
-											"Please input activity name",
+										message: "Please input activity name",
 									},
 								]}
 							>
@@ -154,18 +154,12 @@ const ActivitiesOrganized = ({ data }) => {
 									<Option value="School-based">
 										School-based
 									</Option>
-									<Option value="District">
-										District
-									</Option>
-									<Option value="Regional">
-										Regional
-									</Option>
+									<Option value="District">District</Option>
+									<Option value="Regional">Regional</Option>
 									<Option value="Provincial">
 										Provincial
 									</Option>
-									<Option value="National">
-										National
-									</Option>
+									<Option value="National">National</Option>
 									<Option value="International">
 										International
 									</Option>
@@ -286,8 +280,7 @@ const ActivitiesOrganized = ({ data }) => {
 			<div className="table-container mt-2">
 				<ActivitiesOrganizedTable
 					data={
-						data &&
-						data.leadership_virtual[0].activitiesOrganized
+						data && data.leadership_virtual[0].activitiesOrganized
 					}
 				/>
 			</div>

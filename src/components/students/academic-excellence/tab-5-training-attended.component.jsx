@@ -86,8 +86,7 @@ const TrainingAttendedTable = ({ data, userType, docId, student }) => {
 							if (val.id) {
 								dispatch(
 									deleteAcademicExcellence(
-										currentUser &&
-											currentUser._id,
+										currentUser && currentUser._id,
 										{
 											type: "seminar",
 											row_id: val.id,
@@ -103,7 +102,10 @@ const TrainingAttendedTable = ({ data, userType, docId, student }) => {
 						}}
 					>
 						{!currentUser?.isFinished && (
-							<Button danger> Delete</Button>
+							<Button hidden={true} danger>
+								{" "}
+								Delete
+							</Button>
 						)}
 					</Confirmation>
 				);

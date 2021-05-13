@@ -27,8 +27,7 @@ const NonAcademicContestsWonTable = ({ data, userType, docId, student }) => {
 			key: "rank",
 		},
 		{
-			title:
-				"Name of the Organization/Institution that gave the award",
+			title: "Name of the Organization/Institution that gave the award",
 			dataIndex: "organization",
 			key: "organization",
 		},
@@ -85,8 +84,7 @@ const NonAcademicContestsWonTable = ({ data, userType, docId, student }) => {
 							if (val.id) {
 								dispatch(
 									deleteAcademicExcellence(
-										currentUser &&
-											currentUser._id,
+										currentUser && currentUser._id,
 										{
 											type: "non-academic",
 											row_id: val.id,
@@ -102,7 +100,10 @@ const NonAcademicContestsWonTable = ({ data, userType, docId, student }) => {
 						}}
 					>
 						{!currentUser?.isFinished && (
-							<Button danger> Delete</Button>
+							<Button danger hidden={true}>
+								{" "}
+								Delete
+							</Button>
 						)}
 					</Confirmation>
 				);

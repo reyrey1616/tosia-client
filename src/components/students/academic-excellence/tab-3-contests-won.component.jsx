@@ -28,8 +28,7 @@ const AcademicContestsWonTable = ({ data, userType, docId, student }) => {
 			key: "rank",
 		},
 		{
-			title:
-				"Name of the Organization/Institution that gave the award",
+			title: "Name of the Organization/Institution that gave the award",
 			dataIndex: "organization",
 			key: "organization",
 		},
@@ -85,16 +84,13 @@ const AcademicContestsWonTable = ({ data, userType, docId, student }) => {
 							if (val.id) {
 								dispatch(
 									deleteAcademicExcellence(
-										currentUser &&
-											currentUser._id,
+										currentUser && currentUser._id,
 										{
 											type: "contest",
 											row_id: val.id,
 										},
 										() => {
-											notify(
-												"Contest Won Deleted"
-											);
+											notify("Contest Won Deleted");
 										}
 									)
 								);
@@ -102,7 +98,10 @@ const AcademicContestsWonTable = ({ data, userType, docId, student }) => {
 						}}
 					>
 						{!currentUser?.isFinished && (
-							<Button danger> Delete</Button>
+							<Button hidden={true} danger>
+								{" "}
+								Delete
+							</Button>
 						)}
 					</Confirmation>
 				);

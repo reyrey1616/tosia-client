@@ -83,11 +83,9 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 							if (val.id) {
 								dispatch(
 									deleteCommunityEnvolvement(
-										currentUser &&
-											currentUser._id,
+										currentUser && currentUser._id,
 										{
-											type:
-												"activities_organized",
+											type: "activities_organized",
 											row_id: val.id,
 										},
 										() => {
@@ -101,7 +99,10 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 						}}
 					>
 						{!currentUser?.isFinished && (
-							<Button danger> Delete</Button>
+							<Button hidden={true} danger>
+								{" "}
+								Delete
+							</Button>
 						)}
 					</Confirmation>
 				);

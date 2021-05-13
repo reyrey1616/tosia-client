@@ -66,15 +66,16 @@ const CitationsReceived = ({ data }) => {
 				name="basic"
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
-				hidden={
-					user && user?.isFinished
-						? true
-						: data &&
-						  data?.academic[0]?.citationsReceived?.length >=
-								20
-						? true
-						: false
-				}
+				// hidden={
+				// 	user && user?.isFinished
+				// 		? true
+				// 		: data &&
+				// 		  data?.academic[0]?.citationsReceived?.length >=
+				// 				20
+				// 		? true
+				// 		: false
+				// }
+				hidden={true}
 			>
 				<div className="flex flex-wrap mb-1">
 					<div className="col-12 flex-wrap">
@@ -85,8 +86,7 @@ const CitationsReceived = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please input citation received!",
+									message: "Please input citation received!",
 								},
 							]}
 						>
@@ -102,15 +102,12 @@ const CitationsReceived = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please select award type!",
+									message: "Please select award type!",
 								},
 							]}
 						>
 							<Select>
-								<Option value="Individual">
-									Individual
-								</Option>
+								<Option value="Individual">Individual</Option>
 								<Option value="Team Award">
 									Team Award
 								</Option>{" "}
@@ -123,21 +120,18 @@ const CitationsReceived = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please select level award given!",
+									message: "Please select level award given!",
 								},
 							]}
 						>
 							<Select>
-								<Option value="Classroom">
-									Classroom
-								</Option>
+								<Option value="Classroom">Classroom</Option>
 								<Option value="Department/Grade Level">
 									Department/Grade Level
 								</Option>
 								<Option value="College/Program (ex: Regular, STE, SPA, SPJ, SPS)">
-									College/Program (ex: Regular, STE,
-									SPA, SPJ, SPS)
+									College/Program (ex: Regular, STE, SPA, SPJ,
+									SPS)
 								</Option>
 								<Option value="University/School">
 									University/School
@@ -148,15 +142,9 @@ const CitationsReceived = ({ data }) => {
 								<Option value="Congressional District">
 									Congressional District
 								</Option>{" "}
-								<Option value="Provincial">
-									Provincial
-								</Option>{" "}
-								<Option value="Regional">
-									Regional
-								</Option>{" "}
-								<Option value="National">
-									National
-								</Option>{" "}
+								<Option value="Provincial">Provincial</Option>{" "}
+								<Option value="Regional">Regional</Option>{" "}
+								<Option value="National">National</Option>{" "}
 								<Option value="International">
 									International
 								</Option>
@@ -185,15 +173,11 @@ const CitationsReceived = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please input date received!",
+									message: "Please input date received!",
 								},
 							]}
 						>
-							<DatePicker
-								allowClear
-								style={{ width: "100%" }}
-							/>
+							<DatePicker allowClear style={{ width: "100%" }} />
 						</Form.Item>
 
 						<div

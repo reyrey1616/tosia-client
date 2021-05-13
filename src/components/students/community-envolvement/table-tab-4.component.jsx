@@ -27,8 +27,7 @@ const AwardsAndCitationsReceivedTable = ({
 			key: "levelGiven",
 		},
 		{
-			title:
-				"Name of the Organization/Institution that gave the award",
+			title: "Name of the Organization/Institution that gave the award",
 			dataIndex: "organization",
 			key: "organization",
 		},
@@ -84,16 +83,13 @@ const AwardsAndCitationsReceivedTable = ({
 							if (val.id) {
 								dispatch(
 									deleteCommunityEnvolvement(
-										currentUser &&
-											currentUser._id,
+										currentUser && currentUser._id,
 										{
 											type: "citation",
 											row_id: val.id,
 										},
 										() => {
-											notify(
-												"Award/Citation Deleted"
-											);
+											notify("Award/Citation Deleted");
 										}
 									)
 								);
@@ -101,7 +97,10 @@ const AwardsAndCitationsReceivedTable = ({
 						}}
 					>
 						{!currentUser?.isFinished && (
-							<Button danger> Delete</Button>
+							<Button hidden={true} danger>
+								{" "}
+								Delete
+							</Button>
 						)}
 					</Confirmation>
 				);

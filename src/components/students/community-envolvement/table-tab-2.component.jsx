@@ -84,8 +84,7 @@ const ActivitiesAttendedTable = ({ data, userType, docId, student }) => {
 							if (val.id) {
 								dispatch(
 									deleteCommunityEnvolvement(
-										currentUser &&
-											currentUser._id,
+										currentUser && currentUser._id,
 										{
 											type: "activities",
 											row_id: val.id,
@@ -101,7 +100,10 @@ const ActivitiesAttendedTable = ({ data, userType, docId, student }) => {
 						}}
 					>
 						{!currentUser?.isFinished && (
-							<Button danger> Delete</Button>
+							<Button danger hidden={true}>
+								{" "}
+								Delete
+							</Button>
 						)}
 					</Confirmation>
 				);

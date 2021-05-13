@@ -66,15 +66,16 @@ const AcademicContestsWon = ({ data }) => {
 				initialValues={{ remember: true }}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
-				hidden={
-					user && user?.isFinished
-						? true
-						: data &&
-						  data?.academic[0]?.academicContestsWon
-								?.length >= 50
-						? true
-						: false
-				}
+				// hidden={
+				// 	user && user?.isFinished
+				// 		? true
+				// 		: data &&
+				// 		  data?.academic[0]?.academicContestsWon
+				// 				?.length >= 50
+				// 		? true
+				// 		: false
+				// }
+				hidden={true}
 			>
 				<div className="flex flex-wrap mb-1">
 					<div className="col-12 flex-wrap">
@@ -109,9 +110,7 @@ const AcademicContestsWon = ({ data }) => {
 								<Option value="1st">1st</Option>
 								<Option value="2nd">2nd</Option>{" "}
 								<Option value="3rd">3rd</Option>{" "}
-								<Option value="Finalist">
-									Finalist
-								</Option>{" "}
+								<Option value="Finalist">Finalist</Option>{" "}
 							</Select>
 						</Form.Item>
 						<Form.Item
@@ -121,15 +120,12 @@ const AcademicContestsWon = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please select award type!",
+									message: "Please select award type!",
 								},
 							]}
 						>
 							<Select>
-								<Option value="Individual">
-									Individual
-								</Option>
+								<Option value="Individual">Individual</Option>
 								<Option value="Team Award">
 									Team Award
 								</Option>{" "}
@@ -142,21 +138,18 @@ const AcademicContestsWon = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please select level award given!",
+									message: "Please select level award given!",
 								},
 							]}
 						>
 							<Select>
-								<Option value="Classroom">
-									Classroom
-								</Option>
+								<Option value="Classroom">Classroom</Option>
 								<Option value="Department/Grade Level">
 									Department/Grade Level
 								</Option>
 								<Option value="College/Program (ex: Regular, STE, SPA, SPJ, SPS)">
-									College/Program (ex: Regular, STE,
-									SPA, SPJ, SPS)
+									College/Program (ex: Regular, STE, SPA, SPJ,
+									SPS)
 								</Option>
 								<Option value="University/School">
 									University/School
@@ -167,15 +160,9 @@ const AcademicContestsWon = ({ data }) => {
 								<Option value="Congressional District">
 									Congressional District
 								</Option>{" "}
-								<Option value="Provincial">
-									Provincial
-								</Option>{" "}
-								<Option value="Regional">
-									Regional
-								</Option>{" "}
-								<Option value="National">
-									National
-								</Option>{" "}
+								<Option value="Provincial">Provincial</Option>{" "}
+								<Option value="Regional">Regional</Option>{" "}
+								<Option value="National">National</Option>{" "}
 								<Option value="International">
 									International
 								</Option>
@@ -204,15 +191,11 @@ const AcademicContestsWon = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please input date received!",
+									message: "Please input date received!",
 								},
 							]}
 						>
-							<DatePicker
-								allowClear
-								style={{ width: "100%" }}
-							/>
+							<DatePicker allowClear style={{ width: "100%" }} />
 						</Form.Item>
 
 						<div

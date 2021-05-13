@@ -67,15 +67,16 @@ const ActivitiesAttended = ({ data }) => {
 				initialValues={{ remember: true }}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
-				hidden={
-					user && user?.isFinished
-						? true
-						: data &&
-						  data?.community[0]?.activitiesAttended
-								?.length >= 20
-						? true
-						: false
-				}
+				// hidden={
+				// 	user && user?.isFinished
+				// 		? true
+				// 		: data &&
+				// 		  data?.community[0]?.activitiesAttended
+				// 				?.length >= 20
+				// 		? true
+				// 		: false
+				// }
+				hidden={true}
 			>
 				<div className="flex flex-wrap mb-1">
 					<div className="col-12 flex-wrap">
@@ -86,8 +87,7 @@ const ActivitiesAttended = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please input activity name!",
+									message: "Please input activity name!",
 								},
 							]}
 						>
@@ -101,8 +101,7 @@ const ActivitiesAttended = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please input beneficiaries!",
+									message: "Please input beneficiaries!",
 								},
 							]}
 						>
@@ -125,18 +124,10 @@ const ActivitiesAttended = ({ data }) => {
 								<Option value="School-based">
 									School-based
 								</Option>
-								<Option value="District">
-									District
-								</Option>
-								<Option value="Regional">
-									Regional
-								</Option>
-								<Option value="Provincial">
-									Provincial
-								</Option>
-								<Option value="National">
-									National
-								</Option>
+								<Option value="District">District</Option>
+								<Option value="Regional">Regional</Option>
+								<Option value="Provincial">Provincial</Option>
+								<Option value="National">National</Option>
 								<Option value="International">
 									International
 								</Option>
@@ -211,15 +202,11 @@ const ActivitiesAttended = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please input date attended!",
+									message: "Please input date attended!",
 								},
 							]}
 						>
-							<DatePicker
-								allowClear
-								style={{ width: "100%" }}
-							/>
+							<DatePicker allowClear style={{ width: "100%" }} />
 						</Form.Item>
 
 						<div

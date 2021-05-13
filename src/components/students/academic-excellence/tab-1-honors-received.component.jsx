@@ -61,16 +61,13 @@ const HonorsReceivedTable = ({ data, userType, docId, student }) => {
 							if (val.id) {
 								dispatch(
 									deleteAcademicExcellence(
-										currentUser &&
-											currentUser._id,
+										currentUser && currentUser._id,
 										{
 											type: "honor",
 											row_id: val.id,
 										},
 										() => {
-											notify(
-												"Academic Honor Deleted"
-											);
+											notify("Academic Honor Deleted");
 										}
 									)
 								);
@@ -78,7 +75,10 @@ const HonorsReceivedTable = ({ data, userType, docId, student }) => {
 						}}
 					>
 						{!currentUser?.isFinished && (
-							<Button danger> Delete</Button>
+							<Button hidden={true} danger>
+								{" "}
+								Delete
+							</Button>
 						)}
 					</Confirmation>
 				);

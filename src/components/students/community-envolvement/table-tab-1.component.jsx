@@ -77,16 +77,13 @@ const OrganizationInvolvementTable = ({ data, userType, docId, student }) => {
 							if (val.id) {
 								dispatch(
 									deleteCommunityEnvolvement(
-										currentUser &&
-											currentUser._id,
+										currentUser && currentUser._id,
 										{
 											type: "organization",
 											row_id: val.id,
 										},
 										() => {
-											notify(
-												"Organization Deleted"
-											);
+											notify("Organization Deleted");
 										}
 									)
 								);
@@ -94,7 +91,10 @@ const OrganizationInvolvementTable = ({ data, userType, docId, student }) => {
 						}}
 					>
 						{!currentUser?.isFinished && (
-							<Button danger> Delete</Button>
+							<Button hidden={true} danger>
+								{" "}
+								Delete
+							</Button>
 						)}
 					</Confirmation>
 				);

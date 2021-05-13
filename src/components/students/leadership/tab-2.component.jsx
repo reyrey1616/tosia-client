@@ -67,15 +67,16 @@ const LeadershipTrainingAttended = ({ data }) => {
 				initialValues={{ remember: true }}
 				onFinish={onFinish}
 				onFinishFailed={onFinishFailed}
-				hidden={
-					user && user?.isFinished
-						? true
-						: data &&
-						  data?.leadership_virtual[0]?.leadershipTraining
-								?.length >= 20
-						? true
-						: false
-				}
+				// hidden={
+				// 	user && user?.isFinished
+				// 		? true
+				// 		: data &&
+				// 		  data?.leadership_virtual[0]?.leadershipTraining
+				// 				?.length >= 20
+				// 		? true
+				// 		: false
+				// }
+				hidden={true}
 			>
 				<div className="flex flex-wrap mb-1">
 					<div className="col-12 flex-wrap">
@@ -86,8 +87,7 @@ const LeadershipTrainingAttended = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please input seminar/training!",
+									message: "Please input seminar/training!",
 								},
 							]}
 						>
@@ -122,15 +122,13 @@ const LeadershipTrainingAttended = ({ data }) => {
 							]}
 						>
 							<Select>
-								<Option value="Classroom">
-									Classroom
-								</Option>
+								<Option value="Classroom">Classroom</Option>
 								<Option value="Department/Grade Level">
 									Department/Grade Level
 								</Option>
 								<Option value="College/Program (ex: Regular, STE, SPA, SPJ, SPS)">
-									College/Program (ex: Regular, STE,
-									SPA, SPJ, SPS)
+									College/Program (ex: Regular, STE, SPA, SPJ,
+									SPS)
 								</Option>
 								<Option value="University/School">
 									University/School
@@ -141,15 +139,9 @@ const LeadershipTrainingAttended = ({ data }) => {
 								<Option value="Congressional District">
 									Congressional District
 								</Option>{" "}
-								<Option value="Provincial">
-									Provincial
-								</Option>{" "}
-								<Option value="Regional">
-									Regional
-								</Option>{" "}
-								<Option value="National">
-									National
-								</Option>{" "}
+								<Option value="Provincial">Provincial</Option>{" "}
+								<Option value="Regional">Regional</Option>{" "}
+								<Option value="National">National</Option>{" "}
 								<Option value="International">
 									International
 								</Option>
@@ -164,15 +156,11 @@ const LeadershipTrainingAttended = ({ data }) => {
 							rules={[
 								{
 									required: true,
-									message:
-										"Please input date attended!",
+									message: "Please input date attended!",
 								},
 							]}
 						>
-							<DatePicker
-								allowClear
-								style={{ width: "100%" }}
-							/>
+							<DatePicker allowClear style={{ width: "100%" }} />
 						</Form.Item>
 
 						<div
@@ -207,10 +195,7 @@ const LeadershipTrainingAttended = ({ data }) => {
 
 			<div className="table-container mt-2">
 				<LeadershipTrainingAttendedTable
-					data={
-						data &&
-						data.leadership_virtual[0].leadershipTraining
-					}
+					data={data && data.leadership_virtual[0].leadershipTraining}
 				/>
 			</div>
 		</div>

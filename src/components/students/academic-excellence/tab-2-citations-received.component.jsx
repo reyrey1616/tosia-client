@@ -28,8 +28,7 @@ const CitationsReceivedTable = ({ data, userType, docId, student }) => {
 			key: "awardType",
 		},
 		{
-			title:
-				"Name of the Organization/Institution that gave the award",
+			title: "Name of the Organization/Institution that gave the award",
 			dataIndex: "organization",
 			key: "organization",
 		},
@@ -86,16 +85,13 @@ const CitationsReceivedTable = ({ data, userType, docId, student }) => {
 							if (val.id) {
 								dispatch(
 									deleteAcademicExcellence(
-										currentUser &&
-											currentUser._id,
+										currentUser && currentUser._id,
 										{
 											type: "citation",
 											row_id: val.id,
 										},
 										() => {
-											notify(
-												"Citation Received Deleted"
-											);
+											notify("Citation Received Deleted");
 										}
 									)
 								);
@@ -103,7 +99,10 @@ const CitationsReceivedTable = ({ data, userType, docId, student }) => {
 						}}
 					>
 						{!currentUser?.isFinished && (
-							<Button danger> Delete</Button>
+							<Button hidden={true} danger>
+								{" "}
+								Delete
+							</Button>
 						)}
 					</Confirmation>
 				);
