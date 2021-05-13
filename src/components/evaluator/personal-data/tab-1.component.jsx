@@ -40,12 +40,17 @@ const PersonalData = ({ data }) => {
 						<Item title="Phone #" value={data?.phoneNumber} />
 						<Item title="Tel #" value={data?.telNumber} />
 						<Item title="Email" value={data?.email} />
+						<Item title="Present Mailing Address" value={data?.presentMailingAddress} />
+
+						<Item title="Permanent Mailing Address" value={data?.permanentMailingAddress} />
+
 						<Item
 							title="Department"
 							value={data?.department}
 						/>
 						<Item title="Course" value={data?.course} />
 						<Item title="Referral" value={data?.referral} />
+
 					</div>
 				</div>
 			</div>
