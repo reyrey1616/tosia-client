@@ -35,6 +35,7 @@ export const getStudents = async (
 			}
 
 			const response = await request.data;
+			console.log(response.data);
 
 			if (response.success) {
 				return response.data;
