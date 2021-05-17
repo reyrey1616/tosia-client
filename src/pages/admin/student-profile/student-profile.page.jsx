@@ -103,8 +103,7 @@ const StudentProfile = () => {
 							data={
 								student &&
 								student?.academic &&
-								student?.academic[0]
-									?.academicHonorsReceived
+								student?.academic[0]?.academicHonorsReceived
 							}
 							docId={
 								student &&
@@ -147,8 +146,7 @@ const StudentProfile = () => {
 							data={
 								student &&
 								student?.academic &&
-								student?.academic[0]
-									?.academicContestsWon
+								student?.academic[0]?.academicContestsWon
 							}
 							docId={
 								student &&
@@ -184,8 +182,8 @@ const StudentProfile = () => {
 					<div className="card p-1 mb-2">
 						<p className="font-18 text-orange m-1">
 							{" "}
-							Most Significant Academic-Related Seminars
-							and Training Attended
+							Most Significant Academic-Related Seminars and
+							Training Attended
 						</p>
 						<TrainingsAttendedTable
 							data={
@@ -217,15 +215,14 @@ const StudentProfile = () => {
 					<div className="card p-1 mb-2">
 						<p className="font-18 text-orange m-1">
 							{" "}
-							Most Significant Organization Envolvement
+							Most Significant Organization Involvement
 						</p>
 
 						<LeadershipOrganizationEnvolvementTable
 							data={
 								student &&
 								student?.leadership_virtual &&
-								student?.leadership_virtual[0]
-									.orgEnvolvement
+								student?.leadership_virtual[0].orgEnvolvement
 							}
 							docId={
 								student &&
@@ -240,8 +237,7 @@ const StudentProfile = () => {
 					<div className="card p-1 mb-2">
 						<p className="font-18 text-orange m-1">
 							{" "}
-							Most Significant Leadership Trainings
-							Attended
+							Most Significant Leadership Trainings Attended
 						</p>
 
 						<LeadershipTraningAttendedTable
@@ -264,8 +260,7 @@ const StudentProfile = () => {
 					<div className="card p-1 mb-2">
 						<p className="font-18 text-orange m-1">
 							{" "}
-							Most Significant Awards and Citations
-							Received
+							Most Significant Awards and Citations Received
 						</p>
 
 						<LeadershipCitationTable
@@ -310,7 +305,7 @@ const StudentProfile = () => {
 
 				{/* COMMUNITY ENVOLVEMENT TAB */}
 				<TabPane
-					tab="Community Envolvement"
+					tab="Community Involvement"
 					key="4"
 					className="p-1"
 					style={{
@@ -351,8 +346,7 @@ const StudentProfile = () => {
 							data={
 								student &&
 								student?.community &&
-								student?.community[0]
-									?.activitiesAttended
+								student?.community[0]?.activitiesAttended
 							}
 							docId={
 								student &&
@@ -374,8 +368,7 @@ const StudentProfile = () => {
 							data={
 								student &&
 								student?.community &&
-								student?.community[0]
-									.activitiesOrganized
+								student?.community[0].activitiesOrganized
 							}
 							docId={
 								student &&
@@ -390,16 +383,14 @@ const StudentProfile = () => {
 					<div className="card p-1 mb-2">
 						<p className="font-18 text-orange m-1">
 							{" "}
-							Most Significant Awards and Citations
-							Received
+							Most Significant Awards and Citations Received
 						</p>
 
 						<CommunityCitationTable
 							data={
 								student &&
 								student?.community &&
-								student?.community[0]
-									?.awardsAndCitations
+								student?.community[0]?.awardsAndCitations
 							}
 							docId={
 								student &&
