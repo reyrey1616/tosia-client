@@ -5,10 +5,7 @@ import { notify } from "../global/alerts/alerts.component";
 import errorCatch from "../../utils/errorCatch";
 const addEvaluation = async ({ data }, callback) => {
 	try {
-		const request = await axios.post(
-			`/evaluations/${data?.student}`,
-			data
-		);
+		const request = await axios.post(`/evaluations/${data?.student}`, data);
 		const response = request.data;
 		if (response.success === true) {
 			callback();
@@ -41,17 +38,14 @@ const EvaluationForm = ({ data }) => {
 				default
 				loading={loading}
 				onClick={() => {
-					if (point) {
+					if (point || point === 0) {
 						if (data && data) {
 							setLoading(true);
 							data.point = point;
 							addEvaluation({ data }, () => {
 								setTimeout(() => {
 									setLoading(false);
-									notify(
-										"Evaluation submitted",
-										"success"
-									);
+									notify("Evaluation submitted", "success");
 								}, 1000);
 							});
 						} else {
