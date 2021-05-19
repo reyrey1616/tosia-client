@@ -17,6 +17,8 @@ const Reports = () => {
 	const [jhsCount, setJhsCount] = useState(0);
 	const [searchText, setSearchText] = useState("");
 	const [filterSubmission, setFilterSubmission] = useState();
+	const [filterEvaluated, setFilterEvaluated] = useState();
+
 	const [category, setCategory] = useState();
 
 	useEffect(async () => {
@@ -72,6 +74,23 @@ const Reports = () => {
 		);
 	};
 
+	const filterEvaluatedStudents = () => {
+		let value;
+		if (filterEvaluated === "Finished") {
+			value = true;
+		} else if (filterEvaluated === "Not yet finished") {
+			value = false;
+		} else {
+			return students && students;
+		}
+		return (
+			students &&
+			students?.filter((item) => {
+				return item?.isDoneEvaluated === value;
+			})
+		);
+	};
+
 	return !!userData && students ? (
 		<div className="admin-page-content">
 			<h2 className="text-subtitle text-orange m-1">Summary</h2>
@@ -98,7 +117,7 @@ const Reports = () => {
 				<h2 className="text-subtitle text-orange m-1">Students</h2>
 
 				<div className="flex m-1">
-					<div className="col-5 col-md-8">
+					<div className="col-4 col-md-8">
 						<Input
 							onChange={(e) => {
 								setFilterSubmission(null);
@@ -146,12 +165,35 @@ const Reports = () => {
 							<Option value="No">No </Option>
 						</Select>
 					</div>
+					<div className="col-2 col-md-4 pl-1">
+						<Select
+							style={{ width: "100%" }}
+							onChange={(e) => {
+								setCategory(null);
+								setSearchText("");
+								setFilterSubmission(null);
+								setFilterEvaluated(e);
+							}}
+							size="large"
+							prefix={<SearchOutlined />}
+							placeholder="Evaluation"
+							allowClear
+							value={filterEvaluated}
+						>
+							<Option value="Finished">Finished </Option>
+							<Option value="Not yet finished">
+								Not yet finished
+							</Option>
+						</Select>
+					</div>
 				</div>
 				{students ? (
 					<StudentsTable
 						data={
 							filterSubmission
 								? filterSubmitStudent()
+								: filterEvaluated
+								? filterEvaluatedStudents()
 								: filteredData()
 						}
 						userType="admin"

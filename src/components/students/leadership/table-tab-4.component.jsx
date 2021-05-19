@@ -22,7 +22,7 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
 			key: "description",
 		},
 		{
-			title: "Iniated",
+			title: "Initiated",
 			dataIndex: "initiated",
 			key: "initiated",
 		},
