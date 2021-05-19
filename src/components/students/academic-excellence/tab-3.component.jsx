@@ -36,7 +36,6 @@ const AcademicContestsWon = ({ data }) => {
 	};
 
 	const handleImageChange = (e) => {
-		console.log(e.target.files[0]);
 		const file = e.target.files[0];
 		if (file) {
 			if (file.type !== "image/jpeg" && file.type !== "image/png") {
