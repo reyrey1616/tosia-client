@@ -62,56 +62,56 @@ const LeadershipTrainingAttendedTable = ({
 				/>
 			),
 		},
-		{
-			title: userType === "admin" ? "Points" : "Action",
-			render: (val) => {
-				if (userType === "admin") {
-					return val?.points;
-				}
-				return userType === "evaluator" ? (
-					<EvaluationForm
-						data={{
-							evaluator: currentUser && currentUser._id,
-							student,
-							parentAward: docId,
-							awardType: "leadership",
-							subAwardId: val.id,
-							subAwardType: "leadership",
-							point: val?.points,
-						}}
-					/>
-				) : (
-					<Confirmation
-						title="Are you sure you want to delete this data?"
-						confirmFn={() => {
-							if (val.id) {
-								dispatch(
-									deleteLeadership(
-										currentUser && currentUser._id,
-										{
-											type: "leadership",
-											row_id: val.id,
-										},
-										() => {
-											notify(
-												"Leadership Training Deleted"
-											);
-										}
-									)
-								);
-							}
-						}}
-					>
-						{!currentUser?.isFinished && (
-							<Button hidden={true} danger>
-								{" "}
-								Delete
-							</Button>
-						)}
-					</Confirmation>
-				);
-			},
-		},
+		// {
+		// 	title: userType === "admin" ? "Points" : "Action",
+		// 	render: (val) => {
+		// 		if (userType === "admin") {
+		// 			return val?.points;
+		// 		}
+		// 		return userType === "evaluator" ? (
+		// 			<EvaluationForm
+		// 				data={{
+		// 					evaluator: currentUser && currentUser._id,
+		// 					student,
+		// 					parentAward: docId,
+		// 					awardType: "leadership",
+		// 					subAwardId: val.id,
+		// 					subAwardType: "leadership",
+		// 					point: val?.points,
+		// 				}}
+		// 			/>
+		// 		) : (
+		// 			<Confirmation
+		// 				title="Are you sure you want to delete this data?"
+		// 				confirmFn={() => {
+		// 					if (val.id) {
+		// 						dispatch(
+		// 							deleteLeadership(
+		// 								currentUser && currentUser._id,
+		// 								{
+		// 									type: "leadership",
+		// 									row_id: val.id,
+		// 								},
+		// 								() => {
+		// 									notify(
+		// 										"Leadership Training Deleted"
+		// 									);
+		// 								}
+		// 							)
+		// 						);
+		// 					}
+		// 				}}
+		// 			>
+		// 				{!currentUser?.isFinished && (
+		// 					<Button hidden={true} danger>
+		// 						{" "}
+		// 						Delete
+		// 					</Button>
+		// 				)}
+		// 			</Confirmation>
+		// 		);
+		// 	},
+		// },
 	];
 	return (
 		<Table

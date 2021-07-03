@@ -59,56 +59,56 @@ const ActivitiesAttendedTable = ({ data, userType, docId, student }) => {
 				/>
 			),
 		},
-		{
-			title: userType === "admin" ? "Points" : "Action",
-			render: (val) => {
-				if (userType === "admin") {
-					return val?.points;
-				}
-				return userType === "evaluator" ? (
-					<EvaluationForm
-						data={{
-							evaluator: currentUser && currentUser._id,
-							student,
-							parentAward: docId,
-							awardType: "community",
-							subAwardId: val.id,
-							subAwardType: "activities",
-							point: val?.points,
-						}}
-					/>
-				) : (
-					<Confirmation
-						title="Are you sure you want to delete this data?"
-						confirmFn={() => {
-							if (val.id) {
-								dispatch(
-									deleteCommunityEnvolvement(
-										currentUser && currentUser._id,
-										{
-											type: "activities",
-											row_id: val.id,
-										},
-										() => {
-											notify(
-												"Activities Attended Deleted"
-											);
-										}
-									)
-								);
-							}
-						}}
-					>
-						{!currentUser?.isFinished && (
-							<Button danger hidden={true}>
-								{" "}
-								Delete
-							</Button>
-						)}
-					</Confirmation>
-				);
-			},
-		},
+		// {
+		// 	title: userType === "admin" ? "Points" : "Action",
+		// 	render: (val) => {
+		// 		if (userType === "admin") {
+		// 			return val?.points;
+		// 		}
+		// 		return userType === "evaluator" ? (
+		// 			<EvaluationForm
+		// 				data={{
+		// 					evaluator: currentUser && currentUser._id,
+		// 					student,
+		// 					parentAward: docId,
+		// 					awardType: "community",
+		// 					subAwardId: val.id,
+		// 					subAwardType: "activities",
+		// 					point: val?.points,
+		// 				}}
+		// 			/>
+		// 		) : (
+		// 			<Confirmation
+		// 				title="Are you sure you want to delete this data?"
+		// 				confirmFn={() => {
+		// 					if (val.id) {
+		// 						dispatch(
+		// 							deleteCommunityEnvolvement(
+		// 								currentUser && currentUser._id,
+		// 								{
+		// 									type: "activities",
+		// 									row_id: val.id,
+		// 								},
+		// 								() => {
+		// 									notify(
+		// 										"Activities Attended Deleted"
+		// 									);
+		// 								}
+		// 							)
+		// 						);
+		// 					}
+		// 				}}
+		// 			>
+		// 				{!currentUser?.isFinished && (
+		// 					<Button danger hidden={true}>
+		// 						{" "}
+		// 						Delete
+		// 					</Button>
+		// 				)}
+		// 			</Confirmation>
+		// 		);
+		// 	},
+		// },
 	];
 	return (
 		<Table

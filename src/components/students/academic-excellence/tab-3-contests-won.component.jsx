@@ -64,54 +64,54 @@ const AcademicContestsWonTable = ({ data, userType, docId, student }) => {
 				/>
 			),
 		},
-		{
-			title: userType === "admin" ? "Points" : "Action",
-			render: (val) => {
-				if (userType === "admin") {
-					return val?.points;
-				}
-				return userType === "evaluator" ? (
-					<EvaluationForm
-						data={{
-							evaluator: currentUser && currentUser._id,
-							student,
-							parentAward: docId,
-							awardType: "academic",
-							subAwardId: val.id,
-							subAwardType: "contest",
-							point: val?.points,
-						}}
-					/>
-				) : (
-					<Confirmation
-						title="Are you sure you want to delete this data?"
-						confirmFn={() => {
-							if (val.id) {
-								dispatch(
-									deleteAcademicExcellence(
-										currentUser && currentUser._id,
-										{
-											type: "contest",
-											row_id: val.id,
-										},
-										() => {
-											notify("Contest Won Deleted");
-										}
-									)
-								);
-							}
-						}}
-					>
-						{!currentUser?.isFinished && (
-							<Button hidden={true} danger>
-								{" "}
-								Delete
-							</Button>
-						)}
-					</Confirmation>
-				);
-			},
-		},
+		// {
+		// 	title: userType === "admin" ? "Points" : "Action",
+		// 	render: (val) => {
+		// 		if (userType === "admin") {
+		// 			return val?.points;
+		// 		}
+		// 		return userType === "evaluator" ? (
+		// 			<EvaluationForm
+		// 				data={{
+		// 					evaluator: currentUser && currentUser._id,
+		// 					student,
+		// 					parentAward: docId,
+		// 					awardType: "academic",
+		// 					subAwardId: val.id,
+		// 					subAwardType: "contest",
+		// 					point: val?.points,
+		// 				}}
+		// 			/>
+		// 		) : (
+		// 			<Confirmation
+		// 				title="Are you sure you want to delete this data?"
+		// 				confirmFn={() => {
+		// 					if (val.id) {
+		// 						dispatch(
+		// 							deleteAcademicExcellence(
+		// 								currentUser && currentUser._id,
+		// 								{
+		// 									type: "contest",
+		// 									row_id: val.id,
+		// 								},
+		// 								() => {
+		// 									notify("Contest Won Deleted");
+		// 								}
+		// 							)
+		// 						);
+		// 					}
+		// 				}}
+		// 			>
+		// 				{!currentUser?.isFinished && (
+		// 					<Button hidden={true} danger>
+		// 						{" "}
+		// 						Delete
+		// 					</Button>
+		// 				)}
+		// 			</Confirmation>
+		// 		);
+		// 	},
+		// },
 	];
 	return (
 		<Table
