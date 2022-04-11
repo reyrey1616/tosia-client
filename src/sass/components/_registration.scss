@@ -1,70 +1,70 @@
 .registration-image {
-	padding: 0 !important;
-	@include query(tab-land) {
-		display: none !important;
-	}
-	.button-cta {
-		display: none;
-		@include query(tab-land) {
-			display: block;
-		}
-	}
+  padding: 0 !important;
+  @include query(tab-land) {
+    display: none !important;
+  }
+  .button-cta {
+    display: none;
+    @include query(tab-land) {
+      display: block;
+    }
+  }
 
-	img {
-		width: 100%;
-		height: 100%;
-		border-top-left-radius: 15px;
-		border-bottom-left-radius: 15px;
-	}
+  img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
 }
 
 .login-page-wrapper {
-	height: 100vh;
-	min-height: 100vh;
-	max-height: 100vh;
-	display: flex;
-	overflow: auto;
-	justify-content: center;
-	align-items: center;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
 
-	.login-page-container {
-		width: 65%;
-		height: 72vh;
+  .login-page-container {
+    width: 65%;
+    height: 72vh;
 
-		@include query(laptop) {
-			width: 80%;
-			height: 80vh;
+    @include query(laptop) {
+      width: 80%;
+      height: 80vh;
 
-			div:nth-child(1) {
-				width: 100% !important;
-			}
-		}
+      div:nth-child(1) {
+        width: 100% !important;
+      }
+    }
 
-		.login-page-login-form {
-			@include query(laptop) {
-				max-height: 80vh;
-			}
-			max-height: 70vh;
-			overflow: auto;
-			display: flex;
-			flex-direction: column;
-			height: 100%;
-		}
+    .login-page-login-form {
+      @include query(laptop) {
+        max-height: 80vh;
+      }
+      max-height: 70vh;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
 
-		@include query(tab-land) {
-			width: 85%;
-		}
-		div {
-			&:nth-child(2) > div {
-				overflow: auto;
-				@include query(tab-port) {
-					padding: 1rem !important;
-				}
-			}
-		}
-	}
+    @include query(tab-land) {
+      width: 85%;
+    }
+    div {
+      &:nth-child(2) > div {
+        overflow: auto;
+        @include query(tab-port) {
+          padding: 1rem !important;
+        }
+      }
+    }
+  }
 }
 
 body {
-	min-width: 700px;
+  min-width: 700px;
 }
