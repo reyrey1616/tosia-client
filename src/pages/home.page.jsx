@@ -16,100 +16,92 @@ import Image12 from "../assets/2020.png";
 import LandingLogos from "../assets/landing-logos.png";
 
 const HomePage = () => {
-	return (
-		<div className="home-page">
-			<div className="landing-details">
-				<img
-					src={LandingLogos}
-					alt="TOSIA"
-					className="landing-logos"
-				/>
-				<p className="m-0 text-1">
-					THE OUTSTANDING STUDENTS OF ILOILO AWARDS 2021
-				</p>
-				<p className="m-0 text-2">BID NOMINATION PLATFORM</p>
-			</div>
+  return (
+    <div className="home-page">
+      <div className="landing-details">
+        <img src={LandingLogos} alt="TOSIA" className="landing-logos" />
+        <p className="m-0 text-1">
+          THE OUTSTANDING STUDENTS OF ILOILO AWARDS 2022
+        </p>
+        <p className="m-0 text-2">BID NOMINATION PLATFORM</p>
+      </div>
 
-			<Carousel
-				className="home-page-carousel"
-				autoplay
-				autoplaySpeed={3000}
-			>
-				<div className="carousel-item">
-					<img src={Image1} alt="TOSIA" />
-					<button>
-						<Link to="/login"> ENTER </Link>
-					</button>
-				</div>
-				<div className="carousel-item">
-					<img src={Image2} alt="TOSIA" />
-					<button>
-						<Link to="/login"> ENTER </Link>
-					</button>
-				</div>
-				<div className="carousel-item">
-					<img src={Image3} alt="TOSIA" />
-					<button>
-						<Link to="/login"> ENTER </Link>
-					</button>
-				</div>
-				<div className="carousel-item">
-					<img src={Image4} alt="TOSIA" />
-					<button>
-						<Link to="/login"> ENTER </Link>
-					</button>
-				</div>
-				<div className="carousel-item">
-					<img src={Image5} alt="TOSIA" />
-					<button>
-						<Link to="/login"> ENTER </Link>
-					</button>
-				</div>
-				<div className="carousel-item">
-					<img src={Image6} alt="TOSIA" />
-					<button>
-						<Link to="/login"> ENTER </Link>
-					</button>
-				</div>
-				<div className="carousel-item">
-					<img src={Image7} alt="TOSIA" />
-					<button>
-						<Link to="/login"> ENTER </Link>
-					</button>
-				</div>
-				<div className="carousel-item">
-					<img src={Image8} alt="TOSIA" />
-					<button>
-						<Link to="/login"> ENTER </Link>
-					</button>
-				</div>
-				<div className="carousel-item">
-					<img src={Image9} alt="TOSIA" />
-					<button>
-						<Link to="/login"> ENTER </Link>
-					</button>
-				</div>
-				<div className="carousel-item">
-					<img src={Image10} alt="TOSIA" />
-					<button>
-						<Link to="/login"> ENTER </Link>
-					</button>
-				</div>
-				<div className="carousel-item">
-					<img src={Image11} alt="TOSIA" />
-					<button>
-						<Link to="/login"> ENTER </Link>
-					</button>
-				</div>
-				<div className="carousel-item">
-					<img src={Image12} alt="TOSIA" />
-					<button>
-						<Link to="/login"> ENTER </Link>
-					</button>
-				</div>
-			</Carousel>
-		</div>
-	);
+      <Carousel className="home-page-carousel" autoplay autoplaySpeed={3000}>
+        <div className="carousel-item">
+          <img src={Image1} alt="TOSIA" />
+          <button>
+            <Link to="/login"> ENTER </Link>
+          </button>
+        </div>
+        <div className="carousel-item">
+          <img src={Image2} alt="TOSIA" />
+          <button>
+            <Link to="/login"> ENTER </Link>
+          </button>
+        </div>
+        <div className="carousel-item">
+          <img src={Image3} alt="TOSIA" />
+          <button>
+            <Link to="/login"> ENTER </Link>
+          </button>
+        </div>
+        <div className="carousel-item">
+          <img src={Image4} alt="TOSIA" />
+          <button>
+            <Link to="/login"> ENTER </Link>
+          </button>
+        </div>
+        <div className="carousel-item">
+          <img src={Image5} alt="TOSIA" />
+          <button>
+            <Link to="/login"> ENTER </Link>
+          </button>
+        </div>
+        <div className="carousel-item">
+          <img src={Image6} alt="TOSIA" />
+          <button>
+            <Link to="/login"> ENTER </Link>
+          </button>
+        </div>
+        <div className="carousel-item">
+          <img src={Image7} alt="TOSIA" />
+          <button>
+            <Link to="/login"> ENTER </Link>
+          </button>
+        </div>
+        <div className="carousel-item">
+          <img src={Image8} alt="TOSIA" />
+          <button>
+            <Link to="/login"> ENTER </Link>
+          </button>
+        </div>
+        <div className="carousel-item">
+          <img src={Image9} alt="TOSIA" />
+          <button>
+            <Link to="/login"> ENTER </Link>
+          </button>
+        </div>
+        <div className="carousel-item">
+          <img src={Image10} alt="TOSIA" />
+          <button>
+            <Link to="/login"> ENTER </Link>
+          </button>
+        </div>
+        <div className="carousel-item">
+          <img src={Image11} alt="TOSIA" />
+          <button>
+            <Link to="/login"> ENTER </Link>
+          </button>
+        </div>
+        <div className="carousel-item">
+          <img src={Image12} alt="TOSIA" />
+          <button>
+            <Link to="/login"> ENTER </Link>
+          </button>
+        </div>
+      </Carousel>
+    </div>
+  );
 };
 
 export default HomePage;
