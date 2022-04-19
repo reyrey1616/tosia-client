@@ -70,7 +70,7 @@ const AwardsAndCitationsReceived = ({ data }) => {
         hidden={
           user && user?.isFinished
             ? true
-            : data && data?.community[0]?.awardsAndCitations?.length >= 0
+            : data && data?.community[0]?.awardsAndCitations?.length >= 20
             ? true
             : false
         }
