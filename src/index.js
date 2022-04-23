@@ -12,20 +12,19 @@ import store from "./redux/store";
 import { init } from "emailjs-com";
 init("user_6IFNMA9CyTtMhVkdTlmFY");
 if (process.env.NODE_ENV === "development") {
-	// axios.defaults.baseURL = "http://localhost:5000/api/v1/";
-	// axios.defaults.baseURL = "https://tosia.xyz/api/v1/";
-	axios.defaults.baseURL = "https://tosia-api-v2.herokuapp.com/api/v1/";
+  // axios.defaults.baseURL = "http://localhost:5000/api/v1/";
+  axios.defaults.baseURL = "https://tosia.xyz/api/v1/";
+  // axios.defaults.baseURL = "https://bakal-lokal.xyz/tosia/api/v1/";
 } else {
-	// axios.defaults.baseURL = "https://tosia.xyz/api/v1/";
-	axios.defaults.baseURL = "https://tosia-api-v2.herokuapp.com/api/v1/";
+  axios.defaults.baseURL = "https://tosia.xyz/api/v1/";
 }
 ReactDOM.render(
-	<BrowserRouter>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</BrowserRouter>,
-	document.getElementById("root")
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
