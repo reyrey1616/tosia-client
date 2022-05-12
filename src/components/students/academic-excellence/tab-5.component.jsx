@@ -68,11 +68,12 @@ const TrainingAttended = ({ data }) => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         hidden={
-          user && user?.isFinished
-            ? true
-            : data && data?.academic[0]?.seminarsAttended?.length >= 20
-            ? true
-            : false
+          // user && user?.isFinished
+          //   ? true
+          //   : data && data?.academic[0]?.seminarsAttended?.length >= 20
+          //   ? true
+          //   : false
+          true
         }
       >
         <div className="flex flex-wrap mb-1">

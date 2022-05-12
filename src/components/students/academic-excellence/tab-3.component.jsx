@@ -66,11 +66,12 @@ const AcademicContestsWon = ({ data }) => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         hidden={
-          user && user?.isFinished
-            ? true
-            : data && data?.academic[0]?.academicContestsWon?.length >= 50
-            ? true
-            : false
+          // user && user?.isFinished
+          //   ? true
+          //   : data && data?.academic[0]?.academicContestsWon?.length >= 50
+          //   ? true
+          //   : false
+          true
         }
       >
         <div className="flex flex-wrap mb-1">
