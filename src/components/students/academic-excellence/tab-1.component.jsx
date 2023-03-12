@@ -64,12 +64,11 @@ const AcademicHonorsReceived = ({ data }) => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         hidden={
-          // user && user?.isFinished
-          //   ? true
-          //   : data && data?.academic[0]?.academicHonorsReceived?.length >= 10
-          //   ? true
-          //   : false
-          true
+          user && user?.isFinished
+            ? true
+            : data && data?.academic[0]?.academicHonorsReceived?.length >= 10
+            ? true
+            : false
         }
       >
         <div className="flex flex-wrap mb-1">

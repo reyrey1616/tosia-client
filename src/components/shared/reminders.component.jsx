@@ -14,7 +14,7 @@ const Reminders = () => {
         <Alert
           message="Reminder"
           description="Reminder:
-					Please complete this form on or before 11:59 PM of April 22, 2022 (Friday). This portal will automatically close and will stop accepting responses beyond the deadline. Only applicants with complete requirements shall be accepted. Late submissions will not be tolerated."
+					Please complete this form on or before 11:59 PM of April 22, 2023 (Friday). This portal will automatically close and will stop accepting responses beyond the deadline. Only applicants with complete requirements shall be accepted. Late submissions will not be tolerated."
           type="error"
         />
       </div>

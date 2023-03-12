@@ -21,7 +21,7 @@ const HomePage = () => {
       <div className="landing-details">
         <img src={LandingLogos} alt="TOSIA" className="landing-logos" />
         <p className="m-0 text-1">
-          THE OUTSTANDING STUDENTS OF ILOILO AWARDS 2022
+          THE OUTSTANDING STUDENTS OF ILOILO AWARDS 2023
         </p>
         <p className="m-0 text-2">BID NOMINATION PLATFORM</p>
       </div>
