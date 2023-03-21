@@ -21,18 +21,14 @@ const AwardsAndCitationsReceivedTable = ({
       dataIndex: "citationReceived",
       key: "citationReceived",
     },
-    {
-      title: "Level award given",
-      dataIndex: "levelGiven",
-      key: "levelGiven",
-    },
+
     {
       title: "Name of the Organization/Institution that gave the award",
       dataIndex: "organization",
       key: "organization",
     },
     {
-      title: "Level the award is given",
+      title: "Level the award was given",
       dataIndex: "levelAwardGiven",
       key: "levelAwardGiven",
     },

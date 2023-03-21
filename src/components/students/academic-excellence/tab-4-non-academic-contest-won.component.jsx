@@ -36,7 +36,7 @@ const NonAcademicContestsWonTable = ({ data, userType, docId, student }) => {
       key: "organization",
     },
     {
-      title: "Level the award is given",
+      title: "Level the award was given",
       dataIndex: "levelAwardGiven",
       key: "levelAwardGiven",
     },

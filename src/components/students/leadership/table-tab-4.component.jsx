@@ -17,17 +17,17 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
       key: "activityName",
     },
     {
-      title: "Name of Activity and Short Description",
+      title: "Short Description",
       dataIndex: "description",
       key: "description",
     },
     {
-      title: "Initiated",
+      title: "Initiated by",
       dataIndex: "initiated",
       key: "initiated",
     },
     {
-      title: "Level of Project Implemented",
+      title: "Level the Activity was Implemented ",
       dataIndex: "levelImplemented",
       key: "levelImplemented",
     },
@@ -37,7 +37,7 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
       key: "role",
     },
     // {
-    // 	title: "Level the award is given",
+    // 	title: "Level the award was given",
     // 	dataIndex: "levelAwardGiven",
     // 	key: "levelAwardGiven",
     // },

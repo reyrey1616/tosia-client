@@ -92,12 +92,12 @@ const AwardsAndCitationsReceived = ({ data }) => {
             </Form.Item>
             <Form.Item
               className="col-4 col-md-12 p-half"
-              label="At what level is the award given?"
+              label="At what level was  the award given?"
               name="levelAwardGiven"
               rules={[
                 {
                   required: true,
-                  message: "Please select what level the award is given!",
+                  message: "Please select what level the award was given!",
                 },
               ]}
             >

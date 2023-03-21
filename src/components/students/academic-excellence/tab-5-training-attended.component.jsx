@@ -35,7 +35,7 @@ const TrainingAttendedTable = ({ data, userType, docId, student }) => {
       key: "organization",
     },
     {
-      title: "Level the event organized",
+      title: "Level the Event was Organized",
       dataIndex: "eventOrganizedLevel",
       key: "eventOrganizedLevel",
     },

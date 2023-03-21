@@ -17,7 +17,7 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
       key: "activityName",
     },
     {
-      title: "Name of Activity and Short Description",
+      title: "Short Description",
       dataIndex: "description",
       key: "description",
     },
@@ -27,7 +27,7 @@ const ActivitiesOrganizedTable = ({ data, userType, docId, student }) => {
       key: "beneficiaries",
     },
     {
-      title: "Level of Project Implemented",
+      title: "Level the Activity was Implemented ",
       dataIndex: "levelImplemented",
       key: "levelImplemented",
     },

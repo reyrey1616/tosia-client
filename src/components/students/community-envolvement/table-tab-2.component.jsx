@@ -23,7 +23,7 @@ const ActivitiesAttendedTable = ({ data, userType, docId, student }) => {
     },
 
     {
-      title: "Level of the Activity Implemented",
+      title: "Level the Activity was Implemented",
       dataIndex: "levelImplemented",
       key: "levelImplemented",
     },
@@ -33,7 +33,7 @@ const ActivitiesAttendedTable = ({ data, userType, docId, student }) => {
       key: "organization",
     },
     // {
-    // 	title: "Level the award is given",
+    // 	title: "Level the award was  given",
     // 	dataIndex: "levelAwardGiven",
     // 	key: "levelAwardGiven",
     // },

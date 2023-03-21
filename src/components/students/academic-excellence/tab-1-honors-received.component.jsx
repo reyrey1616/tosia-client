@@ -14,6 +14,7 @@ const HonorsReceivedTable = ({ data, userType, docId, student }) => {
       title: "Level",
       dataIndex: "level",
       key: "level",
+      sorter: (a, b) => a.level - b.level,
     },
     {
       title: "Academic Distinction",

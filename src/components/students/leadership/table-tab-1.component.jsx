@@ -26,7 +26,7 @@ const OrganizationInvolvementTable = ({ data, userType, docId, student }) => {
       key: "levelOperate",
     },
     {
-      title: "Level the Organization operate",
+      title: "Level the Organization Operates",
       dataIndex: "levelOperate",
       key: "levelOperate",
     },
@@ -82,7 +82,7 @@ const OrganizationInvolvementTable = ({ data, userType, docId, student }) => {
                       row_id: val.id,
                     },
                     () => {
-                      notify("Organization Envolvement Deleted");
+                      notify("Organization Involvement Deleted");
                     }
                   )
                 );

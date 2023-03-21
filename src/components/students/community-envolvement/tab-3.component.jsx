@@ -94,13 +94,12 @@ const ActivitiesOrganized = ({ data }) => {
 
               <Form.Item
                 className="col-12 col-md-12 p-half mb-0"
-                label="Name of Activity and Short Description"
+                label="Short Description"
                 name="description"
                 rules={[
                   {
                     required: true,
-                    message:
-                      "Please input Name of Activity and Short Description",
+                    message: "Please input  Short Description",
                   },
                 ]}
               >
@@ -123,12 +122,13 @@ const ActivitiesOrganized = ({ data }) => {
               </Form.Item>
               <Form.Item
                 className="col-6  col-md-12 p-half"
-                label="At what level is the project implemented?"
+                label="At what level was the project implemented?"
                 name="levelImplemented"
                 rules={[
                   {
                     required: true,
-                    message: "Please select level of project implemented!",
+                    message:
+                      "Please select Level the Activity was Implemented !",
                   },
                 ]}
               >

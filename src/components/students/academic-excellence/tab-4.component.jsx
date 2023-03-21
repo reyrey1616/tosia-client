@@ -128,7 +128,7 @@ const NonAcademicContestsWon = ({ data }) => {
             </Form.Item>
             <Form.Item
               className="col-3 col-md-12 p-half"
-              label="At what level is the award given?"
+              label="At what level was the award given"
               name="levelAwardGiven"
               rules={[
                 {

@@ -27,7 +27,7 @@ const OrganizationInvolvement = ({ data }) => {
       setButtonLoading(true);
       dispatch(
         addLeadership(user._id, values, () => {
-          notify("Organization Envolvement Added");
+          notify("Organization Involvement Added");
           form.resetFields();
           setImageFile(null);
           setFileKey(Date.now());

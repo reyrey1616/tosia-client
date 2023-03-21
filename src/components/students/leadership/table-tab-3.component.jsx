@@ -17,7 +17,7 @@ const AwardsAndCitationsReceivedTable = ({
   const currentUser = useSelector(selectCurrentUser);
   const columns = [
     {
-      title: "Leadership Awards and Citation Received",
+      title: "Leadership Awards and Citations Received ",
       dataIndex: "citationReceived",
       key: "citationReceived",
     },
@@ -28,7 +28,7 @@ const AwardsAndCitationsReceivedTable = ({
       key: "organization",
     },
     {
-      title: "Level the award is given",
+      title: "Level the award was given",
       dataIndex: "levelAwardGiven",
       key: "levelAwardGiven",
     },
