@@ -21,12 +21,12 @@ const OrganizationInvolvementTable = ({ data, userType, docId, student }) => {
       key: "position",
     },
     {
-      title: "At what level does the organization operates?",
+      title: "At what level does the organization operate?",
       dataIndex: "levelOperate",
       key: "levelOperate",
     },
     {
-      title: "Level the Organization Operates",
+      title: "Level the Organization Operate",
       dataIndex: "levelOperate",
       key: "levelOperate",
     },
