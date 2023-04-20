@@ -68,11 +68,12 @@ const ActivitiesOrganized = ({ data }) => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         hidden={
-          user && user?.isFinished
-            ? true
-            : data && data?.community[0]?.activitiesOrganized?.length >= 30
-            ? true
-            : false
+          // user && user?.isFinished
+          //   ? true
+          //   : data && data?.community[0]?.activitiesOrganized?.length >= 30
+          //   ? true
+          //   : false
+          true
         }
       >
         <div className="flex flex-wrap mb-1">

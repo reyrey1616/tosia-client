@@ -70,11 +70,12 @@ const Organizations = ({ data }) => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         hidden={
-          user && user?.isFinished
-            ? true
-            : data && data?.community[0]?.organizations?.length >= 20
-            ? true
-            : false
+          // user && user?.isFinished
+          //   ? true
+          //   : data && data?.community[0]?.organizations?.length >= 20
+          //   ? true
+          //   : false
+          true
         }
       >
         <div className="flex flex-wrap mb-1">

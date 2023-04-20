@@ -68,11 +68,12 @@ const AwardsAndCitationsReceived = ({ data }) => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         hidden={
-          user && user?.isFinished
-            ? true
-            : data && data?.community[0]?.awardsAndCitations?.length >= 20
-            ? true
-            : false
+          // user && user?.isFinished
+          //   ? true
+          //   : data && data?.community[0]?.awardsAndCitations?.length >= 20
+          //   ? true
+          //   : false
+          true
         }
       >
         <div className="flex flex-wrap mb-1">
