@@ -13,9 +13,9 @@ init("user_6IFNMA9CyTtMhVkdTlmFY");
 
 if (process.env.NODE_ENV === "development") {
   // axios.defaults.baseURL = "http://localhost:8080/api/v1/";
-  axios.defaults.baseURL = "https://tosia.xyz/api/v1/";
+  axios.defaults.baseURL = "https://tosia-api.onrender.com/api/v1/";
 } else {
-  axios.defaults.baseURL = "https://tosia.xyz/api/v1/";
+  axios.defaults.baseURL = "https://tosia-api.onrender.com/api/v1/";
 }
 ReactDOM.render(
   <BrowserRouter>
