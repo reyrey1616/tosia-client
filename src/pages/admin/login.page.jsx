@@ -1,11 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import LoginForm from "../../components/admin/login-form/login-form.component";
-import Image from "../../assets/Login.png";
+import Image from "../../assets/2024/LoginImage.png";
 import setAuthToken from "../../utils/setAuthToken";
 import axios from "axios";
 import errorCatch from "../../utils/errorCatch";
 import { notify } from "../../components/global/alerts/alerts.component";
 import { useHistory } from "react-router-dom";
+
 const token = localStorage.getItem("atkn");
 const LoginPage = () => {
   const history = useHistory();
