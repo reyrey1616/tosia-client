@@ -68,12 +68,13 @@ const NonAcademicContestsWon = ({ data }) => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         hidden={
-          // user && user?.isFinished
-          //   ? true
-          //   : data && data?.academic[0]?.nonAcademicAwards?.length >= 50
-          //   ? true
-          //   : false
-          true
+          process.env.REACT_APP_ENCODING === "CLOSED"
+            ? true
+            : user && user?.isFinished
+            ? true
+            : data && data?.academic[0]?.nonAcademicAwards?.length >= 50
+            ? true
+            : false
         }
       >
         <div className="flex flex-wrap mb-1">

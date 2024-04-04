@@ -65,12 +65,13 @@ const AwardsAndCitationsReceived = ({ data }) => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         hidden={
-          // user && user?.isFinished
-          //   ? true
-          //   : data && data?.leadership_virtual[0]?.citation?.length >= 20
-          //   ? true
-          //   : false
-          true
+          process.env.REACT_APP_ENCODING === "CLOSED"
+            ? true
+            : user && user?.isFinished
+            ? true
+            : data && data?.leadership_virtual[0]?.citation?.length >= 20
+            ? true
+            : false
         }
       >
         <div className="flex flex-wrap mb-1">
