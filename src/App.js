@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import {  Route, Switch } from "react-router-dom";
 import Spinner from "./components/hoc/spinner/spinner.component";
 import ErrorBoundary from "./components/hoc/error-boundary/error-boundary.component";
 const RegistrationPage = lazy(() =>
