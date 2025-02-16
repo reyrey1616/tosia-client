@@ -1,8 +1,6 @@
 [build]
   node_version = "18"
 
-[build.environment]
-  NODE_OPTIONS = "--openssl-legacy-provider"
 
 [[redirects]]
   from = "/*"
