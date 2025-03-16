@@ -1,7 +1,7 @@
 import React from "react";
 // import { Carousel } from "antd";
 import { Link } from "react-router-dom";
-import Image2024 from "../assets/2024/LandingBackground.png";
+import Image2025 from "../assets/2025/banner.png";
 
 const HomePage = () => {
   return (
@@ -11,7 +11,7 @@ const HomePage = () => {
       alt="TOSIA"
     >
       <img
-        src={Image2024}
+        src={Image2025}
         alt="TOSIA"
         style={{
           width: "100vw",

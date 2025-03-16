@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import RegistrationForm from "../../components/students/registration-form/registration-form.component";
-import Image from "../../assets/2024/LoginImage.png";
+import Image from "../../assets/2025/login_image.png";
 import { Link } from "react-router-dom";
 const RegistrationPage = () => {
   const signUpRef = useRef(null);

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import LoginForm from "../../components/admin/login-form/login-form.component";
-import Image from "../../assets/2024/LoginImage.png";
+import Image from "../../assets/2025/login_image.png";
 import setAuthToken from "../../utils/setAuthToken";
 import axios from "axios";
 import errorCatch from "../../utils/errorCatch";

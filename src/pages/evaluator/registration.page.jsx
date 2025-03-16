@@ -1,10 +1,11 @@
 import React, { useRef } from "react";
 import RegistrationForm from "../../components/evaluator/registration-form/registration-form.component";
-import Image from "../../assets/2024/LoginImage.png";
+import Image from "../../assets/2025/login_image.png";
 import { Link } from "react-router-dom";
 const RegistrationPage = () => {
   const signUpRef = useRef(null);
   const executeScroll = () => signUpRef.current.scrollIntoView();
+
   return (
     <div
       className="flex bg-dirtywhite login-page-wrapper p-5"
@@ -36,7 +37,7 @@ const RegistrationPage = () => {
             <center>
               <p className="text-body mt-1 text-grey">
                 <label> ALREADY A MEMBER? </label>{" "}
-                <Link to="/login"> LOG IN</Link>
+                <Link to="/evaluator-login"> LOG IN</Link>
               </p>
             </center>
           </div>
