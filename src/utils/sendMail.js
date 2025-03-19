@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 export const verificationEmail = ({ name, to_email, verification_link }) => {
   emailjs
     .send(
-      "service_lz7pnq5",
+      "service_8gc0ndp",
       "template_cx9upvf",
       {
         name,
