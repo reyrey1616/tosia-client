@@ -158,7 +158,7 @@ const Organizations = ({ data }) => {
               <Input
                 allowClear
                 style={{ width: "100%" }}
-                placeholder="February 2020 to March 2020"
+                placeholder="February 2025 to March 2025"
               />
             </Form.Item>
             <div className="col-3 col-md-12 p-half mb-0" name="image">
