@@ -13,7 +13,7 @@ const Reminders = () => {
       <div style={{ padding: "3px" }} className="col-12 col-sm-12">
         <Alert
           message="Reminder"
-          description="Reminder: Please complete this form on or before 11:59 PM of March 24, 2025 (Sunday). This portal will automatically close and will stop accepting responses beyond the deadline. Only applicants with complete requirements shall be accepted. Late submissions will not be tolerated."
+          description="Reminder: Please complete this form on or before 12:00 NN of March 26, 2025 (Sunday). This portal will automatically close and will stop accepting responses beyond the deadline. Only applicants with complete requirements shall be accepted. Late submissions will not be tolerated."
           type="error"
         />
       </div>
