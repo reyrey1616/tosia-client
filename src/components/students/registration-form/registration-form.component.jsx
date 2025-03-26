@@ -32,7 +32,7 @@ const RegistrationForm = () => {
 
           console.log(values);
 
-          history.push("/login");
+          history.push(`/verification/${response?.data?.id}`);
         }, 1500);
       } else {
         throw Error;
